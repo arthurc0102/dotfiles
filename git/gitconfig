@@ -4,6 +4,13 @@
 [color]
   ui = true
 [core]
-  editor = vim
+  editor = atom
 [alias]
-  lg = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  l = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  m = commit -m
+  c = commit -a
+  a = add
+  i = init
+  ph = push
+  pl = pull
+  au = add -u
