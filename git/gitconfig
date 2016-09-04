@@ -17,3 +17,4 @@
   aa = add .
   au = add -u
   ec = commit --amend
+  mi = commit -m "init"

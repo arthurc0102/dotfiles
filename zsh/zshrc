@@ -8,6 +8,7 @@ alias s='sudo'
 alias p-install='sudo pacman -S'
 alias p-remove='sudo pacman -Rs'
 alias p-update='sudo pacman -Syu'
+alias mkdir-get='sh /home/arthur/.make_git_dir.sh'
 
 ################################################################################
 # Filename:      /etc/zsh/zshrc
