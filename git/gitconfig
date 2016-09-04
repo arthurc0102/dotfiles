@@ -10,7 +10,10 @@
   m = commit -m
   c = commit -a
   a = add
+  s = status
   i = init
   ph = push
   pl = pull
+  aa = add .
   au = add -u
+  ec = commit --amend
