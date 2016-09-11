@@ -3,9 +3,9 @@ import os
 from html.parser import HTMLParser
 
 
-class get_ip_HTMLParser(HTMLParser):
+class Get_ip_HTMLParser(HTMLParser):
     in_ip_tag = False
-    ip    = ''
+    ip        = ''
 
     def handle_starttag(self, tag, attrs):
         if tag == 'font':
@@ -22,19 +22,19 @@ class get_ip_HTMLParser(HTMLParser):
             self.in_ip_tag = False
 
 
-def main():
-    get_ip = get_ip_HTMLParser()
-    url    = 'http://myip.com.tw/'
+def get_ip():
+    get_ip_parser = Get_ip_HTMLParser()
+    url           = 'http://myip.com.tw/'
 
     try:
-        html   = requests.get(url, verify=False)
+        html = requests.get(url, verify=False)
     except Exception as e:
         print('No network')
         return
 
-    get_ip.feed(html.text)
+    get_ip_parser.feed(html.text)
 
-    out_ip = get_ip.ip
+    out_ip = get_ip_parser.ip
     nat_ip = os.popen('hostname -i').read().replace('\n', '')
     ssid   = os.popen('iwgetid -r').read()
 
@@ -46,6 +46,10 @@ def main():
         print('ip: ' + out_ip)
     else:
         print('out ip: ' + out_ip + '\nnat ip: ' + nat_ip)
+
+
+def main():
+    get_ip()
 
 
 if __name__ == '__main__':
