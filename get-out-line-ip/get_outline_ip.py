@@ -36,6 +36,11 @@ def main():
 
     out_ip = get_ip.ip
     nat_ip = os.popen('hostname -i').read().replace('\n', '')
+    ssid   = os.popen('iwgetid -r').read()
+
+    if ssid != '':
+        print('wifi-ssid: ' + ssid, end='')
+        print('---------------------------')
 
     if out_ip == nat_ip:
         print('ip: ' + out_ip)
