@@ -13,7 +13,7 @@
   s = status
   i = init
   ph = push
-  pl = pull
+  p = pull
   aa = add .
   au = add -u
   ec = commit --amend
