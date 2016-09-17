@@ -11,7 +11,8 @@ alias py='python'
 alias pp='ping 8.8.8.8'
 alias n='cd /home/arthur/Note'
 alias note='cd /home/arthur/Note'
-alias translate='firefox https://translate.google.com.tw/ &> /dev/null &'
+alias translate='chromium https://translate.google.com.tw/ &> /dev/null &'
+alias open-md='sh /home/arthur/.open_md_on_chromium.sh'
 
 ################################################################################
 # Filename:      /etc/zsh/zshrc
