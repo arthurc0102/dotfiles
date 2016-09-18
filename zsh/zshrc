@@ -2,7 +2,6 @@
 alias rd='sh /home/arthur/.rdesktop.sh'
 alias c='clear'
 alias cls='clear'
-alias rd59='rdesktop -g 1920x1015 -P -z -x l -r sound:off -r disk:share=/home/arthur 140.131.115.59:33899 &> /dev/null &'
 alias i='python /home/arthur/.get_outline_ip.py'
 alias ipa='python /home/arthur/.get_outline_ip.py'
 alias s='sudo'
