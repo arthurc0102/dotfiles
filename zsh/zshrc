@@ -1,6 +1,7 @@
 #alias
 alias rd='sh /home/arthur/.rdesktop.sh'
-alias c='clear'
+alias c='cd /home/arthur/Code'
+alias code='cd /home/arthur/Code'
 alias cls='clear'
 alias i='python /home/arthur/.get_outline_ip.py'
 alias ipa='python /home/arthur/.get_outline_ip.py'
