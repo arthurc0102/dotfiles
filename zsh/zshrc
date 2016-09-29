@@ -10,6 +10,7 @@ alias ipy='ipython'
 alias pp='ping 8.8.8.8'
 alias pd='ping fb.me'
 alias t='tmux'
+alias tl='tmux ls'
 
 ################################################################################
 # Filename:      /etc/zsh/zshrc
