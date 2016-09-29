@@ -1,18 +1,15 @@
 #alias
 alias rd='sh /home/arthur/.rdesktop.sh'
-alias c='cd /home/arthur/Code'
 alias code='cd /home/arthur/Code'
 alias cls='clear'
-alias i='python /home/arthur/.get_outline_ip.py'
 alias ipa='python /home/arthur/.get_outline_ip.py'
 alias s='sudo'
 alias mkdir-git='sh /home/arthur/.make_git_dir.sh'
 alias py='python'
+alias ipy='ipython'
 alias pp='ping 8.8.8.8'
-alias n='cd /home/arthur/Note'
-alias note='cd /home/arthur/Note'
-alias translate='chromium https://translate.google.com.tw/ &> /dev/null &'
-alias open-md='sh /home/arthur/.open_md_on_chromium.sh'
+alias pd='ping fb.me'
+alias t='tmux'
 
 ################################################################################
 # Filename:      /etc/zsh/zshrc
