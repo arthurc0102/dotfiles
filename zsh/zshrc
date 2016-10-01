@@ -11,6 +11,9 @@ alias pp='ping 8.8.8.8'
 alias pd='ping fb.me'
 alias t='tmux'
 alias tl='tmux ls'
+alias c='clear'
+alias gl='git l'
+alias gs='git status'
 
 ################################################################################
 # Filename:      /etc/zsh/zshrc
