@@ -16,5 +16,6 @@
   pp = pull
   aa = add .
   au = add -u
+  ac = add --all
   ec = commit --amend
   mi = commit -m "init"
