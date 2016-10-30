@@ -8,10 +8,8 @@ flake8==3.0.4
 Flask==0.11.1
 ipython==5.1.0
 ipython-genutils==0.1.0
-isc==2.0
 itsdangerous==0.24
 jedi==0.9.0
-jediepcserver==0.2.7
 Jinja2==2.8
 MarkupSafe==0.23
 mccabe==0.5.2
