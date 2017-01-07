@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 
 class Get_ip_HTMLParser(HTMLParser):
     in_ip_tag = False
-    ip        = ''
+    ip = ''
 
     def handle_starttag(self, tag, attrs):
         if tag == 'font':
@@ -18,13 +18,13 @@ class Get_ip_HTMLParser(HTMLParser):
 
     def handle_data(self, data):
         if self.in_ip_tag:
-            self.ip    = data
+            self.ip = data
             self.in_ip_tag = False
 
 
 def get_ip():
     get_ip_parser = Get_ip_HTMLParser()
-    url           = 'http://myip.com.tw/'
+    url = 'http://myip.com.tw/'
 
     try:
         html = requests.get(url, verify=False)
@@ -35,8 +35,8 @@ def get_ip():
     get_ip_parser.feed(html.text)
 
     out_ip = get_ip_parser.ip
-    nat_ip = os.popen('hostname -i').read().replace('\n', '')
-    ssid   = os.popen('iwgetid -r').read()
+    nat_ip = os.popen('ip a | grep wlp58s0 | grep inet | awk \'{print $2}\'').read().replace('\n', '').split('/')[0]
+    ssid = os.popen('iwgetid -r').read()
 
     if ssid != '':
         print('wifi-ssid: ' + ssid, end='')
