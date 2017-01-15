@@ -8,7 +8,7 @@
 [alias]
   l = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   m = commit -m
-  c = commit -a
+  cc = commit -a
   a = add
   s = status
   i = init
@@ -19,4 +19,4 @@
   ac = add --all
   ec = commit --amend
   mi = commit -m "init"
-  cc = clone
+  c = clone
