@@ -19,3 +19,4 @@
   ac = add --all
   ec = commit --amend
   mi = commit -m "init"
+  cc = clone
