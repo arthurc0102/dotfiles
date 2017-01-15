@@ -17,7 +17,7 @@ format_human_readable
 # - Text settings - #
 #####################
 use_xft yes
-xftfont Liberation Sans:size=22
+xftfont Liberation Sans:size=26
 override_utf8_locale yes
 text_buffer_size 2048
 
@@ -26,7 +26,7 @@ text_buffer_size 2048
 #############################
 own_window_class Conky
 own_window yes
-own_window_type desktop #You can also try desktop, dock or override
+own_window_type desktop  # You can also try desktop, dock or override
 own_window_transparent yes
 own_window_argb_visual yes
 own_window_argb_value 200
