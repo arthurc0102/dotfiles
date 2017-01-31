@@ -1,0 +1,36 @@
+"*":
+  "atom-beautify":
+    css:
+      indent_size: 2
+    general:
+      _analyticsUserId: "4fae9beb-6408-474e-9506-4b15c8a7b537"
+    html:
+      indent_size: 2
+    js:
+      indent_size: 2
+    mustache:
+      indent_size: 2
+  "atom-clock": {}
+  core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "activate-power-mode"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "atom-material-syntax"
+    ]
+  editor:
+    fontSize: 22
+    invisibles: {}
+  "exception-reporting":
+    userId: "d3254cd8-3909-bf0f-4992-8ef3d821aacd"
+  "file-types":
+    djhtml: "text.html.django"
+  "grammar-selector": {}
+  welcome:
+    showOnStartup: false
+".django.html.text":
+  editor:
+    showIndentGuide: true
