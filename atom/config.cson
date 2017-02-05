@@ -13,22 +13,23 @@
   "atom-clock": {}
   core:
     autoHideMenuBar: true
-    disabledPackages: [
-      "activate-power-mode"
-    ]
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
       "atom-material-syntax"
     ]
   editor:
-    fontSize: 58
+    fontSize: 22
     invisibles: {}
   "exception-reporting":
     userId: "d3254cd8-3909-bf0f-4992-8ef3d821aacd"
   "file-types":
     djhtml: "text.html.django"
   "grammar-selector": {}
+  term3: {}
+  "todo-show":
+    sortAscending: false
+    sortBy: "Path"
   welcome:
     showOnStartup: false
 ".django.html.text":

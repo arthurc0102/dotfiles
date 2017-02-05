@@ -17,6 +17,7 @@ alias gs='git status'
 alias gp='git push'
 alias gc='git commit -a'
 alias gm='git commit -m'
+alias gpp='git pull'
 alias activate='source ./env/bin/activate'
 alias pip-make-list='pip freeze > ./requirements.txt'
 
