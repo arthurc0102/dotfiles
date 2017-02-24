@@ -1,4 +1,9 @@
-#alias
+# path
+export ANDROID_HOME=${HOME}/Android/Sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+# alias
 alias rd='sh /home/arthur/.rdesktop.sh'
 alias cls='clear'
 alias ipa='python /home/arthur/.get_ip.py'

@@ -11,6 +11,12 @@
     mustache:
       indent_size: 2
   "atom-clock": {}
+  "atom-material-ui":
+    colors: {}
+    fonts: {}
+    tabs: {}
+    treeView: {}
+    ui: {}
   core:
     autoHideMenuBar: true
     telemetryConsent: "no"
