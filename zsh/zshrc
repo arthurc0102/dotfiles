@@ -3,6 +3,9 @@ export ANDROID_HOME=${HOME}/Android/Sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
+# load
+source $HOME/.profile
+
 # alias
 alias rd='sh /home/arthur/.rdesktop.sh'
 alias cls='clear'
@@ -26,6 +29,9 @@ alias gm='git commit -m'
 alias gpp='git pull'
 alias activate='source ./env/bin/activate'
 alias pip-make-list='pip freeze > ./requirements.txt'
+alias django-env='source $HOME/.env/django/bin/activate'
+alias outline='curl http://ipinfo.io/ip'
+alias chup='sh $HOME/.check-update.sh'
 
 ################################################################################
 # Filename:      /etc/zsh/zshrc
