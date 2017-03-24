@@ -30,6 +30,7 @@ alias gpp='git pull'
 alias activate='source ./env/bin/activate'
 alias pip-make-list='pip freeze > ./requirements.txt'
 alias django-env='source $HOME/.env/django/bin/activate'
+alias flask-env='source $HOME/.env/flask/bin/activate'
 alias outline='curl http://ipinfo.io/ip'
 alias chup='sh $HOME/.check-update.sh'
 
