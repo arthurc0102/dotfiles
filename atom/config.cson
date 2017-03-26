@@ -25,7 +25,7 @@
       "atom-material-syntax"
     ]
   editor:
-    fontSize: 21
+    fontSize: 19
     invisibles: {}
   "exception-reporting":
     userId: "d3254cd8-3909-bf0f-4992-8ef3d821aacd"
@@ -34,6 +34,8 @@
   "grammar-selector": {}
   "linter-ui-default":
     showPanel: true
+  minimap:
+    absoluteMode: true
   term3: {}
   "todo-show":
     sortAscending: false
