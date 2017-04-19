@@ -3,9 +3,5 @@ sudo pacman -Syu
 echo
 
 echo -e "========== Checking AUR update ...... ==================="
-yaourt -Syu --aur
-echo
-
-echo -e "========== Checking atom package update ...... =========="
-apm update
+yaourt -Syu --aur --noconfirm
 echo
