@@ -1,6 +1,7 @@
 #!/bin/bash
 # Download gitignore from: https://github.com/github/gitignore
-
+# one line command usage for C lang: 
+# curl https://raw.githubusercontent.com/arthurc0102/Config/master/git/add_gitignore.sh | bash -s "C"
 if [ "$1" == "" ]; then
     echo "No kind input."
     exit
