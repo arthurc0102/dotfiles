@@ -34,6 +34,7 @@ alias django-env='source $HOME/.env/django/bin/activate'
 alias flask-env='source $HOME/.env/flask/bin/activate'
 alias outline='curl http://ipinfo.io/ip'
 alias chup='sh $HOME/.check-update.sh'
+alias gitignore='sh $HOME/.add_gitignore.sh'
 
 ################################################################################
 # Filename:      /etc/zsh/zshrc
