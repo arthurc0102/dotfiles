@@ -1,0 +1,16 @@
+alias python='python3'
+alias pip='pip3'
+alias activate='source ./env/bin/activate'
+alias pip-make-list='pip freeze > ./requirements.txt'
+
+alias pp='ping 8.8.8.8'
+alias pd='ping fb.me'
+
+alias gaa='git add --all'
+alias ga='git add'
+alias gl='git l'
+alias gs='git status'
+alias gp='git push'
+alias gc='git commit -a'
+alias gm='git commit -m'
+alias gpp='git pull'

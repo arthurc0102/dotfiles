@@ -1,0 +1,29 @@
+if [ -d "$HOME/Android/sdk" ]; then
+    # ANDROID_HOME for Linux
+    export ANDROID_HOME="$HOME/Android/Sdk"
+
+fi
+
+if [ -d "${HOME}/Library/Android/sdk" ]; then
+    # ANDROID_HOME for OSX
+    export ANDROID_HOME="$HOME/Library/Android/sdk"
+fi
+
+if [ $ANDROID_HOME ]; then
+    # if ANDROID_HOME exits
+    export PATH="$PATH:$ANDROID_HOME/tools"
+    export PATH="$PATH:$ANDROID_HOME/platform-tools"
+fi
+
+if [ -d "$HOME/.rvm/bin" ]; then
+    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+    export PATH="$PATH:$HOME/.rvm/bin"
+
+    # Load RVM into a shell session *as a function*
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+fi
+
+if [ -d "$HOME/.dotfiles/scripts" ]; then
+    # My scripts
+    export PATH="$PATH:$HOME/.dotfiles/scripts"
+fi
