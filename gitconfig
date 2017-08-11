@@ -1,0 +1,26 @@
+[user]
+  email = arthurc.iphone@gmail.com
+  name = Arthur Chang
+[color]
+  ui = true
+[core]
+  editor = emacs -nw
+[alias]
+  l = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  m = commit -m
+  c = commit -a
+  a = add
+  s = status
+  i = init
+  p = push
+  d = diff
+  cc = checkout
+  ss = show
+  pp = pull
+  aa = add .
+  au = add -u
+  ac = add --all
+  ec = commit --amend
+  mi = commit -m "init"
+  cl = clone
+  master = checkout master
