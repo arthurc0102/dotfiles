@@ -1,3 +1,3 @@
 # My dotfiles
 
-- run `link.sh`
+- run `setup.sh`
