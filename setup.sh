@@ -7,6 +7,5 @@ ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 if [ $(uname) != "Darwin" ]; then
     # No conky for OSX
     ln -s $HOME/.dotfiles/conkyrc $HOME/.conkyrc
-    # TODO: link conky.desktop
-    # ln -s $HOME/.dotfiles/conky.desktop
+    ln -s $HOME/.dotfiles/conky.desktop $HOME/.local/share/applications
 fi
