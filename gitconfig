@@ -24,3 +24,4 @@
   mi = commit -m "init"
   cl = clone
   master = checkout master
+  gps = checkout gh-pages
