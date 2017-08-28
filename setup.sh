@@ -1,3 +1,7 @@
+if [ ! -d "$HOME/.pip" ]; then
+    mdkir $HOME/.pip
+fi
+
 ln -s $HOME/.dotfiles/zsh $HOME/.zsh
 ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
 ln -s $HOME/.dotfiles/gitconfig $HOME/.gitconfig
