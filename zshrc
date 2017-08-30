@@ -18,6 +18,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'
+POWERLEVEL9K_TIME_FORMAT='%D{%H:%M}'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv ssh context dir rbenv vcs dir_writable)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 
