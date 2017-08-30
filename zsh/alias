@@ -8,6 +8,7 @@ alias l='ls -lF'
 alias pp='ping 8.8.8.8'
 alias pd='ping fb.me'
 
+alias g='git'
 alias gaa='git add --all'
 alias ga='git add'
 alias gl='git l'
