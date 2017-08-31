@@ -2,6 +2,7 @@ alias python='python3'
 alias pip='pip3'
 alias activate='source ./env/bin/activate'
 alias pip-make-list='pip freeze > ./requirements.txt'
+alias pyenv='python -m venv env && activate'
 
 alias l='ls -lF'
 
