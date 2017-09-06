@@ -1,5 +1,5 @@
 # Load antigen
-source $HOME/.zsh/antigen/antigen.zsh
+source $HOME/.zsh/antigen/bin/antigen.zsh
 
 # Load the oh-my-zsh's library.
 # antigen use oh-my-zsh
