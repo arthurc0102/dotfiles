@@ -28,9 +28,3 @@ if [ -d "$HOME/.dotfiles/scripts" ]; then
     export PATH="$PATH:$HOME/.dotfiles/scripts"
 fi
 
-if [ -d "$HOME/go" ]; then
-    export GOROOT="$HOME/go"
-    export GOBIN="$GOROOT/bin"
-    export PATH="$PATH:$GOBIN"
-fi
-
