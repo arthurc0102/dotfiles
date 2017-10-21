@@ -1,5 +1,5 @@
 if [ ! -d "$HOME/.pip" ]; then
-    mdkir $HOME/.pip
+    mkdir $HOME/.pip
 fi
 
 ln -s $HOME/.dotfiles/zsh $HOME/.zsh
