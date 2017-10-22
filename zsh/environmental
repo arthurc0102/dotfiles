@@ -28,3 +28,7 @@ if [ -d "$HOME/.dotfiles/scripts" ]; then
     export PATH="$PATH:$HOME/.dotfiles/scripts"
 fi
 
+if [[ $TERM = dumb ]]; then
+  unset zle_bracketed_paste
+fi
+
