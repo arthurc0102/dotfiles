@@ -1,3 +1,8 @@
+cd $HOME/.dotfiles
+
+git submodule init
+git submodule update
+
 if [ ! -d "$HOME/.pip" ]; then
     mkdir $HOME/.pip
 fi
