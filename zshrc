@@ -2,7 +2,7 @@
 source $HOME/.zsh/antigen/bin/antigen.zsh
 
 ## Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+antigen use oh-my-zsh  TODO: 用這個下 git diff 會有奇怪的問題
 
 ## Load plugins
 antigen bundle pip
