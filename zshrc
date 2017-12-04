@@ -30,10 +30,32 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # source $HOME/.zsh/arch-zsh-theme
 
 ## Robbyrussell theme settings
-antigen theme robbyrussell
+# antigen theme robbyrussell
 
 ## Sobole theme settings
 # antigen theme sobolevn/sobole-zsh-theme
+
+## spaceship theme settings
+## mode A
+# SPACESHIP_PROMPT_SYMBOL='➜ '
+# SPACESHIP_VENV_PREFIX='('
+# SPACESHIP_VENV_SUFFIX=') '
+# SPACESHIP_DIR_TRUNC='0'
+# SPACESHIP_GIT_SYMBOL=':'
+# SPACESHIP_GIT_PREFIX='git'
+# SPACESHIP_DIR_PREFIX=' '
+# SPACESHIP_PROMPT_ORDER=(dir git line_sep venv char)
+
+## mode B
+SPACESHIP_PROMPT_ADD_NEWLINE='false'
+SPACESHIP_DIR_TRUNC='0'
+SPACESHIP_DIR_PREFIX=' '
+SPACESHIP_GIT_PREFIX='on '
+SPACESHIP_VENV_PREFIX='with '
+SPACESHIP_PROMPT_SYMBOL='➜ '
+SPACESHIP_PROMPT_ORDER=(dir git venv char)
+
+antigen theme denysdovhan/spaceship-zsh-theme
 
 ## Apply settings
 antigen apply
