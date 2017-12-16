@@ -15,6 +15,14 @@ if [ $ANDROID_HOME ]; then
     export PATH="$PATH:$ANDROID_HOME/platform-tools"
 fi
 
+if [ -d "${HOME}/go" ]; then
+    export GOPATH="$HOME/go"
+fi
+
+if [ $GOPATH ]; then
+    export PATH="$PATH:$GOPATH/bin"
+fi
+
 if [ -d "$HOME/.rvm/bin" ]; then
     # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
     export PATH="$PATH:$HOME/.rvm/bin"
