@@ -21,3 +21,4 @@ alias gm='git commit -m'
 alias gpp='git pull'
 
 alias t='cd /tmp'
+alias mygo='cd $GOPATH/src/github.com/arthurc0102'
