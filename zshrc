@@ -2,7 +2,7 @@
 source $HOME/.zsh/antigen/bin/antigen.zsh
 
 ## Load the oh-my-zsh's library.
-antigen use oh-my-zsh  # TODO: 用這個下 git diff 會有奇怪的問題
+antigen use oh-my-zsh
 
 ## Load plugins
 antigen bundle pip
@@ -35,8 +35,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 ## Sobole theme settings
 # antigen theme sobolevn/sobole-zsh-theme
 
-## spaceship theme settings
-## mode A
+## spaceship theme settings - mode A
 # SPACESHIP_PROMPT_SYMBOL='➜ '
 # SPACESHIP_VENV_PREFIX='('
 # SPACESHIP_VENV_SUFFIX=') '
@@ -45,8 +44,9 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # SPACESHIP_GIT_PREFIX='git'
 # SPACESHIP_DIR_PREFIX=' '
 # SPACESHIP_PROMPT_ORDER=(dir git line_sep venv char)
+# antigen theme denysdovhan/spaceship-zsh-theme
 
-## mode B
+## spaceship theme settings - mode B
 SPACESHIP_PROMPT_ADD_NEWLINE='false'
 SPACESHIP_DIR_TRUNC='0'
 SPACESHIP_DIR_PREFIX=' '
@@ -56,7 +56,6 @@ SPACESHIP_VENV_PREFIX='using '
 SPACESHIP_VENV_COLOR='magenta'
 SPACESHIP_PROMPT_SYMBOL='➜ '
 SPACESHIP_PROMPT_ORDER=(dir venv git char)
-
 antigen theme denysdovhan/spaceship-zsh-theme
 
 ## Apply settings
