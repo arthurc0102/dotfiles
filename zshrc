@@ -55,7 +55,7 @@ SPACESHIP_GIT_SYMBOL=' '
 SPACESHIP_VENV_PREFIX='using '
 SPACESHIP_VENV_COLOR='magenta'
 SPACESHIP_PROMPT_SYMBOL='➜ '
-SPACESHIP_PROMPT_ORDER=(dir venv git char)
+SPACESHIP_PROMPT_ORDER=(user host dir venv git char)
 antigen theme denysdovhan/spaceship-zsh-theme
 
 ## Apply settings
