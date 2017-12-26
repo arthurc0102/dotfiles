@@ -1,3 +1,9 @@
+command -v git > /dev/null || { echo "Git not installed"; exit 1; }
+
+if [ ! -d "$HOME/.dotfiles" ]; then
+    git clone https://github.com/arthurc0102/dotfiles.git .dotfiles
+fi
+
 cd $HOME/.dotfiles
 
 git submodule init
