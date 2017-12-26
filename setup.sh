@@ -20,8 +20,9 @@ ln -s $HOME/.dotfiles/pip.conf $HOME/.pip/pip.conf
 ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/.dotfiles/pypirc $HOME/.pypirc
 
-if [ $(uname) != "Darwin" ]; then
-    # No conky for OSX
-    ln -s $HOME/.dotfiles/conkyrc $HOME/.conkyrc
-    ln -s $HOME/.dotfiles/conky.desktop $HOME/.local/share/applications
+if [ $(uname) != "Darwin" ]; then  # No conky for OSX
+    if [ -d "$HOME/.local/share/applications" ]; then  ## No conky for no GUI
+        ln -s $HOME/.dotfiles/conkyrc $HOME/.conkyrc
+        ln -s $HOME/.dotfiles/conky.desktop $HOME/.local/share/applications
+    fi
 fi
