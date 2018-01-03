@@ -1,3 +1,5 @@
+# Repo: https://github.com/arthurc0102/dotfiles
+
 command -v git > /dev/null || { echo "Git not installed"; exit 1; }
 
 if [ ! -d "$HOME/.dotfiles" ]; then
@@ -21,7 +23,7 @@ ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/.dotfiles/pypirc $HOME/.pypirc
 
 if [ $(uname) != "Darwin" ]; then  # No conky for OSX
-    if [ -d "$HOME/.local/share/applications" ]; then  ## No conky for no GUI
+    if [ -d "$HOME/.local/share/applications" ]; then  # No conky for no GUI
         ln -s $HOME/.dotfiles/conkyrc $HOME/.conkyrc
         ln -s $HOME/.dotfiles/conky.desktop $HOME/.local/share/applications
     fi
