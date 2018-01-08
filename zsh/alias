@@ -22,4 +22,6 @@ alias gc='git commit -a'
 alias gm='git commit -m'
 
 alias t='cd /tmp'
+
 alias mygo='cd $GOPATH/src/github.com/arthurc0102'
+alias go-build='go build -o ${PWD##*/}.out'
