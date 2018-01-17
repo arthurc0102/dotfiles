@@ -6,6 +6,7 @@ antigen use oh-my-zsh
 
 ## Load plugins
 antigen bundle pip
+antigen bundle pyenv
 antigen bundle web-search
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-completions
@@ -63,4 +64,4 @@ antigen apply
 
 ## Load custom settings
 source $HOME/.zsh/alias
-source $HOME/.zsh/environmental
+source $HOME/.zsh/environmental  # This must be at the last of file.
