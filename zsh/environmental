@@ -23,14 +23,6 @@ if [ $GOPATH ]; then
     export PATH="$PATH:$GOPATH/bin"
 fi
 
-if [ -d "$HOME/.rvm/bin" ]; then
-    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-    export PATH="$PATH:$HOME/.rvm/bin"
-
-    # Load RVM into a shell session *as a function*
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-fi
-
 if [ -d "$HOME/.dotfiles/scripts" ]; then
     # My scripts
     export PATH="$PATH:$HOME/.dotfiles/scripts"
@@ -55,7 +47,14 @@ if [ -d "$HOME/.pyenv" ]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
 fi
 
-# This must be at the last of file
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
+fi
+
+if [ -d "$HOME/.rvm/bin" ]; then
+    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+    export PATH="$PATH:$HOME/.rvm/bin"
+
+    # Load RVM into a shell session *as a function*
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 fi
