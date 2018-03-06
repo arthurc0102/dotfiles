@@ -30,12 +30,12 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 ## spaceship theme settings - mode B
 SPACESHIP_PROMPT_ADD_NEWLINE='false'
 SPACESHIP_DIR_TRUNC='0'
-SPACESHIP_DIR_PREFIX=' '
+SPACESHIP_DIR_TRUNC_REPO='false'
 SPACESHIP_GIT_PREFIX='on'
 SPACESHIP_GIT_SYMBOL=' '
 SPACESHIP_VENV_PREFIX='using '
 SPACESHIP_VENV_COLOR='magenta'
-SPACESHIP_PROMPT_SYMBOL='$'
+SPACESHIP_CHAR_SYMBOL='$ '
 SPACESHIP_PROMPT_ORDER=(user host dir venv git char)
 antigen theme denysdovhan/spaceship-zsh-theme
 
