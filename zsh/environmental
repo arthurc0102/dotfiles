@@ -51,6 +51,11 @@ if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
 
+if command -v pipenv 1>/dev/null 2>&1; then
+    eval "$(pipenv --completion)"
+    export PIPENV_VENV_IN_PROJECT=true
+fi
+
 if [ -d "$HOME/.rvm/bin" ]; then
     # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
     export PATH="$PATH:$HOME/.rvm/bin"
