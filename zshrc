@@ -7,6 +7,7 @@ antigen use oh-my-zsh
 ## Load plugins
 antigen bundle pip
 antigen bundle pyenv
+antigen bundle docker
 antigen bundle web-search
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-completions
