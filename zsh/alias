@@ -7,6 +7,7 @@ alias pp='ping 8.8.8.8'
 alias pd='ping fb.me'
 
 alias per='pipenv run'
+alias pes='pipenv shell'
 alias pei='pipenv install'
 
 alias g='git'
