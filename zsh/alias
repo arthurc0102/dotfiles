@@ -6,6 +6,9 @@ alias l='ls -lF'
 alias pp='ping 8.8.8.8'
 alias pd='ping fb.me'
 
+alias per='pipenv run'
+alias pei='pipenv install'
+
 alias g='git'
 alias gl='git l'
 alias gd='git diff'
