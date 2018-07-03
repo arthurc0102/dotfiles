@@ -1,9 +1,12 @@
-# My dotfiles
+# Dotfiles
+
+> My config files
 
 ## Install
 
-> choice one of down command to setup
+**Remember to update `name` and `email` in [gitconfig](./gitconfig)**
 
-1. clone this repo and run `setup.sh`
-2. run `curl -L https://github.com/arthurc0102/dotfiles/raw/master/setup.sh | sh`
-3. run `curl -L http://df.arthurc.me | sh`
+1. Auto install: `curl -L http://df.arthurc.me/setup.sh | sh`
+2. Manual install:
+    1. Clone this repo: `git clone https://github.com/arthurc0102/dotfiles ~/.dotfiles`.
+    2. Run setup script: `sh ~/.dotfiles/setup.sh` or link config file to the right place by yourself.
