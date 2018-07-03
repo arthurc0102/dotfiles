@@ -3,7 +3,7 @@
 command -v git > /dev/null || { echo "Git not installed"; exit 1; }
 
 if [ ! -d "$HOME/.dotfiles" ]; then
-    git clone https://github.com/arthurc0102/dotfiles.git .dotfiles
+    git clone https://github.com/arthurc0102/dotfiles.git $HOME/.dotfiles
 fi
 
 cd $HOME/.dotfiles
