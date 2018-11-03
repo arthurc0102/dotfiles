@@ -1,3 +1,6 @@
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 if [ -d "$HOME/Android/sdk" ]; then
     # ANDROID_HOME for Linux
     export ANDROID_HOME="$HOME/Android/Sdk"
