@@ -21,6 +21,7 @@ alias gcl='git clone'
 alias gaa='git add --all'
 alias gc='git commit -a'
 alias gm='git commit -m'
+alias gz='git cz'
 
 alias t='cd /tmp'
 
