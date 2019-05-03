@@ -15,7 +15,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 ## Arch theme settings
-# source $HOME/.zsh/arch-zsh-theme
+# source $HOME/.zsh/arch-zsh-theme.zsh
 
 ## spaceship theme settings - mode A
 SPACESHIP_CHAR_SYMBOL='❯ '
@@ -47,5 +47,5 @@ antigen theme denysdovhan/spaceship-zsh-theme
 antigen apply
 
 ## Load custom settings
-source $HOME/.zsh/alias
-source $HOME/.zsh/environmental  # This must be at the last of file.
+source $HOME/.zsh/alias.zsh
+source $HOME/.zsh/environmental.zsh  # This must be at the last of file.
