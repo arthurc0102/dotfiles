@@ -14,6 +14,7 @@
   i = init
   p = push
   d = diff
+  b = branch
   cc = checkout
   ss = show
   pp = pull

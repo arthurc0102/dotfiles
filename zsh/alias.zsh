@@ -12,6 +12,7 @@ alias pei='pipenv install'
 
 alias g='git'
 alias gl='git l'
+alias gb='git branch'
 alias gd='git diff'
 alias gs='git status'
 alias gp='git push'
