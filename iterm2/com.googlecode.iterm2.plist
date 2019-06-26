@@ -387,7 +387,7 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/.dotfiles/iTerm2</string>
+	<string>~/.dotfiles/iterm2</string>
 	<key>NSNavLastUserSetHideExtensionButtonState</key>
 	<false/>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -433,17 +433,17 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>946 42 445 77 0 0 1440 900 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>396 363 620 392 0 0 1440 877 </string>
+	<string>397 363 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 139 606 469 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>224 312 796 486 0 0 1440 900 </string>
+	<string>616 726 770 429 0 0 2560 1417 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
-	<string>99 294 592 584 0 0 1440 878 </string>
+	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 269 650 502 0 0 1440 900 </string>
+	<string>281 311 650 502 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>363 493 650 502 0 0 2048 1129 </string>
+	<string>205 313 650 502 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>144 -202 650 502 0 0 1440 878 </string>
 	<key>New Bookmarks</key>
@@ -1955,7 +1955,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-01-03T03:15:54Z</date>
+	<date>2019-05-15T11:26:58Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1968,10 +1968,12 @@
 	<false/>
 	<key>TabStyle</key>
 	<integer>0</integer>
+	<key>TabStyleWithAutomaticOption</key>
+	<integer>1</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1511956864</real>
+	<real>1555560320</real>
 	<key>UseBorder</key>
 	<false/>
 	<key>WordCharacters</key>
@@ -1983,7 +1985,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.6</string>
+	<string>3.2.9</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
