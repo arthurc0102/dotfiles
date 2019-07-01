@@ -14,6 +14,7 @@ fi
 
 if [ $ANDROID_HOME ]; then
     # if ANDROID_HOME exits
+    export PATH="$PATH:$ANDROID_HOME/emulator"
     export PATH="$PATH:$ANDROID_HOME/tools"
     export PATH="$PATH:$ANDROID_HOME/platform-tools"
 fi
@@ -74,3 +75,5 @@ if [ -d "$HOME/.rvm/bin" ]; then
     # Load RVM into a shell session *as a function*
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 fi
+
+export PATH="$PATH:./bin"
