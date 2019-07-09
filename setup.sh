@@ -16,7 +16,7 @@ if [ ! -d "$HOME/.pip" ]; then
 fi
 
 ln -s $HOME/.dotfiles/zsh $HOME/.zsh
-ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
+ln -s $HOME/.dotfiles/zshrc.zsh $HOME/.zshrc
 ln -s $HOME/.dotfiles/gitconfig $HOME/.gitconfig
 ln -s $HOME/.dotfiles/pip.conf $HOME/.pip/pip.conf
 ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
