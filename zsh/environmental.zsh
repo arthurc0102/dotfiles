@@ -77,3 +77,4 @@ if [ -d "$HOME/.rvm/bin" ]; then
 fi
 
 export PATH="$PATH:./bin"
+export PAGER="less -FX"
