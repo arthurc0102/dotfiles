@@ -19,6 +19,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 ## spaceship theme settings - mode A
 SPACESHIP_CHAR_SYMBOL='❯ '
+SPACESHIP_VENV_GENERIC_NAMES=' '  # empty array not work so use space to let this var be empty
 SPACESHIP_VENV_PREFIX='('
 SPACESHIP_VENV_SUFFIX=') '
 SPACESHIP_VENV_COLOR='magenta'
@@ -28,7 +29,7 @@ SPACESHIP_DIR_TRUNC_REPO='false'
 SPACESHIP_GIT_SYMBOL=':'
 SPACESHIP_GIT_PREFIX='git'
 SPACESHIP_PROMPT_ORDER=(dir git line_sep venv char)
-antigen theme denysdovhan/spaceship-zsh-theme
+antigen theme denysdovhan/spaceship-prompt
 
 ## spaceship theme settings - mode B
 # SPACESHIP_PROMPT_ADD_NEWLINE='false'
@@ -37,11 +38,12 @@ antigen theme denysdovhan/spaceship-zsh-theme
 # SPACESHIP_DIR_TRUNC_REPO='false'
 # SPACESHIP_GIT_PREFIX='on'
 # SPACESHIP_GIT_SYMBOL=' '
+# SPACESHIP_VENV_GENERIC_NAMES=' '  # empty array not work so use space to let this var be empty
 # SPACESHIP_VENV_PREFIX='using '
 # SPACESHIP_VENV_COLOR='magenta'
 # SPACESHIP_CHAR_SYMBOL='$ '
 # SPACESHIP_PROMPT_ORDER=(user host dir venv git char)
-# antigen theme denysdovhan/spaceship-zsh-theme
+# antigen theme denysdovhan/spaceship-prompt
 
 ## Apply settings
 antigen apply
