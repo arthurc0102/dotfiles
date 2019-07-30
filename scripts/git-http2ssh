@@ -1,0 +1,2 @@
+#!/bin/bash
+git remote set-url origin git@github.com:$(git remote get-url origin | cut -d "/" -f 4,5)
