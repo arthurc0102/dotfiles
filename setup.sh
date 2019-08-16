@@ -7,6 +7,10 @@ if [ ! -d "$HOME/.dotfiles" ]; then
     git clone https://github.com/arthurc0102/dotfiles.git $HOME/.dotfiles
 fi
 
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 cd $HOME/.dotfiles
 
 git submodule init
