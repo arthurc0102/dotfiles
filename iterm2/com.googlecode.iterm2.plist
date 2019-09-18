@@ -450,7 +450,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 278 1440 599 0 0 1440 877 </string>
+	<string>0 0 1440 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 417 570 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -2242,7 +2242,7 @@
 			<key>Guid</key>
 			<string>7E71CF4E-8519-46F6-94BD-13B5A39B0475</string>
 			<key>Has Hotkey</key>
-			<true/>
+			<false/>
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
@@ -2638,6 +2638,18 @@
 			<true/>
 			<key>Space</key>
 			<integer>-1</integer>
+			<key>Status Bar Layout</key>
+			<dict>
+				<key>advanced configuration</key>
+				<dict>
+					<key>algorithm</key>
+					<integer>0</integer>
+					<key>font</key>
+					<string>.AppleSystemUIFont 12</string>
+				</dict>
+				<key>components</key>
+				<array/>
+			</dict>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -2702,7 +2714,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>FFF5547E-F24A-49CC-A49E-EDCBB0C85E83</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>81</integer>
+	<integer>82</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3452,6 +3464,12 @@
 	</array>
 	<key>NoSyncSearchHistory2</key>
 	<array>
+		<string>gfortran</string>
+		<string>pkgconfig</string>
+		<string>freetype</string>
+		<string>openblas</string>
+		<string>python-dev</string>
+		<string>build-base</string>
 		<string>optionssho</string>
 	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
