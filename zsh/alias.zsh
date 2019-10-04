@@ -1,4 +1,4 @@
-alias activate='source ./env/bin/activate'
+alias activate='source ./.venv/bin/activate'
 alias pip-make-list='pip freeze > ./requirements.txt'
 
 alias l='ls -lF'
