@@ -1,13 +1,13 @@
 #!/bin/bash
 
 if [ "$1" == "" ]; then
-    echo "No token set."
-    exit
+  echo "No token set."
+  exit
 fi
 
 if [ "$2" == "" ]; then
-    echo "No url set."
-    exit
+  echo "No url set."
+  exit
 fi
 
 curl -s https://api.telegram.org/bot${1}/setWebhook?url=${2} | json_pp

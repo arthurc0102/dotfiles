@@ -76,5 +76,7 @@ if [ -d "$HOME/.rvm/bin" ]; then
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 fi
 
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "/Users/arthur/.gvm/scripts/gvm"
+
 export PATH="$PATH:./bin"
 export PAGER="less -FX"

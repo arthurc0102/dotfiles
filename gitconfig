@@ -7,22 +7,20 @@
   editor = vim
 [alias]
   l = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-  m = commit -m
-  c = commit -a
   a = add
-  s = status
+  b = branch
+  c = commit -a
+  d = diff
+  m = commit -m
   i = init
   p = push
-  d = diff
-  b = branch
-  cc = checkout
-  ss = show
-  pp = pull
+  s = status
   aa = add .
-  au = add -u
   ac = add --all
-  ec = commit --amend
-  mi = commit -m "init"
+  au = add -u
+  cc = checkout
   cl = clone
-  master = checkout master
-  gps = checkout gh-pages
+  cm = checkout master
+  ec = commit --amend
+  pp = pull
+  ss = show

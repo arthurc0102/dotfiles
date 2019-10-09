@@ -1,5 +1,17 @@
-if [ $(uname) == "Darwin" ]; then
-    /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'
-else
-    iwgetid -r
-fi
+#!/bin/bash
+
+osx() {
+  /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'
+}
+
+linux() {
+  iwgetid -r
+}
+
+main() {
+  if [ "$(uname)" == "Darwin" ]; then
+    mac
+  else
+    linux
+  fi
+}

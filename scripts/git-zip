@@ -1,0 +1,7 @@
+#!/bin/bash
+
+main() {
+  git archive --format zip -o ../$(fd)-$(git log --pretty=format:"%h" -1).zip HEAD
+}
+
+main

@@ -1,19 +1,27 @@
 #!/bin/bash
 
-url=$(git remote get-url origin)
+main() {
+  local url new_url
 
-if [[ $url != http* ]]; then
+  url=$(git remote get-url origin)
+
+  if [[ $url != http* ]]; then
     echo "This repo's url is already useing ssh."
-    exit
-fi
+    return
+  fi
 
-new_url=git@github.com:$(git remote get-url origin | cut -d "/" -f 4,5)
+  new_url=git@github.com:$(git remote get-url origin | cut -d "/" -f 4,5)
 
-echo "Change $url to $new_url"
-read -p "Confirm [y/N]: " result
+  echo "Change $url to $new_url"
+  read -r -p "Confirm [Y/n]: " result
 
-if [[ $result == "y" || $result == "Y" ]]; then
-    git remote set-url origin $new_url
-fi
+  if [[ $result == "N" || $result == "n" ]]; then
+    echo "Cancel by user."
+    return
+  fi
 
-echo "Done"
+  git remote set-url origin "$new_url"
+  echo "Done"
+}
+
+main
