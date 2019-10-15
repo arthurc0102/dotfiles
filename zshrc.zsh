@@ -28,7 +28,7 @@ SPACESHIP_DIR_TRUNC='0'
 SPACESHIP_DIR_TRUNC_REPO='false'
 SPACESHIP_GIT_SYMBOL=':'
 SPACESHIP_GIT_PREFIX='git'
-SPACESHIP_PROMPT_ORDER=(dir git line_sep venv char)
+SPACESHIP_PROMPT_ORDER=(user hostname dir git line_sep venv char)
 antigen theme denysdovhan/spaceship-prompt
 
 ## spaceship theme settings - mode B
