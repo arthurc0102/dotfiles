@@ -1,0 +1,15 @@
+#!/bin/bash
+
+main() {
+  local cmd
+
+  cmd="pip freeze -r requirements.txt"
+
+  for f in `ls ./requirements/*.txt`; do
+    cmd="${cmd} -r ${f}"
+  done
+
+  echo "${cmd}" | bash
+}
+
+main
