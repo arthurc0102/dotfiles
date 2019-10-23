@@ -16,9 +16,9 @@ open_command () {
       return 1 ;;
   esac
   if [[ "$OSTYPE" == darwin* ]]; then
-    ${=open_cmd} "$@" &> /dev/null
+    ${open_cmd} "$@" &> /dev/null
   else
-    nohup ${=open_cmd} "$@" &> /dev/null
+    nohup ${open_cmd} "$@" &> /dev/null
   fi
 }
 
