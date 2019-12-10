@@ -384,6 +384,10 @@
 	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>524288</integer>
+	<key>LeftCommand</key>
+	<integer>7</integer>
+	<key>LeftOption</key>
+	<integer>2</integer>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>MaxVertically</key>
@@ -452,7 +456,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 400 650 477 0 0 1440 877 </string>
+	<string>1707 0 850 1417 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 425 570 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -2689,13 +2693,13 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.6</string>
-		<string>3.3.4</string>
+		<string>3.3.2</string>
 		<string>3.3.1</string>
 		<string>3.3.3</string>
 		<string>3.3.5</string>
-		<string>3.3.0</string>
 		<string>3.2.9</string>
-		<string>3.3.2</string>
+		<string>3.3.0</string>
+		<string>3.3.4</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
@@ -2707,9 +2711,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1440, 900}}</string>
+		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{211, 754}</string>
+		<string>{287, 1311}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2720,7 +2724,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>FFF5547E-F24A-49CC-A49E-EDCBB0C85E83</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>173</integer>
+	<integer>202</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3486,16 +3490,16 @@
 	</array>
 	<key>NoSyncSearchHistory2</key>
 	<array>
+		<string>script</string>
+		<string>bea</string>
+		<string>add_to</string>
+		<string>add_fi</string>
 		<string>ntub_app</string>
 		<string>author</string>
 		<string>desc</string>
 		<string>build</string>
 		<string>dist</string>
 		<string>django</string>
-		<string>spl</string>
-		<string>reque</string>
-		<string>cac</string>
-		<string>cache</string>
 	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>515432909.96174002</real>
@@ -3557,7 +3561,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-10-29T01:52:09Z</date>
+	<date>2019-11-14T17:16:30Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
