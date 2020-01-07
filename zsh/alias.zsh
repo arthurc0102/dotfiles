@@ -30,6 +30,7 @@ alias mygo='cd $GOPATH/src/github.com/arthurc0102'
 alias go-build='go build -o ${PWD##*/}.out'
 
 alias docker-image-clenup='docker rmi $(docker images -f "dangling=true" -q)'
+alias lzd='lazydocker'
 
 alias fd='echo ${PWD##*/}'
 alias tc='python -c "import sys; print(\"\\n\".join(sys.stdin.read().splitlines()), end=\"\")" | pbcopy'
