@@ -40,6 +40,10 @@ if [ -d "$HOME/.dotfiles/scripts" ]; then
     export PATH="$PATH:$HOME/.dotfiles/scripts"
 fi
 
+if [ -d "/usr/local/opt/mysql-client/bin" ]; then
+    export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+fi
+
 # Fix emacs error
 if [[ $TERM = dumb ]]; then
     unset zle_bracketed_paste
