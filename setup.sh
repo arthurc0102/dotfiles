@@ -3,7 +3,7 @@ set -e
 
 command -v git > /dev/null || { echo "Git not installed"; exit 1; }
 
-if [ ! -d "$HOME/.dotfiles" ]; then
+if [ ! -d "$HOME/.antigen" ]; then
     git clone https://github.com/zsh-users/antigen.git $HOME/.antigen
 fi
 

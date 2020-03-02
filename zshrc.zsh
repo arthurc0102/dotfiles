@@ -14,7 +14,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 ## Load theme config
-source $HOME/.zsh/theme.zsh
+source $HOME/.dotfiles/zsh/theme.zsh
 
 ## Set theme
 antigen theme denysdovhan/spaceship-prompt
@@ -23,5 +23,5 @@ antigen theme denysdovhan/spaceship-prompt
 antigen apply
 
 ## Load custom settings
-source $HOME/.zsh/alias.zsh
-source $HOME/.zsh/environmental.zsh
+source $HOME/.dotfiles/zsh/alias.zsh
+source $HOME/.dotfiles/zsh/environmental.zsh
