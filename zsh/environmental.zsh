@@ -49,15 +49,6 @@ if [[ $TERM = dumb ]]; then
     unset zle_bracketed_paste
 fi
 
-if [ -d "${HOME}/.nvm" ]; then
-    export NVM_DIR="$HOME/.nvm"
-fi
-
-if [ $NVM_DIR ]; then
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
-
 if [ -d "$HOME/.pyenv" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
@@ -68,19 +59,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 if command -v pipenv 1>/dev/null 2>&1; then
-    eval "$(pipenv --completion)"
     export PIPENV_VENV_IN_PROJECT=true
-fi
-
-if [ -d "$HOME/.rvm/bin" ]; then
-    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-    export PATH="$PATH:$HOME/.rvm/bin"
-
-    # Load RVM into a shell session *as a function*
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 fi
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "/Users/arthur/.gvm/scripts/gvm"
 
-export PATH="$PATH:./bin"
 export PAGER="less -FX"
