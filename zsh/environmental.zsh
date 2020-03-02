@@ -4,10 +4,9 @@ export LC_ALL=en_US.UTF-8
 if [ -d "$HOME/Android/sdk" ]; then
     # ANDROID_HOME for Linux
     export ANDROID_HOME="$HOME/Android/Sdk"
-
 fi
 
-if [ -d "${HOME}/Library/Android/sdk" ]; then
+if [ -d "$HOME/Library/Android/sdk" ]; then
     # ANDROID_HOME for OSX
     export ANDROID_HOME="$HOME/Library/Android/sdk"
 fi
@@ -60,6 +59,10 @@ fi
 
 if command -v pipenv 1>/dev/null 2>&1; then
     export PIPENV_VENV_IN_PROJECT=true
+fi
+
+if [ -d "$HOME/.poetry" ]; then
+    export PATH="$HOME/.poetry/bin:$PATH"
 fi
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "/Users/arthur/.gvm/scripts/gvm"
