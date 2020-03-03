@@ -7,7 +7,6 @@ spaceship_rprompt_suffix() {
 }
 
 SPACESHIP_CHAR_SYMBOL='$ '
-SPACESHIP_VENV_GENERIC_NAMES=' '  # empty array not work so use space to let this var be empty
 SPACESHIP_VENV_PREFIX='('
 SPACESHIP_VENV_SUFFIX=') '
 SPACESHIP_VENV_COLOR='magenta'
