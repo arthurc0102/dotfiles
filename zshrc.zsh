@@ -9,6 +9,7 @@ antigen bundle pip
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle web-search
+antigen bundle qoomon/zsh-lazyload
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -27,5 +28,14 @@ source "$HOME/.dotfiles/zsh/environmentals/android.zsh"
 source "$HOME/.dotfiles/zsh/environmentals/flutter.zsh"
 source "$HOME/.dotfiles/zsh/environmentals/mysql.zsh"
 source "$HOME/.dotfiles/zsh/environmentals/golang.zsh"
-source "$HOME/.dotfiles/zsh/environmentals/python.zsh"
-source "$HOME/.dotfiles/zsh/environmentals/node.zsh"
+
+load_node() {
+  source "$HOME/.dotfiles/zsh/environmentals/node.zsh"
+}
+
+load_python() {
+  source "$HOME/.dotfiles/zsh/environmentals/python.zsh"
+}
+
+lazyload nvm node npm npx -- 'load_node'
+lazyload pyenv python pip pipenv -- 'load_python'
