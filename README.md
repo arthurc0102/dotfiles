@@ -18,3 +18,7 @@
         email = arthurc0102@gmail.com
         name = Arthur Chang
     ```
+
+## Hint
+
+- Run `antigen cache-gen` after config, to speed up terminal startup
