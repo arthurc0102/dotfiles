@@ -10,8 +10,10 @@ linux() {
 
 main() {
   if [ "$(uname)" == "Darwin" ]; then
-    mac
+    osx
   else
     linux
   fi
 }
+
+main
