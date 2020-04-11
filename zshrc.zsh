@@ -46,4 +46,4 @@ if [[ $PIPENV_ACTIVE -ne 1 ]]; then
   lazyload pyenv python pip pipenv -- 'load_pyenv'
 fi
 
-lazyload nvm node npm npx -- 'load_nvm'
+lazyload nvm node npm npx git-cz ng -- 'load_nvm'

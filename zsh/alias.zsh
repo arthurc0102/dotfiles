@@ -16,7 +16,7 @@ alias gm='git commit -m'
 alias gp='git push'
 alias gpp='git pull'
 alias gs='git status'
-alias gz='git cz'
+alias gz='git-cz'  # target lazyload
 
 alias docker-image-clenup='docker rmi $(docker images -f "dangling=true" -q)'
 
