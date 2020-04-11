@@ -41,5 +41,9 @@ load_pyenv() {
   fi
 }
 
+# Don't lazyload pyenv if in pipenv shell mode
+if [[ $PIPENV_ACTIVE -ne 1 ]]; then
+  lazyload pyenv python pip pipenv -- 'load_pyenv'
+fi
+
 lazyload nvm node npm npx -- 'load_nvm'
-lazyload pyenv python pip pipenv -- 'load_pyenv'
