@@ -28,14 +28,18 @@ source "$HOME/.dotfiles/zsh/environmentals/android.zsh"
 source "$HOME/.dotfiles/zsh/environmentals/flutter.zsh"
 source "$HOME/.dotfiles/zsh/environmentals/mysql.zsh"
 source "$HOME/.dotfiles/zsh/environmentals/golang.zsh"
+source "$HOME/.dotfiles/zsh/environmentals/node.zsh"
+source "$HOME/.dotfiles/zsh/environmentals/python.zsh"
 
-load_node() {
-  source "$HOME/.dotfiles/zsh/environmentals/node.zsh"
+load_nvm() {
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 }
 
-load_python() {
-  source "$HOME/.dotfiles/zsh/environmentals/python.zsh"
+load_pyenv() {
+  if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+  fi
 }
 
-lazyload nvm node npm npx -- 'load_node'
-lazyload pyenv python pip pipenv -- 'load_python'
+lazyload nvm node npm npx -- 'load_nvm'
+lazyload pyenv python pip pipenv -- 'load_pyenv'
