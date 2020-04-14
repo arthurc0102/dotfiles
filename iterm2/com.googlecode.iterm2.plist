@@ -814,9 +814,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 877 0 0 1440 877 </string>
+	<string>-1440 692 1440 877 -1440 692 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 441 570 427 0 0 1440 877 </string>
+	<string>0 450 570 427 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 441 570 427 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -1495,7 +1495,7 @@
 			<key>Prompt Before Closing 2</key>
 			<false/>
 			<key>Right Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Rows</key>
 			<integer>25</integer>
 			<key>Screen</key>
@@ -2310,7 +2310,7 @@
 	<array>
 		<string>3.3.6</string>
 		<string>3.3.8</string>
-		<string>3.3.2</string>
+		<string>3.3.4</string>
 		<string>3.3.1</string>
 		<string>3.3.3</string>
 		<string>3.3.5</string>
@@ -2318,7 +2318,7 @@
 		<string>3.3.9</string>
 		<string>3.2.9</string>
 		<string>3.3.0</string>
-		<string>3.3.4</string>
+		<string>3.3.2</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
@@ -2329,9 +2329,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1440, 900}}</string>
+		<string>{{-1440, 692}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{74, 677}</string>
+		<string>{-1051, 1362}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2342,7 +2342,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>FFF5547E-F24A-49CC-A49E-EDCBB0C85E83</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>706</integer>
+	<integer>1009</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3159,7 +3159,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-03-04T05:44:41Z</date>
+	<date>2020-04-14T06:33:32Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
