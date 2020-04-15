@@ -1,16 +1,16 @@
 if [ -d "$HOME/Android/sdk" ]; then
-    # ANDROID_HOME for Linux
-    export ANDROID_HOME="$HOME/Android/Sdk"
+    # ANDROID_SDK_ROOT for Linux
+    export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 fi
 
 if [ -d "$HOME/Library/Android/sdk" ]; then
-    # ANDROID_HOME for OSX
-    export ANDROID_HOME="$HOME/Library/Android/sdk"
+    # ANDROID_SDK_ROOT for OSX
+    export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 fi
 
-if [ $ANDROID_HOME ]; then
-    # if ANDROID_HOME exits
-    export PATH="$PATH:$ANDROID_HOME/emulator"
-    export PATH="$PATH:$ANDROID_HOME/tools"
-    export PATH="$PATH:$ANDROID_HOME/platform-tools"
+if [ $ANDROID_SDK_ROOT ]; then
+    # if ANDROID_SDK_ROOT exits
+    export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
+    export PATH="$PATH:$ANDROID_SDK_ROOT/tools"
+    export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
 fi
