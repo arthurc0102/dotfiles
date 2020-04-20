@@ -36,14 +36,15 @@ load_nvm() {
 }
 
 load_pyenv() {
+  # Skip pyenv step up when in pipenv shell or virtuarl env
+  if [[ $PIPENV_ACTIVE -eq 1 || ! -z "$VIRTUAL_ENV" ]]; then
+    return
+  fi
+
   if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
   fi
 }
 
-# Don't lazyload pyenv if in pipenv shell mode
-if [[ $PIPENV_ACTIVE -ne 1 ]]; then
-  lazyload pyenv python pip pipenv -- 'load_pyenv'
-fi
-
+lazyload pyenv python pip pipenv -- 'load_pyenv'
 lazyload nvm node npm npx git-cz ng -- 'load_nvm'
