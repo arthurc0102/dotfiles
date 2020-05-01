@@ -46,5 +46,5 @@ load_pyenv() {
   fi
 }
 
-lazyload pyenv python pip pipenv -- 'load_pyenv'
+lazyload pyenv python pip pipenv ipython bpython -- 'load_pyenv'
 lazyload nvm node npm npx git-cz ng -- 'load_nvm'
