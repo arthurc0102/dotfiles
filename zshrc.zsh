@@ -13,6 +13,7 @@ antigen bundle qoomon/zsh-lazyload
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zpm-zsh/clipboard
 
 ## Setup theme
 source "$HOME/.dotfiles/zsh/theme.zsh"

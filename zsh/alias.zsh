@@ -22,4 +22,5 @@ alias docker-image-clenup='docker rmi $(docker images -f "dangling=true" -q)'
 
 alias lzd='lazydocker'
 
+# Remove last newline char and add to clipboard
 alias tc='python -c "import sys; print(\"\\n\".join(sys.stdin.read().splitlines()), end=\"\")" | pbcopy'
