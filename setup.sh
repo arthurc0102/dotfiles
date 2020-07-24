@@ -25,6 +25,7 @@ ln -s $HOME/.dotfiles/pypirc $HOME/.pypirc
 ln -s $HOME/.dotfiles/pip.conf $HOME/.pip/pip.conf
 ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/.dotfiles/czrc $HOME/.czrc
+ln -s $HOME/.dotfiles/yapf $HOME/.config/yapf/style
 
 cp $HOME/.dotfiles/gitconfig.user $HOME/.gitconfig.user
 
