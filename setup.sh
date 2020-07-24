@@ -19,6 +19,8 @@ if [ ! -d "$HOME/.pip" ]; then
     mkdir $HOME/.pip
 fi
 
+mkdir -p $HOME/.config/yapf
+
 ln -s $HOME/.dotfiles/zshrc.zsh $HOME/.zshrc
 ln -s $HOME/.dotfiles/gitconfig $HOME/.gitconfig
 ln -s $HOME/.dotfiles/pypirc $HOME/.pypirc
