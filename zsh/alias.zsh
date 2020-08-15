@@ -24,3 +24,6 @@ alias lzd='lazydocker'
 
 # Remove last newline char and add to clipboard
 alias tc='python -c "import sys; print(\"\\n\".join(sys.stdin.read().splitlines()), end=\"\")" | pbcopy'
+
+# Emacs
+alias emacs='load_pyenv && load_nvm && emacs'
