@@ -826,7 +826,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>586 528 620 392 0 0 1792 1097 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1792 1097 0 0 1792 1097 </string>
+	<string>0 0 2560 1417 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 0 1792 1097 0 0 1792 1097 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1616,19 +1616,21 @@
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
+		<string>Andale Mono</string>
+		<string>Cascadia Code PL</string>
 		<string>Monaco</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1792, 1120}}</string>
+		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{275, 910}</string>
+		<string>{199, 824}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>1E135A55-E7D3-4049-B281-BA1A552D0E9A</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>58</integer>
+	<integer>119</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2405,7 +2407,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-07-21T02:03:26Z</date>
+	<date>2020-08-22T04:53:35Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
