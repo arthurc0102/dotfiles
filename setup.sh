@@ -19,7 +19,13 @@ if [ ! -d "$HOME/.pip" ]; then
     mkdir $HOME/.pip
 fi
 
-mkdir -p $HOME/.config/yapf
+if [ ! -d "$HOME/.config/karabiner" ]; then
+    mkdir -p $HOME/.config/karabiner
+fi
+
+if [ ! -d "$HOME/.config/yapf" ]; then
+    mkdir -p $HOME/.config/yapf
+fi
 
 ln -s $HOME/.dotfiles/zshrc.zsh $HOME/.zshrc
 ln -s $HOME/.dotfiles/gitconfig $HOME/.gitconfig
@@ -28,6 +34,7 @@ ln -s $HOME/.dotfiles/pip.conf $HOME/.pip/pip.conf
 ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/.dotfiles/czrc $HOME/.czrc
 ln -s $HOME/.dotfiles/yapf $HOME/.config/yapf/style
+ln -s $HOME/.dotfiles/karabiner.json $HOME/.config/karabiner/karabiner.json
 
 cp $HOME/.dotfiles/gitconfig.user $HOME/.gitconfig.user
 
