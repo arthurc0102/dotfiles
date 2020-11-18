@@ -23,3 +23,5 @@
   ss = show
 [include]
   path = ~/.gitconfig.user
+[includeIf "gitdir:~/Documents/projects/iinumbers/"]
+  path = ~/.gitconfig.iinumbers
