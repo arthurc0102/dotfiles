@@ -17,6 +17,7 @@ alias gp='git push'
 alias gpp='git pull'
 alias gs='git status'
 alias gz='git-cz'  # full command to target lazyload
+alias gitignore="git-ignore"
 
 alias docker-image-clenup='docker rmi $(docker images -f "dangling=true" -q)'
 

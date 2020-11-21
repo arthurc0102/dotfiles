@@ -1,0 +1,25 @@
+#!/bin/bash
+
+main() {
+  if [ "$1" == "" ]; then
+    touch .gitignore
+    echo "Create empty ignore."
+    return
+  fi
+
+  status=$(curl -s -o .gitignore.tmp -w "%{http_code}" "https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore")
+
+  if [ $status -ne "200" ]; then
+    echo "Error!"
+    echo "Status code: $status"
+    echo "Response: $(cat .gitignore.tmp)"
+
+    rm .gitignore.tmp
+    exit 1
+  fi
+
+  mv .gitignore.tmp .gitignore
+  echo "Add $1's ignore success."
+}
+
+main "$1"
