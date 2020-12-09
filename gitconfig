@@ -19,6 +19,7 @@
   cl = clone
   cm = checkout master
   ec = commit --amend
+  pc = "!git push -u origin $(git branch --show-current)"
   pp = pull
   ss = show
 [include]

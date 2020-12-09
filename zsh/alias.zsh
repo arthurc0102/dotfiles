@@ -15,6 +15,7 @@ alias gl='git l'
 alias gm='git commit -m'
 alias gp='git push'
 alias gpp='git pull'
+alias gpc='git pc'
 alias gs='git status'
 alias gz='git-cz'  # full command to target lazyload
 alias gitignore="git-ignore"
