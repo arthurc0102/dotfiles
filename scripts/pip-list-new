@@ -5,11 +5,15 @@ main() {
 
   cmd="pip freeze -r requirements.txt"
 
-  for f in `ls ./requirements/*.txt`; do
+  for f in `find requirements -type f -name "*.txt"` "$@"; do
+    if [[ ! -f $f ]]; then
+      continue
+    fi
+
     cmd="${cmd} -r ${f}"
   done
 
   echo "${cmd}" | bash
 }
 
-main
+main $@
