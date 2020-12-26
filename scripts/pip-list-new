@@ -3,9 +3,9 @@
 main() {
   local cmd
 
-  cmd="pip freeze -r requirements.txt"
+  cmd="pip freeze"
 
-  for f in `find requirements -type f -name "*.txt"` "$@"; do
+  for f in "requirements.txt" `[[ -d "requirements" ]] && find requirements -type f -name '*.txt'` "$@"; do
     if [[ ! -f $f ]]; then
       continue
     fi
@@ -13,7 +13,7 @@ main() {
     cmd="${cmd} -r ${f}"
   done
 
-  echo "${cmd}" | bash
+  echo "${cmd}" | "$SHELL"
 }
 
 main $@
