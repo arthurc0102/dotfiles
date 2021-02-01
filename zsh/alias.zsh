@@ -29,3 +29,6 @@ alias tc='python -c "import sys; print(\"\\n\".join(sys.stdin.read().splitlines(
 
 # Emacs
 #alias emacs='load_pyenv && load_nvm && emacs'
+
+# Python
+alias pip-make-list="pip freeze > requirements.txt"
