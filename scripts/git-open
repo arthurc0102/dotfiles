@@ -31,7 +31,11 @@ main() {
     url="https://$(git remote get-url origin | awk -F '@' '{ print $2 }' | sed -e 's/:/\//g')"
   fi
 
-  open_command "$url"
+  if [[ $1 == -v ]]; then
+    echo "$url"
+  else
+    open_command "$url"
+  fi
 }
 
-main
+main $@
