@@ -31,4 +31,5 @@ alias tc='python -c "import sys; print(\"\\n\".join(sys.stdin.read().splitlines(
 #alias emacs='load_pyenv && load_nvm && emacs'
 
 # Python
+alias activate="source ./.venv/bin/activate"
 alias pip-make-list="pip freeze > requirements.txt"
