@@ -1,9 +1,10 @@
 ## Pyenv
 
 export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 if [ -d "$PYENV_ROOT" ]; then
-    export PATH="$PYENV_ROOT/bin:$PATH"
+  export PATH="$PYENV_ROOT/bin:$PATH"
 fi
 
 load_pyenv() {
@@ -13,7 +14,9 @@ load_pyenv() {
   fi
 
   if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
   fi
 }
 
