@@ -34,5 +34,5 @@ source "$HOME/.dotfiles/zsh/environmentals/node.zsh"
 source "$HOME/.dotfiles/zsh/environmentals/python.zsh"
 
 ## Lazyload
-lazyload pyenv python pip pipenv ipython bpython -- 'load_pyenv'
-lazyload nvm node npm npx git-cz ng -- 'load_nvm'
+lazyload pyenv python pip pipx -- 'load_pyenv'
+lazyload nvm node npm npx git-cz -- 'load_nvm'

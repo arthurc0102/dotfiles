@@ -29,3 +29,16 @@ export PIPENV_VENV_IN_PROJECT=true
 if [ -d "$HOME/.poetry" ]; then
     export PATH="$HOME/.poetry/bin:$PATH"
 fi
+
+## Pipx
+
+# echo "Install Pipx"
+# export PYTHONUSERBASE=/tmp/pip-tmp
+# export PIP_CACHE_DIR=/tmp/pip-tmp/cache
+# pip install --disable-pip-version-check --no-warn-script-location  --no-cache-dir --user pipx
+# /tmp/pip-tmp/bin/pipx install --pip-args=--no-cache-dir pipx
+# rm -rf /tmp/pip-tmp
+
+export PIPX_HOME="$HOME/.pipx"
+export PIPX_BIN_DIR="$PIPX_HOME/bin"
+export PATH="$PIPX_BIN_DIR:$PATH"
