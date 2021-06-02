@@ -1,4 +1,3 @@
-alias l='ls -lF'
 alias fd='echo ${PWD##*/}'
 
 alias pp='ping 8.8.8.8'
