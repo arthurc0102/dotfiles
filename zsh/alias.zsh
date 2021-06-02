@@ -20,15 +20,8 @@ alias gs='git status'
 alias gz='git-cz'  # full command to target lazyload
 alias gitignore="git-ignore"
 
-alias docker-image-clenup='docker rmi $(docker images -f "dangling=true" -q)'
-
-alias lzd='lazydocker'
-
 # Remove last newline char and add to clipboard
 alias tc='python -c "import sys; print(\"\\n\".join(sys.stdin.read().splitlines()), end=\"\")" | pbcopy'
-
-# Emacs
-#alias emacs='load_pyenv && load_nvm && emacs'
 
 # Python
 alias pip-activate="source ./.venv/bin/activate"
