@@ -6,9 +6,9 @@
   l = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   a = add
   b = branch
-  c = commit -a
+  c = commit -v
   d = diff
-  m = commit -m
+  m = commit -v -m
   i = init
   p = push
   s = status
@@ -18,7 +18,7 @@
   cc = checkout
   cl = clone
   cm = checkout master
-  ec = commit --amend
+  ec = commit -v --amend
   pc = "!git push -u origin $(git branch --show-current)"
   pp = pull
   ss = show
