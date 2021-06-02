@@ -30,13 +30,13 @@ antigen apply
 ## Load custom settings
 source "$HOME/.dotfiles/zsh/alias.zsh"
 source "$HOME/.dotfiles/zsh/config.zsh"
-source "$HOME/.dotfiles/zsh/environmentals/android.zsh"
-source "$HOME/.dotfiles/zsh/environmentals/flutter.zsh"
-source "$HOME/.dotfiles/zsh/environmentals/gcloud.zsh"
-source "$HOME/.dotfiles/zsh/environmentals/golang.zsh"
-source "$HOME/.dotfiles/zsh/environmentals/mysql.zsh"
-source "$HOME/.dotfiles/zsh/environmentals/node.zsh"
-source "$HOME/.dotfiles/zsh/environmentals/python.zsh"
+source "$HOME/.dotfiles/zsh/environments/android.zsh"
+source "$HOME/.dotfiles/zsh/environments/flutter.zsh"
+source "$HOME/.dotfiles/zsh/environments/gcloud.zsh"
+source "$HOME/.dotfiles/zsh/environments/golang.zsh"
+source "$HOME/.dotfiles/zsh/environments/mysql.zsh"
+source "$HOME/.dotfiles/zsh/environments/node.zsh"
+source "$HOME/.dotfiles/zsh/environments/python.zsh"
 
 ## Lazyload
 lazyload pyenv python pip pipx -- 'load_pyenv'
