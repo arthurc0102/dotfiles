@@ -5,6 +5,7 @@ source "$HOME/.antigen/bin/antigen.zsh"
 antigen use oh-my-zsh
 
 ## Load plugins
+antigen bundle git
 antigen bundle pip
 antigen bundle docker
 antigen bundle docker-compose
