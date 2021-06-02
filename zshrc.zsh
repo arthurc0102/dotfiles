@@ -1,11 +1,15 @@
 ## Load antigen
 source "$HOME/.antigen/bin/antigen.zsh"
 
+## Setting before loading oh-my-zsh
+zstyle :omz:plugins:ssh-agent identities id_rsa iinumbers
+
 ## Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 ## Load plugins
 antigen bundle git
+antigen bundle ssh-agent
 antigen bundle pip
 antigen bundle docker
 antigen bundle docker-compose
