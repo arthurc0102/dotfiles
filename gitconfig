@@ -8,3 +8,5 @@
   path = ~/.gitconfig.user
 [includeIf "gitdir:~/Documents/projects/iinumbers/"]
   path = ~/.gitconfig.iinumbers
+[init]
+	defaultBranch = main
