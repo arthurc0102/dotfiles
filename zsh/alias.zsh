@@ -10,5 +10,8 @@ alias gitignore="git-ignore"
 alias tc='python -c "import sys; print(sys.stdin.read().rstrip(\"\r\n\"), end=\"\")" | pbcopy'
 
 # Python
-alias pip-activate="source ./.venv/bin/activate"
+alias py-venv="python -m venv .venv"
+alias py-activate="source ./.venv/bin/activate"
+alias py-shell="py-venv && py-activate"
+
 alias pip-make-list="pip freeze > requirements.txt"
