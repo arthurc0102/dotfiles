@@ -1,12 +1,14 @@
 [color]
   ui = true
+
 [core]
   editor = vim
+
 [alias]
   l = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+[init]
+  defaultBranch = main
+
 [include]
   path = ~/.gitconfig.user
-[includeIf "gitdir:~/Documents/projects/iinumbers/"]
-  path = ~/.gitconfig.iinumbers
-[init]
-	defaultBranch = main

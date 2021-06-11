@@ -1,0 +1,6 @@
+[user]
+  email = arthurc0102@gmail.com
+  name = Arthur Chang
+
+[includeIf "gitdir:~/Documents/projects/iinumbers/"]
+  path = ~/.gitconfig.iinumbers
