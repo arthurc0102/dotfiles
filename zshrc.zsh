@@ -2,6 +2,7 @@
 source "$HOME/.antigen/bin/antigen.zsh"
 
 ## Setting before loading oh-my-zsh
+export SHORT_HOST=$([ -f /etc/hostname ] && cat /etc/hostname || echo "workstation")
 zstyle :omz:plugins:ssh-agent identities id_rsa iinumbers
 
 ## Load the oh-my-zsh's library.
