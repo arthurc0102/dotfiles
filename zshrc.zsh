@@ -1,9 +1,6 @@
 ## Load antigen
 source "$HOME/.antigen/bin/antigen.zsh"
 
-## Load local config
-[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
-
 ## ssh-agent config should place before loading oh-my-zsh.
 [ -z "$SHORT_HOST" ] && export SHORT_HOST="localhost"
 zstyle :omz:plugins:ssh-agent identities $SSH_AGENT_IDENTITIES
