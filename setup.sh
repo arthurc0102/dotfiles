@@ -37,6 +37,7 @@ ln -s $HOME/.dotfiles/yapf $HOME/.config/yapf/style
 ln -s $HOME/.dotfiles/karabiner.json $HOME/.config/karabiner/karabiner.json
 
 cp $HOME/.dotfiles/gitconfig.user $HOME/.gitconfig.user
+cp $HOME/.dotfiles/zshrc.local.zsh $HOME/.zshrc.local
 
 if [ $(uname) != "Darwin" ]; then  # No conky for OSX
     if [ -d "$HOME/.local/share/applications" ]; then  # No conky for no GUI

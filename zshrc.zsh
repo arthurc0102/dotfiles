@@ -1,9 +1,11 @@
 ## Load antigen
 source "$HOME/.antigen/bin/antigen.zsh"
 
+## Load local config
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+
 ## Setting before loading oh-my-zsh
-export SHORT_HOST=$([ -f /etc/hostname ] && cat /etc/hostname || echo "workstation")
-zstyle :omz:plugins:ssh-agent identities id_rsa iinumbers
+zstyle :omz:plugins:ssh-agent identities $SSH_AGENT_IDENTITIES
 
 ## Load the oh-my-zsh's library.
 antigen use oh-my-zsh
