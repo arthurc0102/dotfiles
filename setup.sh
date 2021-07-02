@@ -33,6 +33,7 @@ ln -s $HOME/.dotfiles/pypirc $HOME/.pypirc
 ln -s $HOME/.dotfiles/pip.conf $HOME/.pip/pip.conf
 ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/.dotfiles/czrc $HOME/.czrc
+ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc
 ln -s $HOME/.dotfiles/yapf $HOME/.config/yapf/style
 ln -s $HOME/.dotfiles/karabiner.json $HOME/.config/karabiner/karabiner.json
 
