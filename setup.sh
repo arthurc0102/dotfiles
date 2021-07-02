@@ -38,6 +38,7 @@ ln -s $HOME/.dotfiles/karabiner.json $HOME/.config/karabiner/karabiner.json
 
 cp $HOME/.dotfiles/gitconfig.user $HOME/.gitconfig.user
 cp $HOME/.dotfiles/zshenv.zsh $HOME/.zshenv
+cp $HOME/.dotfiles/tmux.conf.local $HOME/.tmux.conf.local
 
 if [ $(uname) != "Darwin" ]; then  # No conky for OSX
     if [ -d "$HOME/.local/share/applications" ]; then  # No conky for no GUI
