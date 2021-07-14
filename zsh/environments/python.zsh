@@ -6,6 +6,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 if [ -d "$PYENV_ROOT" ]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init --path)"
+  source "${PYENV_ROOT}/completions/pyenv.zsh"
 fi
 
 load_pyenv() {
