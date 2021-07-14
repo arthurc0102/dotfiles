@@ -22,3 +22,4 @@
 ## Hint
 
 - Run `antigen cache-gen` after config, to speed up terminal startup
+- Test startup speed: `/usr/bin/time zsh -i -c exit`
