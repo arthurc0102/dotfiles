@@ -12,6 +12,7 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle ssh-agent
 antigen bundle pip
+antigen bundle pipenv
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle web-search
