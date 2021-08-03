@@ -7,7 +7,7 @@ alias gz='git-cz'  # full command to target lazyload
 alias gitignore="git-ignore"
 
 # Remove last newline char and add to clipboard. ('\r\n' work on Mac, Linux and Windows)
-alias tc='python -c "import sys; print(sys.stdin.read().rstrip(\"\r\n\"), end=\"\")" | pbcopy'
+alias tc='python -c "import sys; print(sys.stdin.read().rstrip(\"\r\n\"), end=\"\")" | clipcopy'
 
 # Python
 alias py-venv="python -m venv .venv"

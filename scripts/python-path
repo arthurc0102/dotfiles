@@ -1,7 +1,0 @@
-#!/bin/bash
-
-main() {
-  python -c "import sys; print(sys.executable)"
-}
-
-main
