@@ -33,11 +33,3 @@ export NVM_LAZY_LOAD=true
 zstyle :omz:plugins:ssh-agent identities $SSH_AGENT_IDENTITIES
 
 source "$ZSH/oh-my-zsh.sh"
-
-
-# # antigen bundle qoomon/zsh-lazyload
-# # antigen bundle zpm-zsh/clipboard
-
-# ## Lazyload
-# # lazyload pyenv python pip pipx -- 'load_pyenv'
-# # lazyload nvm node npm npx git-cz -- 'load_nvm'
