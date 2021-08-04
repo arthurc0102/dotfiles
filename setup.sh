@@ -53,8 +53,8 @@ setup_karabiner() {
 setup_zsh() {
     echo "Setup zsh"
     ln -sf $HOME/.dotfiles/zsh/zshrc.zsh $HOME/.zshrc
-    ln -sf $HOME/.dotfiles/zsh/zshenv.zsh $HOME/.zshenv
-    cp $HOME/.dotfiles/zsh/zshenv.local.zsh $HOME/.zshenv.local
+    ln -sf $HOME/.dotfiles/zsh/zprofile.zsh $HOME/.zprofile
+    cp $HOME/.dotfiles/zsh/zprofile.local.zsh $HOME/.zprofile.local
 }
 
 main() {

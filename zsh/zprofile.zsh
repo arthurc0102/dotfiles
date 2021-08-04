@@ -1,11 +1,11 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PAGER="less -FX"
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 # My Scripts
 if [ -d "$HOME/.dotfiles/scripts" ]; then
-    export PATH="$PATH:$HOME/.dotfiles/scripts"
+    export PATH="$HOME/.dotfiles/scripts:$PATH"
 fi
 
 # MySQL Config
@@ -24,4 +24,4 @@ export PIPX_BIN_DIR="$PIPX_HOME/bin"
 export PATH="$PIPX_BIN_DIR:$PATH"
 
 # Load local Config
-[ -f $HOME/.dotfiles/zsh/zshenv.local.zsh ] && source $HOME/.dotfiles/zsh/zshenv.local.zsh
+[ -f $HOME/.zprofile.local ] && source $HOME/.zprofile.local
