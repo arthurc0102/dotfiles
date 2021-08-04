@@ -32,6 +32,10 @@ setup_git() {
 }
 
 setup_karabiner() {
+    if [ $(uname) != "Darwin" ]; then
+        return;
+    fi
+
     if [ ! -d "$HOME/.config/karabiner" ]; then
         mkdir -p $HOME/.config/karabiner
     fi
