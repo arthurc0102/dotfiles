@@ -8,6 +8,7 @@ ZSH_THEME="spaceship"
 
 plugins=(
   # Plugins
+  cp
   git
   ssh-agent
   pip
