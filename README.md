@@ -11,19 +11,20 @@
 
 ## Setup
 
-- Create `.gitconfig.user` in your home dir or move `.gitconfig.user-example` to home dir
-- Example content
+### Git
 
-  ```conf
-  [user]
-      email = arthurc0102@gmail.com
-      name = Arthur Chang
-  ```
+Update name and email in `~/.gitconfig.user`
 
-## Hint
+If you need to use multi account add this to your `.gitconfig.user`
 
-- Run `antigen cache-gen` after config, to speed up terminal startup
-- Test startup speed: `/usr/bin/time zsh -i -c exit`
+```conf
+[includeIf "gitdir:~/Documents/projects/work/"]
+  path = ~/.gitconfig.work
+```
+
+### Pipx
+
+If you need pipx, run [setup-pipx.sh](./setup-pipx.sh).
 
 ## Test
 
