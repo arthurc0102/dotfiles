@@ -15,8 +15,10 @@ fi
 
 # Pyenv Config
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+if [ -d $PYENV_ROOT ] then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+fi
 
 # Pipx Config
 export PIPX_HOME="$HOME/.pipx"
