@@ -71,6 +71,7 @@ main() {
     setup_git
     setup_karabiner
     setup_zsh
+    setup_ssh
 }
 
 main
