@@ -9,7 +9,7 @@ check() {
 setup_ohmyzsh() {
     echo "Setup oh-my-zsh"
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
+        git clone git://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
     fi
 }
 
@@ -23,17 +23,17 @@ setup_dotfiles() {
 setup_tmux() {
     echo "Setup tmux"
     if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-        git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+        git clone git://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
     fi
 
-    ln -sf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
-    cp $HOME/.dotfiles/tmux/tmux.local.conf $HOME/.tmux.local.conf
+    ln -svf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+    cp -v $HOME/.dotfiles/tmux/tmux.local.conf $HOME/.tmux.local.conf
 }
 
 setup_git() {
     echo "Setup git"
-    ln -sf $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
-    cp $HOME/.dotfiles/git/gitconfig.user $HOME/.gitconfig.user
+    ln -svf $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
+    cp -v $HOME/.dotfiles/git/gitconfig.user $HOME/.gitconfig.user
 }
 
 setup_karabiner() {
@@ -44,17 +44,23 @@ setup_karabiner() {
     echo "Setup karabiner"
 
     if [ ! -d "$HOME/.config/karabiner" ]; then
-        mkdir -p $HOME/.config/karabiner
+        mkdir -pv $HOME/.config/karabiner
     fi
 
-    ln -sf $HOME/.dotfiles/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
+    ln -svf $HOME/.dotfiles/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
 }
 
 setup_zsh() {
     echo "Setup zsh"
-    ln -sf $HOME/.dotfiles/zsh/zshrc.zsh $HOME/.zshrc
-    ln -sf $HOME/.dotfiles/zsh/zprofile.zsh $HOME/.zprofile
-    cp $HOME/.dotfiles/zsh/zprofile.local.zsh $HOME/.zprofile.local
+    ln -svf $HOME/.dotfiles/zsh/zshrc.zsh $HOME/.zshrc
+    ln -svf $HOME/.dotfiles/zsh/zprofile.zsh $HOME/.zprofile
+    cp -v $HOME/.dotfiles/zsh/zprofile.local.zsh $HOME/.zprofile.local
+}
+
+sutup_ssh() {
+    echo "Setup ssh"
+
+    mkdir -pv $HOME/.ssh
 }
 
 main() {
