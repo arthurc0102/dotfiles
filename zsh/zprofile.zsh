@@ -13,17 +13,17 @@ if [ -d "/usr/local/opt/mysql-client/bin" ]; then
     export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 fi
 
+# Pipx Config
+export PIPX_HOME="$HOME/.pipx"
+export PIPX_BIN_DIR="$PIPX_HOME/bin"
+export PATH="$PIPX_BIN_DIR:$PATH"
+
 # Pyenv Config
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT ]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
 fi
-
-# Pipx Config
-export PIPX_HOME="$HOME/.pipx"
-export PIPX_BIN_DIR="$PIPX_HOME/bin"
-export PATH="$PIPX_BIN_DIR:$PATH"
 
 # Load local Config
 [ -f $HOME/.zprofile.local ] && source $HOME/.zprofile.local
