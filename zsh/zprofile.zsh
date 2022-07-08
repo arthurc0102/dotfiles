@@ -8,8 +8,10 @@ if [ -d "$HOME/.dotfiles/scripts" ]; then
     export PATH="$HOME/.dotfiles/scripts:$PATH"
 fi
 
-# MySQL Config
-if [ -d "/usr/local/opt/mysql-client/bin" ]; then
+# MySQL Client Config
+if command -v brew > /dev/null && [ -d "$(brew --prefix mysql-client)/bin" ]; then
+    export PATH="$(brew --prefix mysql-client)/bin:$PATH"
+elif [ -d "/usr/local/opt/mysql-client/bin" ]; then
     export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 fi
 
