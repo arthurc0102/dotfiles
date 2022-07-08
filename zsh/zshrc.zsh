@@ -17,6 +17,7 @@ plugins=(
   docker
   docker-compose
   web-search
+  direnv
 
   # Other Plugins
   zsh-completions
