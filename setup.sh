@@ -9,7 +9,7 @@ check() {
 setup_ohmyzsh() {
     echo "Setup oh-my-zsh"
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        git clone git://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
+        git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
     fi
 }
 
@@ -23,7 +23,7 @@ setup_dotfiles() {
 setup_tmux() {
     echo "Setup tmux"
     if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-        git clone git://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+        git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
     fi
 
     ln -svf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
