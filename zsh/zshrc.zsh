@@ -19,6 +19,7 @@ plugins=(
   web-search
   direnv
   poetry
+  httpie
 
   # Other Plugins
   zsh-completions
