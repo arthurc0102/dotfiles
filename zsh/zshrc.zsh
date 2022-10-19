@@ -18,15 +18,13 @@ plugins=(
   docker-compose
   web-search
   direnv
+  poetry
 
   # Other Plugins
   zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-nvm
-
-  # My Plugins
-  poetry
 )
 
 export NVM_COMPLETION=true
