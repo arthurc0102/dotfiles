@@ -15,3 +15,5 @@ alias py-activate="source ./.venv/bin/activate"
 alias py-shell="py-venv && py-activate"
 
 alias pip-make-list="pip freeze > requirements.txt"
+
+alias kraken="open -na 'GitKraken' --args -p $(pwd)"
