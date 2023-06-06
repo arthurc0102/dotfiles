@@ -57,7 +57,7 @@ setup_zsh() {
     cp -v $HOME/.dotfiles/zsh/zprofile.local.zsh $HOME/.zprofile.local
 }
 
-sutup_ssh() {
+setup_ssh() {
     echo "Setup ssh"
 
     mkdir -pv $HOME/.ssh
