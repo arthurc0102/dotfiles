@@ -27,5 +27,10 @@ if [ -d $PYENV_ROOT ]; then
     eval "$(pyenv init --path)"
 fi
 
+# OrbStack
+if [ -f "$HOME/.orbstack/shell/init.zsh" ]; then
+    source $HOME/.orbstack/shell/init.zsh 2>/dev/null || :
+fi
+
 # Load local Config
 [ -f $HOME/.zprofile.local ] && source $HOME/.zprofile.local
