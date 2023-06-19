@@ -8,6 +8,7 @@
 2. Manual install:
    1. Clone this repo: `git clone --recursive https://github.com/arthurc0102/dotfiles.git ~/.dotfiles`.
    2. Run setup script: `sh ~/.dotfiles/setup.sh` or link config file to the right place by yourself.
+3. Font: <https://github.com/microsoft/cascadia-code>
 
 ## Setup
 
