@@ -20,6 +20,7 @@ plugins=(
   direnv
   poetry
   httpie
+  brew
 
   # Other Plugins
   zsh-completions
