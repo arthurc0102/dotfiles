@@ -27,7 +27,7 @@ if [ -d $PYENV_ROOT ]; then
     eval "$(pyenv init --path)"
 fi
 
-# OrbStack
+# OrbStack Config
 if [ -f "$HOME/.orbstack/shell/init.zsh" ]; then
     source $HOME/.orbstack/shell/init.zsh 2>/dev/null || :
 fi
