@@ -16,16 +16,27 @@
 
 Update name and email in `~/.gitconfig.user`
 
-If you need to use multi account add this to your `.gitconfig.user`
+If you need to use multi account add config below to your `.gitconfig.user`
 
 ```conf
-[includeIf "gitdir:~/Documents/projects/work/"]
+[includeIf "gitdir:/path/to/work/"]  # The trailing slash is necessary.
   path = ~/.gitconfig.work
+```
+
+Example for `.gitconfig.work`
+
+```conf
+[core]
+  sshCommand = "ssh -o IdentitiesOnly=yes -i ~/.ssh/work.pub"
+
+[user]
+  email = work@example.com
+  name = Your Name
 ```
 
 ### Pyenv
 
-Install pyenv: `git clone git://github.com/pyenv/pyenv.git ~/.pyenv`
+Install pyenv: `curl https://pyenv.run | bash`
 
 Install python:
 
