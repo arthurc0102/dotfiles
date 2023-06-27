@@ -37,20 +37,6 @@ setup_git() {
     cp -v $HOME/.dotfiles/git/gitconfig.user $HOME/.gitconfig.user
 }
 
-setup_karabiner() {
-    if [ $(uname) != "Darwin" ]; then
-        return;
-    fi
-
-    echo "Setup karabiner"
-
-    if [ ! -d "$HOME/.config/karabiner" ]; then
-        mkdir -pv $HOME/.config/karabiner
-    fi
-
-    ln -svf $HOME/.dotfiles/karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
-}
-
 setup_zsh() {
     echo "Setup zsh"
     ln -svf $HOME/.dotfiles/zsh/zshrc.zsh $HOME/.zshrc
@@ -70,7 +56,6 @@ main() {
     setup_dotfiles
     setup_tmux
     setup_git
-    setup_karabiner
     setup_zsh
     setup_ssh
 }
