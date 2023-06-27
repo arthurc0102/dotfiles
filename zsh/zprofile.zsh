@@ -3,6 +3,8 @@ export LC_ALL=en_US.UTF-8
 export PAGER="less -FX"
 export PATH="$HOME/.local/bin:$PATH"
 
+export HOMEBREW_NO_ANALYTICS=1
+
 # My Scripts
 if [ -d "$HOME/.dotfiles/scripts" ]; then
     export PATH="$HOME/.dotfiles/scripts:$PATH"
