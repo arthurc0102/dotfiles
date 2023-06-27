@@ -33,6 +33,7 @@ setup_tmux() {
 setup_git() {
     echo "Setup git"
     ln -svf $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
+    ln -svf $HOME/.dotfiles/git/git-cz.json $HOME/.git-cz.json
     cp -v $HOME/.dotfiles/git/gitconfig.user $HOME/.gitconfig.user
 }
 
