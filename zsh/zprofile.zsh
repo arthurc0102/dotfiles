@@ -32,5 +32,12 @@ if [ -f "$HOME/.orbstack/shell/init.zsh" ]; then
     source $HOME/.orbstack/shell/init.zsh 2>/dev/null || :
 fi
 
+# 1Password SSH Config: https://developer.1password.com/docs/ssh/get-started/
+if [ -S "$HOME/.1password/agent.sock" ]; then
+    export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+elif [ -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]; then
+    export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+fi
+
 # Load local Config
 [ -f $HOME/.zprofile.local ] && source $HOME/.zprofile.local
