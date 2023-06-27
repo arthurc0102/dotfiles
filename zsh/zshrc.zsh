@@ -10,7 +10,6 @@ plugins=(
   # Plugins
   cp
   git
-  ssh-agent
   pip
   pipenv
   pyenv
@@ -31,7 +30,5 @@ plugins=(
 
 export NVM_COMPLETION=true
 export NVM_LAZY_LOAD=true
-
-zstyle :omz:plugins:ssh-agent identities $SSH_AGENT_IDENTITIES
 
 source "$ZSH/oh-my-zsh.sh"

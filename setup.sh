@@ -44,12 +44,6 @@ setup_zsh() {
     cp -v $HOME/.dotfiles/zsh/zprofile.local.zsh $HOME/.zprofile.local
 }
 
-setup_ssh() {
-    echo "Setup ssh"
-
-    mkdir -pv $HOME/.ssh
-}
-
 main() {
     check
     setup_ohmyzsh
@@ -57,7 +51,6 @@ main() {
     setup_tmux
     setup_git
     setup_zsh
-    setup_ssh
 }
 
 main
