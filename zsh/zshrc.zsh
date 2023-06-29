@@ -11,7 +11,6 @@ plugins=(
   cp
   git
   pip
-  pipenv
   pyenv
   docker
   docker-compose
