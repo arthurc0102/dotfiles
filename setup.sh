@@ -19,21 +19,30 @@ setup_tmux() {
     fi
 
     ln -svf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
-    cp -v $HOME/.dotfiles/tmux/tmux.local.conf $HOME/.tmux.local.conf
+
+    if [ ! -f "$HOME/.tmux.local.conf" ]; then
+        cp -v $HOME/.dotfiles/tmux/tmux.local.conf $HOME/.tmux.local.conf
+    fi
 }
 
 setup_git() {
     echo "Setup git"
     ln -svf $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
-    cp -v $HOME/.dotfiles/git/gitconfig.user $HOME/.gitconfig.user
     ln -svf $HOME/.dotfiles/git/czrc $HOME/.czrc
+
+    if [ ! -f "$HOME/.gitconfig.user" ]; then
+        cp -v $HOME/.dotfiles/git/gitconfig.user $HOME/.gitconfig.user
+    fi
 }
 
 setup_zsh() {
     echo "Setup zsh"
     ln -svf $HOME/.dotfiles/zsh/zshrc.zsh $HOME/.zshrc
     ln -svf $HOME/.dotfiles/zsh/zprofile.zsh $HOME/.zprofile
-    cp -v $HOME/.dotfiles/zsh/zprofile.local.zsh $HOME/.zprofile.local
+
+    if [ ! -f "$HOME/.zprofile.local" ]; then
+        cp -v $HOME/.dotfiles/zsh/zprofile.local.zsh $HOME/.zprofile.local
+    fi
 }
 
 setup_pipx() {
