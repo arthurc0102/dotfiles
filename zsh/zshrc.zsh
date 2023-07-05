@@ -17,10 +17,10 @@ autoload -Uz _zinit
 # Load oh-my-zsh stuff
 
 zinit for \
-    OMZL::history.zsh \
     OMZL::key-bindings.zsh
 
 zinit wait lucid for \
+    OMZL::history.zsh \
     OMZL::clipboard.zsh \
     OMZL::directories.zsh \
     OMZL::git.zsh \
@@ -48,11 +48,12 @@ zinit wait lucid as"completion" for \
 zinit wait lucid for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
-    blockf \
+    atload"!_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions \
+    blockf atpull'zinit creinstall -q .' \
         zsh-users/zsh-completions
 
 zinit wait lucid for \
-    zsh-users/zsh-autosuggestions \
     zdharma-continuum/history-search-multi-word \
     paulirish/git-open
 
