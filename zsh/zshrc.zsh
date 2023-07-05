@@ -16,13 +16,15 @@ autoload -Uz _zinit
 
 # Load oh-my-zsh stuff
 
+zinit for \
+    OMZL::key-bindings.zsh
+
 zinit wait lucid for \
     OMZL::history.zsh \
     OMZL::clipboard.zsh \
     OMZL::directories.zsh \
     OMZL::git.zsh \
     OMZL::grep.zsh \
-    OMZL::key-bindings.zsh \
     OMZL::theme-and-appearance.zsh \
     OMZL::completion.zsh
 
