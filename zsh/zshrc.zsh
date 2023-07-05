@@ -52,7 +52,8 @@ zinit wait lucid for \
         zsh-users/zsh-autosuggestions
 
 zinit wait lucid for \
-    zdharma-continuum/history-search-multi-word
+    zdharma-continuum/history-search-multi-word \
+    paulirish/git-open
 
 
 # Load themes
