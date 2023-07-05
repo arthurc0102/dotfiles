@@ -23,7 +23,8 @@ zinit for \
     OMZL::git.zsh \
     OMZL::grep.zsh \
     OMZL::key-bindings.zsh \
-    OMZL::theme-and-appearance.zsh
+    OMZL::theme-and-appearance.zsh \
+    OMZL::completion.zsh
 
 zinit wait lucid for \
     OMZP::cp \
@@ -36,7 +37,8 @@ zinit wait lucid for \
 
 zinit as"completion" for \
     OMZP::pip/_pip \
-    OMZP::docker-compose/_docker-compose
+    OMZP::docker-compose/_docker-compose \
+    OMZP::nvm/_nvm
 
 
 # Load other plugins
