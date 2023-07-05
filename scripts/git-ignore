@@ -1,25 +1,35 @@
 #!/bin/bash
 
 main() {
-  if [ "$1" == "" ]; then
-    touch .gitignore
-    echo "Create empty ignore."
-    return
-  fi
+    local gitignore_file tmp_gitignore_file
 
-  status=$(curl -s -o .gitignore.tmp -w "%{http_code}" "https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore")
+    gitignore_file='.gitignore'
+    tmp_gitignore_file='.gitignore.tmp'
 
-  if [ $status -ne "200" ]; then
-    echo "Error!"
-    echo "Status code: $status"
-    echo "Response: $(cat .gitignore.tmp)"
+    if [ -f $gitignore_file ]; then
+        echo "File '$gitignore_file' already exists."
+        return
+    fi
 
-    rm .gitignore.tmp
-    exit 1
-  fi
+    if [ "$1" == "" ]; then
+        touch $gitignore_file
+        echo "Create empty ignore."
+        return
+    fi
 
-  mv .gitignore.tmp .gitignore
-  echo "Add $1's ignore success."
+    status=$(curl -s -o $tmp_gitignore_file -w "%{http_code}" "https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore")
+
+    if [ $status -ne "200" ]; then
+        echo "Error!"
+        echo "Status code: $status"
+        echo "Response: $(cat $tmp_gitignore_file)"
+
+        rm $tmp_gitignore_file
+        exit 1
+    fi
+
+    mv $tmp_gitignore_file $gitignore_file
+    echo "Add $1's ignore success."
 }
 
 main "$1"

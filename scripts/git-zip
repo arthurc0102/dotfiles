@@ -1,7 +1,12 @@
 #!/bin/bash
 
 main() {
-  git archive -o ../$(echo ${PWD##*/})-$(git log --pretty=format:"%h" -1).tar.gz HEAD
+    local repo_name commit_hash
+
+    repo_name=$(echo ${PWD##*/} | sed -r 's/^\.//')  # remove first char if it's dot
+    commit_hash=$(git log --pretty=format:"%h" -1)
+
+    git archive -v --prefix "${repo_name}/" -o ${repo_name}-${commit_hash}.tar.gz HEAD
 }
 
 main

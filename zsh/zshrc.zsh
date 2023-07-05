@@ -1,33 +1,64 @@
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
+# Intall zinit
 
-ZSH_CACHE_DIR="$ZSH/cache"
-ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump"
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-ZSH_THEME="spaceship"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname ${ZINIT_HOME})"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "${ZINIT_HOME}"
 
-plugins=(
-  # Plugins
-  cp
-  git
-  pip
-  pyenv
-  docker
-  docker-compose
-  web-search
-  direnv
-  poetry
-  httpie
-  brew
+source "${ZINIT_HOME}/zinit.zsh"
 
-  # Other Plugins
-  zsh-completions
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  zsh-nvm
-)
 
-export NVM_COMPLETION=true
-export NVM_LAZY_LOAD=true
+# Setup compinit for zinit
 
-source "$ZSH/oh-my-zsh.sh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+
+# Load oh-my-zsh stuff
+
+zinit for \
+    OMZL::history.zsh \
+    OMZL::clipboard.zsh \
+    OMZL::directories.zsh \
+    OMZL::git.zsh \
+    OMZL::grep.zsh \
+    OMZL::key-bindings.zsh \
+    OMZL::theme-and-appearance.zsh
+
+zinit wait lucid for \
+    OMZP::cp \
+    OMZP::git \
+    OMZP::pip \
+    OMZP::pyenv \
+    OMZP::poetry \
+    OMZP::brew \
+    OMZP::nvm
+
+zinit as"completion" for \
+    OMZP::pip/_pip \
+    OMZP::docker-compose/_docker-compose
+
+
+# Load other plugins
+
+zinit wait lucid for \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+        zdharma-continuum/fast-syntax-highlighting \
+    blockf \
+        zsh-users/zsh-completions \
+    atload"!_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions
+
+zinit wait lucid for \
+    zdharma-continuum/history-search-multi-word
+
+
+# Load themes
+
+source ${HOME}/.dotfiles/zsh/theme/*.zsh
+zinit light spaceship-prompt/spaceship-prompt
+
+
+# Load custom
+
+source ${HOME}/.dotfiles/zsh/custom/*.zsh

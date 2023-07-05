@@ -1,22 +1,14 @@
-# Repo: https://github.com/arthurc0102/dotfiles
 set -e
 
 check() {
-    echo "Check."
+    echo "Checked"
     command -v git > /dev/null || { echo "Git not installed"; exit 1; }
-}
-
-setup_ohmyzsh() {
-    echo "Setup oh-my-zsh"
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
-    fi
 }
 
 setup_dotfiles() {
     echo "Setup dotfiles"
     if [ ! -d "$HOME/.dotfiles" ]; then
-        git clone --recursive https://github.com/arthurc0102/dotfiles.git $HOME/.dotfiles
+        git clone https://github.com/arthurc0102/dotfiles.git $HOME/.dotfiles
     fi
 }
 
@@ -34,6 +26,7 @@ setup_git() {
     echo "Setup git"
     ln -svf $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
     cp -v $HOME/.dotfiles/git/gitconfig.user $HOME/.gitconfig.user
+    ln -svf $HOME/.dotfiles/git/czrc $HOME/.czrc
 }
 
 setup_zsh() {
@@ -43,13 +36,55 @@ setup_zsh() {
     cp -v $HOME/.dotfiles/zsh/zprofile.local.zsh $HOME/.zprofile.local
 }
 
+setup_pipx() {
+    if command -v pip3 > /dev/null; then
+        echo "Setup pipx"
+        ./setup-pipx.sh
+    else
+        echo "Command 'pip3' not found skip pipx install, you can run 'setup-pipx.sh' later"
+    fi
+}
+
+install_pyenv() {
+    if [ ! -d "$HOME/.pyenv" ]; then
+        echo "Install pyenv"
+        curl https://pyenv.run | bash
+    else
+        echo "Pyenv already exists"
+    fi
+}
+
+install_nvm() {
+    local nvm_dir
+
+    nvm_dir="$HOME/.nvm"
+
+    if [ ! -d "$nvm_dir" ]; then
+        echo "Install nvm"
+        git clone https://github.com/nvm-sh/nvm.git "$nvm_dir"
+        cd "$nvm_dir"
+        git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+    else
+        echo "Nvm already exists"
+    fi
+}
+
 main() {
     check
-    setup_ohmyzsh
+    echo
     setup_dotfiles
+    echo
     setup_tmux
+    echo
     setup_git
+    echo
     setup_zsh
+    echo
+    setup_pipx
+    echo
+    install_pyenv
+    echo
+    install_nvm
 }
 
 main

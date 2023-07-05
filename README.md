@@ -6,9 +6,8 @@
 
 1. Auto install: `curl -sL http://df.arthurc.me/setup.sh | sh`
 2. Manual install:
-   1. Clone this repo: `git clone --recursive https://github.com/arthurc0102/dotfiles.git ~/.dotfiles`.
-   2. Run setup script: `sh ~/.dotfiles/setup.sh` or link config file to the right place by yourself.
-3. Font: <https://github.com/microsoft/cascadia-code>
+  1. Clone this repo: `git clone https://github.com/arthurc0102/dotfiles.git ~/.dotfiles`.
+  2. Run setup script: `sh ~/.dotfiles/setup.sh` or link config file to the right place by yourself.
 
 ## Setup
 
@@ -54,7 +53,7 @@ Install `argcomplete` for pipx autocomplete: `pipx install argcomplete`.
 
 ### Nvm
 
-Install nvm: `git clone git://github.com/nvm-sh/nvm.git ~.nvm`
+Install nvm: `git clone https://github.com/nvm-sh/nvm.git ~/.nvm`
 
 Install node:
 
@@ -62,6 +61,11 @@ Install node:
 nvm install --lts
 nvm use --lts
 ```
+
+### Font
+
+Cascadia Code: <https://github.com/microsoft/cascadia-code>
+
 
 ## Test
 
