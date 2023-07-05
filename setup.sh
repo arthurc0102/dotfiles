@@ -46,11 +46,15 @@ setup_zsh() {
 }
 
 setup_pipx() {
-    if command -v pip3 > /dev/null; then
-        echo "Setup pipx"
-        ./setup-pipx.sh
+    if command -v pipx > /dev/null; then
+        echo "Pipx already installed"
     else
-        echo "Command 'pip3' not found skip pipx install, you can run 'setup-pipx.sh' later"
+        if command -v pip3 > /dev/null; then
+            echo "Setup pipx"
+            ./setup-pipx.sh
+        else
+            echo "Command 'pip3' not found skip pipx install, you can run 'setup-pipx.sh' later"
+        fi
     fi
 }
 
