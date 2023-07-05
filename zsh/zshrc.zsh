@@ -49,21 +49,27 @@ zinit wait lucid for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
     blockf \
-        zsh-users/zsh-completions \
-    atload"!_zsh_autosuggest_start" \
-        zsh-users/zsh-autosuggestions
+        zsh-users/zsh-completions
 
 zinit wait lucid for \
+    zsh-users/zsh-autosuggestions \
     zdharma-continuum/history-search-multi-word \
     paulirish/git-open
 
 
 # Load themes
 
-source ${HOME}/.dotfiles/zsh/theme/*.zsh
+source ${HOME}/.dotfiles/zsh/theme/spaceship.zsh
 zinit light spaceship-prompt/spaceship-prompt
 
 
 # Load custom
 
-source ${HOME}/.dotfiles/zsh/custom/*.zsh
+zinit wait lucid is-snippet for \
+    ${HOME}/.dotfiles/zsh/custom/alias.zsh \
+    ${HOME}/.dotfiles/zsh/custom/config.zsh \
+    ${HOME}/.dotfiles/zsh/custom/golang.zsh \
+    atload"zicompinit; zicdreplay" \
+        ${HOME}/.dotfiles/zsh/custom/git.zsh \
+    atload"zicompinit; zicdreplay" \
+        ${HOME}/.dotfiles/zsh/custom/python.zsh
