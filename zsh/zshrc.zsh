@@ -17,10 +17,10 @@ autoload -Uz _zinit
 # Load oh-my-zsh stuff
 
 zinit for \
+    OMZL::history.zsh \
     OMZL::key-bindings.zsh
 
 zinit wait lucid for \
-    OMZL::history.zsh \
     OMZL::clipboard.zsh \
     OMZL::directories.zsh \
     OMZL::git.zsh \
