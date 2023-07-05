@@ -16,7 +16,7 @@ autoload -Uz _zinit
 
 # Load oh-my-zsh stuff
 
-zinit for \
+zinit wait lucid for \
     OMZL::history.zsh \
     OMZL::clipboard.zsh \
     OMZL::directories.zsh \
@@ -35,7 +35,7 @@ zinit wait lucid for \
     OMZP::brew \
     OMZP::nvm
 
-zinit as"completion" for \
+zinit wait lucid as"completion" for \
     OMZP::pip/_pip \
     OMZP::docker-compose/_docker-compose \
     OMZP::nvm/_nvm
