@@ -48,20 +48,10 @@ zinit wait lucid as"completion" for \
 zinit wait lucid for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
-    atload"!_zsh_autosuggest_start" \
-        zsh-users/zsh-autosuggestions \
-    blockf atpull'zinit creinstall -q .' \
-        zsh-users/zsh-completions
-
-zinit wait lucid for \
+    blockf atpull"zinit creinstall -q ." \
+        zsh-users/zsh-completions \
     zdharma-continuum/history-search-multi-word \
     paulirish/git-open
-
-
-# Load themes
-
-source ${HOME}/.dotfiles/zsh/theme/spaceship.zsh
-zinit light spaceship-prompt/spaceship-prompt
 
 
 # Load custom
@@ -72,3 +62,16 @@ zinit wait lucid is-snippet for \
     ${HOME}/.dotfiles/zsh/custom/golang.zsh \
     atload"zicompinit; zicdreplay" \
         ${HOME}/.dotfiles/zsh/custom/python.zsh
+
+
+# Load autosuggestions (這個必須要是最後一個載入的 plugin 才不會造成 tab 按下後自動選取 autosuggestions 的內容)
+
+zinit wait lucid for \
+    atload"!_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions
+
+
+# Load themes
+
+source ${HOME}/.dotfiles/zsh/theme/spaceship.zsh
+zinit light spaceship-prompt/spaceship-prompt
