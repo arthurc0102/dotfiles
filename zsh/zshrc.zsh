@@ -70,6 +70,4 @@ zinit wait lucid is-snippet for \
     ${HOME}/.dotfiles/zsh/custom/config.zsh \
     ${HOME}/.dotfiles/zsh/custom/golang.zsh \
     atload"zicompinit; zicdreplay" \
-        ${HOME}/.dotfiles/zsh/custom/git.zsh \
-    atload"zicompinit; zicdreplay" \
         ${HOME}/.dotfiles/zsh/custom/python.zsh
