@@ -53,6 +53,9 @@ zinit wait lucid for \
     zdharma-continuum/history-search-multi-word \
     paulirish/git-open
 
+zinit wait lucid as"completion" for \
+    https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
 
 # Load custom
 
