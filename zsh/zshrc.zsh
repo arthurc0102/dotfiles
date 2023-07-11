@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Intall zinit
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -83,6 +76,13 @@ zinit wait lucid for \
 
 # Load themes
 
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
-source ${HOME}/.dotfiles/zsh/theme/p10k.zsh  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+zinit ice \
+    as"command" \
+    from"gh-r" \
+    atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+    atpull"%atclone" \
+    src"init.zsh"
+
+export VIRTUAL_ENV_DISABLE_PROMPT=true  # Starship will control venv prompt.
+export STARSHIP_CONFIG=${HOME}/.dotfiles/zsh/theme/starship.toml
+zinit light starship/starship

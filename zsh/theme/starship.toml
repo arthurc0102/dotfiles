@@ -1,0 +1,78 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Left prompt config
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$fill \
+$status\
+$time\
+$cmd_duration\
+$jobs\
+$line_break\
+$python\
+$character"""
+
+# Plugin config
+[fill]
+symbol = "·"
+
+[username]
+format = "[$user]($style) at "
+
+[hostname]
+format = "[$hostname]($style) in "
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+truncation_symbol = ".../"
+style = "cyan bold"
+repo_root_style = "cyan bold"
+before_repo_root_style = "cyan bold dimmed"
+
+[git_branch]
+symbol = ''
+
+[git_commit]
+format = 'on [(@$hash)( \($tag\))]($style) '
+tag_disabled = false
+tag_symbol = ''
+style = "purple bold"
+
+[git_status]
+up_to_date = "[=](purple bold) "
+ahead = "[⇡${count}](purple bold) "
+behind = "[⇣${count}](purple bold) "
+diverged = "[⇣${behind_count}⇡${ahead_count}](purple bold) "
+conflicted = "[~${count}](196 bold) "
+untracked = "[?${count}](39 bold) "
+stashed = "[*${count}](76 bold) "
+modified = "[!${count}](178 bold) "
+staged = "[+${count}](178 bold) "
+renamed = "[»${count}](178 bold) "
+deleted = "[✘${count}](red bold) "
+format = "$ahead_behind$all_status"
+
+[python]
+format = '[(\([$virtualenv](purple bold)\) )]($style)'
+style = "white bold"
+
+[status]
+disabled = false
+symbol = "✘"
+
+[time]
+disabled = false
+
+[cmd_duration]
+min_time = 0
