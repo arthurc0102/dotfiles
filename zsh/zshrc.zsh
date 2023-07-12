@@ -23,8 +23,7 @@ mkdir -p "$ZSH_CACHE_DIR/completions"
 # Load oh-my-zsh stuff
 
 zinit for \
-    OMZL::history.zsh \
-    OMZL::key-bindings.zsh
+    OMZL::history.zsh
 
 zinit wait lucid for \
     OMZL::clipboard.zsh \
