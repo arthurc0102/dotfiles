@@ -50,6 +50,11 @@ zinit wait lucid as"completion" for \
 
 # Load other plugins
 
+# NOTE:
+# 如果不喜歡 zdharma-continuum/history-search-multi-word 可以將它刪除並增加下方 bindkey 設定，支援使用 `*` 搜尋
+# bindkey "^r" history-incremental-pattern-search-backward
+# bindkey "^s" history-incremental-pattern-search-forward
+
 zinit wait lucid for \
     blockf atpull"zinit creinstall -q ." \
         zsh-users/zsh-completions \
