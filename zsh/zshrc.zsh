@@ -51,8 +51,6 @@ zinit wait lucid as"completion" for \
 # Load other plugins
 
 zinit wait lucid for \
-    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-        zdharma-continuum/fast-syntax-highlighting \
     blockf atpull"zinit creinstall -q ." \
         zsh-users/zsh-completions \
     zdharma-continuum/history-search-multi-word \
@@ -73,8 +71,11 @@ zinit wait lucid is-snippet for \
 
 
 # Load autosuggestions (這個必須要是最後一個載入的 plugin 才不會造成 tab 按下後自動選取 autosuggestions 的內容)
+# Fast syntax highlighting 也需要在最後才會正常顯示顏色
 
 zinit wait lucid for \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+        zdharma-continuum/fast-syntax-highlighting \
     atload"!_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions
 
