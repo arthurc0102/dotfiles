@@ -6,8 +6,8 @@
 
 1. Auto install: `curl -sL http://df.arthurc.me/setup.sh | sh`
 2. Manual install:
-  1. Clone this repo: `git clone https://github.com/arthurc0102/dotfiles.git ~/.dotfiles`.
-  2. Run setup script: `sh ~/.dotfiles/setup.sh` or link config file to the right place by yourself.
+    1. Clone this repo: `git clone https://github.com/arthurc0102/dotfiles.git ~/.dotfiles`.
+    2. Run setup script: `sh ~/.dotfiles/setup.sh` or link config file to the right place by yourself.
 
 ## Setup
 
@@ -65,7 +65,6 @@ nvm use --lts
 ### Font
 
 Cascadia Code: <https://github.com/microsoft/cascadia-code>
-
 
 ## Test
 
