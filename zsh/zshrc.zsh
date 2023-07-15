@@ -37,7 +37,6 @@ zinit wait lucid for \
     OMZP::cp \
     OMZP::git \
     OMZP::pip \
-    OMZP::pyenv \
     OMZP::poetry \
     OMZP::brew \
     OMZP::nvm
