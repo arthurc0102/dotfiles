@@ -37,7 +37,6 @@ zinit wait lucid for \
     OMZP::cp \
     OMZP::git \
     OMZP::pip \
-    OMZP::poetry \
     OMZP::brew \
     OMZP::nvm
 
@@ -63,6 +62,16 @@ zinit wait lucid for \
 # 用這個 completion 才能補全 image 或 container 名稱，用 Oh-My-Zsh Plugin 所產的沒辦法
 zinit wait lucid as"completion" for \
     https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
+zinit wait lucid for \
+    id-as'poetry-completion' \
+    as'completion' \
+    atclone'poetry completions zsh > _poetry' \
+    atpull'%atclone' \
+    blockf \
+    has'poetry' \
+    nocompile \
+        zdharma-continuum/null
 
 
 # Load custom
