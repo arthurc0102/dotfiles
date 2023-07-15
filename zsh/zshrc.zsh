@@ -20,6 +20,18 @@ mkdir -p "$ZSH_CACHE_DIR/completions"
 (( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
 
 
+# Options
+
+setopt interactivecomments  # recognize comments
+
+
+# Key binding
+
+bindkey ' ' magic-space
+bindkey "^r" history-incremental-pattern-search-backward
+bindkey "^s" history-incremental-pattern-search-forward
+
+
 # Load oh-my-zsh stuff
 
 zinit for \
@@ -48,15 +60,12 @@ zinit wait lucid as"completion" for \
 
 # Load other plugins
 
-# NOTE:
-# 如果不喜歡 zdharma-continuum/history-search-multi-word 可以將它刪除並增加下方 bindkey 設定，支援使用 `*` 搜尋
-# bindkey "^r" history-incremental-pattern-search-backward
-# bindkey "^s" history-incremental-pattern-search-forward
-
+# Remap Ctrl+r for Alt+r for zdharma-continuum/history-search-multi-word
 zinit wait lucid for \
     blockf atpull"zinit creinstall -q ." \
         zsh-users/zsh-completions \
-    zdharma-continuum/history-search-multi-word \
+    bindmap'^R -> ^[r' \
+        zdharma-continuum/history-search-multi-word \
     paulirish/git-open
 
 # 用這個 completion 才能補全 image 或 container 名稱，用 Oh-My-Zsh Plugin 所產的沒辦法
