@@ -14,7 +14,7 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 
-# Create cache and completions dir and add to $fpath
+# Create cache and completions dir and add to $fpath (for oh-my-zsh plugins)
 
 mkdir -p "$ZSH_CACHE_DIR/completions"
 (( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
@@ -61,6 +61,7 @@ zinit wait lucid for \
     zdharma-continuum/history-search-multi-word \
     paulirish/git-open
 
+# 用這個 completion 才能補全 image 或 container 名稱，用 Oh-My-Zsh Plugin 所產的沒辦法
 zinit wait lucid as"completion" for \
     https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
