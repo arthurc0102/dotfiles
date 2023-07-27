@@ -7,15 +7,6 @@ if command -v pipx > /dev/null; then
     fi
 fi
 
-# Commitizen
-if command -v cz > /dev/null; then
-    if command -v register-python-argcomplete > /dev/null; then
-        eval "$(register-python-argcomplete cz)"
-    else
-        echo "Command 'register-python-argcomplete' not found. If you need autocomplete for 'cz' install package 'argcomplete'."
-    fi
-fi
-
 # Pyenv
 if command -v pyenv > /dev/null; then
     # 不使用 Oh-My-Zsh 的 pyenv plugin 的原因是因為我們使用非同步的方法 init pyenv 但他們呼叫 init 時會重新設定 PATH
@@ -24,7 +15,6 @@ if command -v pyenv > /dev/null; then
     # Add pyenv shims to $PATH if not already added
     if [[ -z "${path[(Re)$(pyenv root)/shims]}" ]]; then
         eval "$(pyenv init --path)"
-        echo "NONO"
     fi
 
     # Load pyenv
