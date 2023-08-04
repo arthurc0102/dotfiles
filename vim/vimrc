@@ -1,0 +1,7 @@
+" Turn syntax highlighting on.
+if has("syntax")
+  syntax on
+endif
+
+" Add numbers to each line on the left-hand side.
+set number

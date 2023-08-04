@@ -58,6 +58,15 @@ setup_pipx() {
     fi
 }
 
+setup_vim() {
+    echo "Setup vim"
+    if [ ! -f "$HOME/.vimrc" ]; then
+        ln -svf $HOME/.dotfiles/vim/vimrc $HOME/.vimrc
+    else
+        echo "Skip vim setup because config file already found"
+    fi
+}
+
 install_pyenv() {
     if [ ! -d "$HOME/.pyenv" ]; then
         echo "Install pyenv"
@@ -94,6 +103,8 @@ main() {
     setup_zsh
     echo
     setup_pipx
+    echo
+    setup_vim
     echo
     install_pyenv
     echo
