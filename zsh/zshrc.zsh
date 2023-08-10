@@ -82,6 +82,10 @@ zinit wait lucid for \
     nocompile \
         zdharma-continuum/null
 
+zinit wait lucid as"program" from"gh-r" for \
+    mv"delta* -> delta" \
+    pick"delta/delta" \
+        dandavison/delta
 
 # Load custom
 
