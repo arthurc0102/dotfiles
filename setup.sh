@@ -91,6 +91,18 @@ install_nvm() {
     fi
 }
 
+setup_lazygit() {
+    local lazygit_dir
+
+    if [ "$(uname)" == "Darwin" ]; then
+        lazygit_dir="$HOME/Library/Application Support/lazygit"
+    else
+        lazygit_dir="$HOME/.config/lazygit"
+    fi
+
+    ln -svf $HOME/.dotfiles/lazygit/config.yml "$lazygit_dir/config.yml"
+}
+
 main() {
     check
     echo
@@ -109,6 +121,8 @@ main() {
     install_pyenv
     echo
     install_nvm
+    echo
+    setup_lazygit
 }
 
 main
