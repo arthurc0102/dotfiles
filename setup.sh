@@ -103,6 +103,18 @@ setup_lazygit() {
     ln -svf $HOME/.dotfiles/lazygit/config.yml "$lazygit_dir/config.yml"
 }
 
+setup_emacs() {
+    echo "Setup emacs"
+
+    if [ ! -d "$HOME/.emacs.d" ]; then
+        git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
+    else
+        echo "Skip spacemacs download becasuse '.emacs.d' folder exists"
+    fi
+
+    ln -svf $HOME/.dotfiles/emacs/spacemacs $HOME/.spacemacs
+}
+
 main() {
     check
     echo
@@ -123,6 +135,8 @@ main() {
     install_nvm
     echo
     setup_lazygit
+    echo
+    setup_emacs
 }
 
 main
