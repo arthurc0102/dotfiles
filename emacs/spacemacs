@@ -58,7 +58,8 @@ This function should only modify configuration layer settings."
      (python :variables
              python-backend 'lsp
              python-lsp-server 'pyright
-             python-formatter 'black))
+             python-formatter 'black)
+     neotree)
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -574,6 +575,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (xterm-mouse-mode -1)
 )
 
 
