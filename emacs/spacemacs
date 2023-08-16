@@ -593,5 +593,9 @@ before packages are loaded."
 (add-hook 'yaml-mode 'arthurc0102/enable-highlight-indentation)
 
 
+(add-hook 'python-mode-hook (lambda ()
+                              (setq display-fill-column-indicator-column 88)
+                              (display-fill-column-indicator-mode)))
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
