@@ -580,5 +580,18 @@ before packages are loaded."
 )
 
 
+;; My Config
+
+
+(defun arthurc0102/enable-highlight-indentation ()
+  (highlight-indentation-mode)
+  (highlight-indentation-current-column-mode)
+  (set-face-background 'highlight-indentation-face "#434445")
+  (set-face-background 'highlight-indentation-current-column-face "#5b5c5e"))
+
+(add-hook 'python-mode-hook 'arthurc0102/enable-highlight-indentation)
+(add-hook 'yaml-mode 'arthurc0102/enable-highlight-indentation)
+
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
