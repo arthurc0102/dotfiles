@@ -59,7 +59,8 @@ This function should only modify configuration layer settings."
              python-backend 'lsp
              python-lsp-server 'pyright
              python-formatter 'black)
-     neotree)
+     neotree
+     yaml)
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -590,7 +591,7 @@ before packages are loaded."
   (set-face-background 'highlight-indentation-current-column-face "#5b5c5e"))
 
 (add-hook 'python-mode-hook 'arthurc0102/enable-highlight-indentation)
-(add-hook 'yaml-mode 'arthurc0102/enable-highlight-indentation)
+(add-hook 'yaml-mode-hook 'arthurc0102/enable-highlight-indentation)
 
 
 (add-hook 'python-mode-hook (lambda ()
