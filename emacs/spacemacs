@@ -578,6 +578,8 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (xterm-mouse-mode -1)
+  (setq python-shell-interpreter "python"
+        python-shell-interpreter-args "-i")
 )
 
 
