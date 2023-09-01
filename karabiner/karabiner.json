@@ -307,6 +307,124 @@
                 ]
               }
             ]
+          },
+          {
+            "description": "Don't swap option and cmd when with grave_accent_and_tilde",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.microsoft\\.VSCode$",
+                      "^com\\.microsoft\\.VSCodeInsiders$"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": {
+                    "mandatory": ["left_option"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": ["left_command"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.microsoft\\.VSCode$",
+                      "^com\\.microsoft\\.VSCodeInsiders$"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": ["left_option"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Don't swap option and cmd when with ctrl+q",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.microsoft\\.VSCode$",
+                      "^com\\.microsoft\\.VSCodeInsiders$"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "i",
+                    "modifiers": ["left_control", "left_command"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.microsoft\\.VSCode$",
+                      "^com\\.microsoft\\.VSCodeInsiders$"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "i",
+                    "modifiers": ["left_control", "left_option"]
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
