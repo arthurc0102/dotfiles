@@ -18,7 +18,7 @@
         },
         "rules": [
           {
-            "description": "Swap option and cmd in terminal and vscode, except cmd/option with space, tab, shift+s and shift+i",
+            "description": "Swap option and cmd in terminal and vscode",
             "manipulators": [
               {
                 "type": "basic",
@@ -69,7 +69,12 @@
                     "key_code": "left_command"
                   }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "description": "Don't swap option and cmd when with tab",
+            "manipulators": [
               {
                 "type": "basic",
                 "conditions": [
@@ -123,7 +128,12 @@
                     "modifiers": ["left_option"]
                   }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "description": "Don't swap option and cmd when with space",
+            "manipulators": [
               {
                 "type": "basic",
                 "conditions": [
@@ -177,7 +187,12 @@
                     "modifiers": ["left_option"]
                   }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "description": "Don't swap option and cmd when with shift+s",
+            "manipulators": [
               {
                 "type": "basic",
                 "conditions": [
@@ -231,7 +246,12 @@
                     "modifiers": ["left_shift", "left_option"]
                   }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "description": "Don't swap option and cmd when with shift+i",
+            "manipulators": [
               {
                 "type": "basic",
                 "conditions": [
