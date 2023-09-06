@@ -21,16 +21,15 @@
             "description": "Swap option and cmd in terminal and vscode",
             "manipulators": [
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -43,19 +42,19 @@
                   {
                     "key_code": "left_option"
                   }
-                ]
+                ],
+                "type": "basic"
               },
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -68,7 +67,8 @@
                   {
                     "key_code": "left_command"
                   }
-                ]
+                ],
+                "type": "basic"
               }
             ]
           },
@@ -76,16 +76,15 @@
             "description": "Don't swap option and cmd when with tab",
             "manipulators": [
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -100,19 +99,19 @@
                     "key_code": "tab",
                     "modifiers": ["left_command"]
                   }
-                ]
+                ],
+                "type": "basic"
               },
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -127,7 +126,8 @@
                     "key_code": "tab",
                     "modifiers": ["left_option"]
                   }
-                ]
+                ],
+                "type": "basic"
               }
             ]
           },
@@ -135,16 +135,15 @@
             "description": "Don't swap option and cmd when with space",
             "manipulators": [
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -159,19 +158,19 @@
                     "key_code": "spacebar",
                     "modifiers": ["left_command"]
                   }
-                ]
+                ],
+                "type": "basic"
               },
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -186,7 +185,8 @@
                     "key_code": "spacebar",
                     "modifiers": ["left_option"]
                   }
-                ]
+                ],
+                "type": "basic"
               }
             ]
           },
@@ -194,16 +194,15 @@
             "description": "Don't swap option and cmd when with shift+s",
             "manipulators": [
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -218,19 +217,19 @@
                     "key_code": "s",
                     "modifiers": ["left_shift", "left_command"]
                   }
-                ]
+                ],
+                "type": "basic"
               },
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -245,7 +244,8 @@
                     "key_code": "s",
                     "modifiers": ["left_shift", "left_option"]
                   }
-                ]
+                ],
+                "type": "basic"
               }
             ]
           },
@@ -253,16 +253,15 @@
             "description": "Don't swap option and cmd when with shift+i",
             "manipulators": [
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -277,19 +276,19 @@
                     "key_code": "i",
                     "modifiers": ["left_shift", "left_command"]
                   }
-                ]
+                ],
+                "type": "basic"
               },
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -304,7 +303,8 @@
                     "key_code": "i",
                     "modifiers": ["left_shift", "left_option"]
                   }
-                ]
+                ],
+                "type": "basic"
               }
             ]
           },
@@ -312,16 +312,15 @@
             "description": "Don't swap option and cmd when with grave_accent_and_tilde",
             "manipulators": [
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -336,19 +335,19 @@
                     "key_code": "grave_accent_and_tilde",
                     "modifiers": ["left_command"]
                   }
-                ]
+                ],
+                "type": "basic"
               },
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -363,7 +362,8 @@
                     "key_code": "grave_accent_and_tilde",
                     "modifiers": ["left_option"]
                   }
-                ]
+                ],
+                "type": "basic"
               }
             ]
           },
@@ -371,16 +371,15 @@
             "description": "Don't swap option and cmd when with ctrl+q",
             "manipulators": [
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -395,19 +394,19 @@
                     "key_code": "q",
                     "modifiers": ["left_control", "left_command"]
                   }
-                ]
+                ],
+                "type": "basic"
               },
               {
-                "type": "basic",
                 "conditions": [
                   {
-                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.VSCode$",
                       "^com\\.microsoft\\.VSCodeInsiders$"
-                    ]
+                    ],
+                    "type": "frontmost_application_if"
                   }
                 ],
                 "from": {
@@ -422,7 +421,8 @@
                     "key_code": "q",
                     "modifiers": ["left_control", "left_option"]
                   }
-                ]
+                ],
+                "type": "basic"
               }
             ]
           }
@@ -479,6 +479,20 @@
           },
           "ignore": true,
           "manipulate_caps_lock_led": false,
+          "simple_modifications": [],
+          "treat_as_built_in_keyboard": false
+        },
+        {
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 643,
+            "vendor_id": 13364
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": true,
           "simple_modifications": [],
           "treat_as_built_in_keyboard": false
         }
