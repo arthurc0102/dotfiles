@@ -66,7 +66,8 @@ zinit wait lucid for \
         zsh-users/zsh-completions \
     bindmap'^R -> ^[r' \
         zdharma-continuum/history-search-multi-word \
-    paulirish/git-open
+    as"command" \
+        https://github.com/paulirish/git-open/blob/master/git-open
 
 # 用這個 completion 才能補全 image 或 container 名稱，用 Oh-My-Zsh Plugin 所產的沒辦法
 zinit wait lucid as"completion" for \
@@ -84,7 +85,9 @@ zinit wait lucid for \
 
 zinit wait lucid as"program" from"gh-r" for \
     mv"delta* -> delta" \
-    pick"delta/delta" \
+    atclone"mkdir -p bin; mv delta/delta bin" \
+    atpull"%atclone" \
+    pick"bin/delta" \
         dandavison/delta
 
 # Load custom
@@ -112,9 +115,10 @@ zinit wait lucid for \
 zinit ice \
     as"command" \
     from"gh-r" \
-    atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+    atclone"mkdir -p bin; mv starship bin; bin/starship init zsh > init.zsh; bin/starship completions zsh > _starship" \
     atpull"%atclone" \
-    src"init.zsh"
+    src"init.zsh" \
+    pick"bin/starship"
 
 export VIRTUAL_ENV_DISABLE_PROMPT=true  # Starship will control venv prompt.
 export STARSHIP_CONFIG=${HOME}/.dotfiles/zsh/theme/starship.toml
