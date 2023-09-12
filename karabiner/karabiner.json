@@ -425,6 +425,124 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Don't swap option and cmd when with shift+3",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.microsoft\\.VSCode$",
+                      "^com\\.microsoft\\.VSCodeInsiders$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {
+                    "mandatory": ["left_shift", "left_option"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "3",
+                    "modifiers": ["left_shift", "left_command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.microsoft\\.VSCode$",
+                      "^com\\.microsoft\\.VSCodeInsiders$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {
+                    "mandatory": ["left_shift", "left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "3",
+                    "modifiers": ["left_shift", "left_option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Don't swap option and cmd when with shift+4",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.microsoft\\.VSCode$",
+                      "^com\\.microsoft\\.VSCodeInsiders$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "4",
+                  "modifiers": {
+                    "mandatory": ["left_shift", "left_option"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "4",
+                    "modifiers": ["left_shift", "left_command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.microsoft\\.VSCode$",
+                      "^com\\.microsoft\\.VSCodeInsiders$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "4",
+                  "modifiers": {
+                    "mandatory": ["left_shift", "left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "4",
+                    "modifiers": ["left_shift", "left_option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
