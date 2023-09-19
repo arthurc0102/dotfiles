@@ -35,7 +35,8 @@ bindkey "^s" history-incremental-pattern-search-forward
 # Load oh-my-zsh stuff
 
 zinit for \
-    OMZL::history.zsh
+    OMZL::history.zsh \
+    OMZP::brew
 
 zinit wait lucid for \
     OMZL::clipboard.zsh \
@@ -49,7 +50,6 @@ zinit wait lucid for \
     OMZP::cp \
     OMZP::git \
     OMZP::pip \
-    OMZP::brew \
     OMZP::nvm
 
 zinit wait lucid as"completion" for \
@@ -80,6 +80,16 @@ zinit wait lucid for \
     atpull'%atclone' \
     blockf \
     has'poetry' \
+    nocompile \
+        zdharma-continuum/null
+
+zinit wait lucid for \
+    id-as'1password-completion' \
+    as'completion' \
+    atclone'op completion zsh > _op' \
+    atpull'%atclone' \
+    blockf \
+    has'op' \
     nocompile \
         zdharma-continuum/null
 
