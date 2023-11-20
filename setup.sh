@@ -100,6 +100,7 @@ setup_lazygit() {
         lazygit_dir="$HOME/.config/lazygit"
     fi
 
+    mkdir -p "$lazygit_dir"
     ln -svf $HOME/.dotfiles/lazygit/config.yml "$lazygit_dir/config.yml"
 }
 
