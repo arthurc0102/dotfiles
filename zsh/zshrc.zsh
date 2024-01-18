@@ -109,7 +109,9 @@ zinit wait lucid is-snippet for \
     ${HOME}/.dotfiles/zsh/custom/alias.zsh \
     ${HOME}/.dotfiles/zsh/custom/config.zsh \
     atload"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-        ${HOME}/.dotfiles/zsh/custom/python.zsh
+        ${HOME}/.dotfiles/zsh/custom/python.zsh \
+    has'terraform' \
+        ${HOME}/.dotfiles/zsh/custom/terraform.zsh
 
 
 # Load autosuggestions (這個必須要是最後一個載入的 plugin 才不會造成 tab 按下後自動選取 autosuggestions 的內容)
