@@ -1,1 +1,1 @@
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
+complete -o nospace -C terraform terraform
