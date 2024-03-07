@@ -49,13 +49,11 @@ zinit wait lucid for \
 zinit wait lucid for \
     OMZP::cp \
     OMZP::git \
-    OMZP::pip \
-    OMZP::nvm
+    OMZP::pip
 
 zinit wait lucid as"completion" for \
     OMZP::pip/_pip \
-    OMZP::docker-compose/_docker-compose \
-    OMZP::nvm/_nvm
+    OMZP::docker-compose/_docker-compose
 
 
 # Load other plugins
@@ -68,6 +66,10 @@ zinit wait lucid for \
         zdharma-continuum/history-search-multi-word \
     as"command" \
         https://github.com/paulirish/git-open/blob/master/git-open
+
+# 改用這個套件因為 oh-my-zsh 的補全有問題，補全的部份吃 zsh-completions 中的，lazy load 的部分讓 zinit 處理
+zinit wait lucid for \
+    lukechilds/zsh-nvm
 
 # 用這個 completion 才能補全 image 或 container 名稱，用 Oh-My-Zsh Plugin 所產的沒辦法
 zinit wait lucid as"completion" for \
