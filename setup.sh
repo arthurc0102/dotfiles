@@ -49,12 +49,7 @@ setup_pipx() {
     if command -v pipx > /dev/null; then
         echo "Pipx already installed"
     else
-        if command -v pip3 > /dev/null; then
-            echo "Setup pipx"
-            ./setup-pipx.sh
-        else
-            echo "Command 'pip3' not found skip pipx install, you can run 'setup-pipx.sh' later"
-        fi
+        echo "Run setup-pipx.sh to install pipx"
     fi
 }
 

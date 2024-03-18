@@ -40,9 +40,7 @@ elif [ -d "/usr/local/opt/mysql-client/bin" ]; then
 fi
 
 # Pipx Config
-export PIPX_HOME="$HOME/.pipx"
-export PIPX_BIN_DIR="$PIPX_HOME/bin"
-export PATH="$PIPX_BIN_DIR:$PATH"
+export PIPX_HOME="$HOME/.local/share/pipx"
 
 # Pyenv Config
 export PYENV_ROOT="$HOME/.pyenv"

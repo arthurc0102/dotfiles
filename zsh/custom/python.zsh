@@ -1,6 +1,8 @@
 # Pipx
 if command -v pipx > /dev/null; then
-    if command -v register-python-argcomplete > /dev/null; then
+    if command -v brew > /dev/null && [ -d "$(brew --prefix pipx)/bin" ]; then
+        eval "$($(brew --prefix pipx)/libexec/bin/register-python-argcomplete pipx)"
+    elif command -v register-python-argcomplete > /dev/null; then
         eval "$(register-python-argcomplete pipx)"
     else
         echo "Command 'register-python-argcomplete' not found. If you need autocomplete for 'pipx' install package 'argcomplete'."
