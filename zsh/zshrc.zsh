@@ -86,6 +86,16 @@ zinit wait lucid for \
         zdharma-continuum/null
 
 zinit wait lucid for \
+    id-as'uv-completion' \
+    as'completion' \
+    atclone'uv generate-shell-completion zsh > _uv' \
+    atpull'%atclone' \
+    blockf \
+    has'uv' \
+    nocompile \
+        zdharma-continuum/null
+
+zinit wait lucid for \
     id-as'1password-completion' \
     as'completion' \
     atclone'op completion zsh > _op' \
