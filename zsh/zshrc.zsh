@@ -58,13 +58,17 @@ zinit wait lucid as"completion" for \
 
 # Load other plugins
 
-# Remap Ctrl+r for Alt+r for zdharma-continuum/history-search-multi-word
+# Remap Ctrl+r for Alt+r for joshskidmore/zsh-fzf-history-search
 zinit wait lucid for \
     blockf atpull"zinit creinstall -q ." \
         zsh-users/zsh-completions \
-    bindmap'^R -> ^[r' \
-        zdharma-continuum/history-search-multi-word \
+    bindmap'^r -> ^[r' \
+    atload'export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--layout=reverse --height 40%"' \
+        joshskidmore/zsh-fzf-history-search \
     as"command" \
+    atclone'mkdir -p $ZPFX/bin; ln -svf $PWD/git-open $ZPFX/bin' \
+    atpull"%atclone" \
+    pick'$ZPFX/bin/git-open' \
         https://github.com/paulirish/git-open/blob/master/git-open
 
 # 改用這個套件因為 oh-my-zsh 的補全有問題，補全的部份吃 zsh-completions 中的，lazy load 的部分讓 zinit 處理
@@ -105,12 +109,53 @@ zinit wait lucid for \
     nocompile \
         zdharma-continuum/null
 
-zinit wait lucid as"program" from"gh-r" for \
+zinit wait lucid for \
+    as"program" \
+    from"gh-r" \
     mv"delta* -> delta" \
-    atclone"mkdir -p bin; mv delta/delta bin" \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/delta/delta $ZPFX/bin;
+        curl -sL -o delta/_delta https://raw.githubusercontent.com/dandavison/delta/main/etc/completion/completion.zsh;
+    ' \
     atpull"%atclone" \
-    pick"bin/delta" \
+    pick'$ZPFX/bin/delta' \
         dandavison/delta
+
+# Keybind Docs: https://github.com/junegunn/fzf?tab=readme-ov-file#key-bindings-for-command-line
+# CTRL-T - Paste the selected files and directories onto the command-line
+# ALT-C - cd into the selected directory
+#
+# P.S. Remove CTRL-R when atload, use ALT-R for fzf history search.
+zinit wait lucid for \
+    as"program" \
+    from"gh-r" \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/fzf $ZPFX/bin;
+        curl -sL -O https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh;
+        curl -sL -O https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh;
+    ' \
+    atpull'%atclone' \
+    atload'
+        export FZF_DEFAULT_COMMAND="rg --files --hidden --glob \"!.git/*\"";
+        bindkey "^r" history-incremental-pattern-search-backward;
+    ' \
+    multisrc'completion.zsh key-bindings.zsh' \
+    pick'$ZPFX/bin/fzf' \
+        junegunn/fzf
+
+zinit wait lucid for \
+    as"program" \
+    from"gh-r" \
+    mv"ripgrep* -> ripgrep" \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/ripgrep/rg $ZPFX/bin;
+    ' \
+    atpull"%atclone" \
+    pick'$ZPFX/bin/rg' \
+        BurntSushi/ripgrep
 
 # Load custom
 
@@ -141,10 +186,15 @@ zinit wait lucid for \
 zinit ice \
     as"command" \
     from"gh-r" \
-    atclone"mkdir -p bin; mv starship bin; bin/starship init zsh > init.zsh; bin/starship completions zsh > _starship" \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/starship $ZPFX/bin;
+        ./starship init zsh > init.zsh;
+        ./starship completions zsh > _starship;
+    ' \
     atpull"%atclone" \
     src"init.zsh" \
-    pick"bin/starship"
+    pick'$ZPFX/bin/starship'
 
 export VIRTUAL_ENV_DISABLE_PROMPT=true  # Starship will control venv prompt.
 export STARSHIP_CONFIG=${HOME}/.dotfiles/zsh/theme/starship.toml

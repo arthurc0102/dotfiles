@@ -1,5 +1,3 @@
-alias fd='echo ${PWD##*/}'
-
 alias pp='ping 8.8.8.8'
 alias pd='ping fb.me'
 
