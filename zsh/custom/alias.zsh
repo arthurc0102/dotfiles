@@ -3,4 +3,5 @@ alias pd='ping fb.me'
 
 alias gz='git-cz'  # Install with 'npm install -g commitizen'
 alias gitignore="git-ignore"
-alias gdss='git -c delta.side-by-side=true diff'
+alias gdf='git diff'
+alias gd='git -c delta.side-by-side=true diff'
