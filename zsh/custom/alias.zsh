@@ -5,3 +5,4 @@ alias gz='git-cz'  # Install with 'npm install -g commitizen'
 alias gitignore="git-ignore"
 alias gdf='git diff'
 alias gd='git -c delta.side-by-side=true diff'
+alias current_dir='echo ${PWD##*/}'
