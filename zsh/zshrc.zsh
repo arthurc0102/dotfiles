@@ -126,10 +126,15 @@ zinit wait lucid for \
 # CTRL-T - Paste the selected files and directories onto the command-line
 # ALT-C - cd into the selected directory
 #
-# P.S. Remove CTRL-R when atload, use ALT-R for fzf history search.
+# Config:
+# - Disable CTRL-T.
+# - Remove CTRL-R when atload, use ALT-R for fzf history search.
 zinit wait lucid for \
     as"program" \
     from"gh-r" \
+    atinit'
+        FZF_CTRL_T_COMMAND="";
+    ' \
     atclone'
         mkdir -p $ZPFX/bin;
         ln -svf $PWD/fzf $ZPFX/bin;
