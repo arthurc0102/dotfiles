@@ -33,23 +33,9 @@ Example for `.gitconfig.work`
   name = Your Name
 ```
 
-### Pyenv
+### uv
 
-Install pyenv: `curl https://pyenv.run | bash`
-
-Install python:
-
-```bash
-pyenv install 3.9.1  # Or other version
-pyenv global 3.9.1  # Or other version
-```
-
-### Pipx
-
-> Make sure you have Python3 already.
-
-If you need pipx, run [setup-pipx.sh](./setup-pipx.sh).
-Install `argcomplete` for pipx autocomplete: `pipx install argcomplete`.
+Install uv: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 
 ### Nvm
 

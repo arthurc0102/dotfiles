@@ -45,14 +45,6 @@ setup_zsh() {
     fi
 }
 
-setup_pipx() {
-    if command -v pipx > /dev/null; then
-        echo "Pipx already installed"
-    else
-        echo "Run setup-pipx.sh to install pipx"
-    fi
-}
-
 setup_vim() {
     echo "Setup vim"
     if [ ! -f "$HOME/.vimrc" ]; then
@@ -62,12 +54,11 @@ setup_vim() {
     fi
 }
 
-install_pyenv() {
-    if [ ! -d "$HOME/.pyenv" ]; then
-        echo "Install pyenv"
-        curl https://pyenv.run | bash
+install_uv() {
+    if command -v uv > /dev/null; then
+        echo "UV already installed"
     else
-        echo "Pyenv already exists"
+        curl -LsSf https://astral.sh/uv/install.sh | sh
     fi
 }
 
@@ -122,11 +113,9 @@ main() {
     echo
     setup_zsh
     echo
-    setup_pipx
-    echo
     setup_vim
     echo
-    install_pyenv
+    install_uv
     echo
     install_nvm
     echo

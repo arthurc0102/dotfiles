@@ -48,8 +48,7 @@ zinit wait lucid for \
 
 zinit wait lucid for \
     OMZP::cp \
-    OMZP::git \
-    OMZP::pip
+    OMZP::git
 
 zinit wait lucid as"completion" for \
     OMZP::pip/_pip \
@@ -170,8 +169,6 @@ zinit is-snippet for \
 zinit wait lucid is-snippet for \
     ${HOME}/.dotfiles/zsh/custom/alias.zsh \
     ${HOME}/.dotfiles/zsh/custom/config.zsh \
-    atload"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-        ${HOME}/.dotfiles/zsh/custom/python.zsh \
     has'terraform' \
         ${HOME}/.dotfiles/zsh/custom/terraform.zsh
 
