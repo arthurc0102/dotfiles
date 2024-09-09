@@ -3,8 +3,8 @@ alias pp='ping 8.8.8.8'
 alias pd='ping fb.me'
 
 # Git
-if command -v git-cz > /dev/null; then
-    alias gz='git-cz'  # Install with 'npm install -g commitizen'
+if command -v cz > /dev/null; then
+    alias gz='cz c'  # Install package 'commitizen' with npm or pip globally
 elif command -v uvx > /dev/null; then
     alias gz='uvx --from=commitizen cz c'
 fi
