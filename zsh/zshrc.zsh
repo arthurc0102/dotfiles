@@ -25,6 +25,25 @@ mkdir -p "$ZSH_CACHE_DIR/completions"
 setopt interactivecomments  # recognize comments
 
 
+# Hooks
+
+function activate-closest-python-venv() {
+    if [ -n "$DISABLE_AUTO_VENV" ]; then
+        return
+    fi
+
+    declare -f deactivate > /dev/null && deactivate
+
+    check="$PWD"
+    while [ "$check" != $(realpath "$HOME/..") ]; do  # Check until home directory
+        [ -f "$check/.venv/bin/activate" ] && source "$check/.venv/bin/activate" && return
+        check=$(realpath "$check/..")
+    done
+}
+
+add-zsh-hook chpwd activate-closest-python-venv
+
+
 # Key binding
 
 bindkey ' ' magic-space
