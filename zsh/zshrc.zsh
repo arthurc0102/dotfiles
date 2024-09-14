@@ -28,7 +28,7 @@ setopt interactivecomments  # recognize comments
 # Hooks
 
 function activate-closest-python-venv() {
-    if [ -n "$DISABLE_AUTO_VENV" ]; then
+    if [ -n "$DISABLE_AUTO_VENV" ] || [ -n "$POETRY_ACTIVE" ]; then
         return
     fi
 
