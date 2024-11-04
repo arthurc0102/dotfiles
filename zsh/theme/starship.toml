@@ -73,6 +73,7 @@ symbol = "✘"
 
 [time]
 disabled = false
+time_format = "%m/%d %T"
 
 [cmd_duration]
 min_time = 0
