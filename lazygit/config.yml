@@ -2,4 +2,8 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never --line-numbers
+
   autoFetch: false
+
+  branchLogCmd: git log --graph --color=always --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" {{branchName}} --
+  allBranchesLogCmd: git log --graph --color=always --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --all
