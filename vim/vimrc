@@ -364,3 +364,6 @@ endif
 " End of custom Grml configuration }
 
 "# END OF FILE #################################################################
+
+" My configuration
+set number          " Show line numbers
