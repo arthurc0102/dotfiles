@@ -182,10 +182,10 @@ zinit wait lucid for \
 
 # Load custom
 
-zinit is-snippet for \
+zinit is-snippet link for \
     ${HOME}/.dotfiles/zsh/custom/golang.zsh
 
-zinit wait lucid is-snippet for \
+zinit wait lucid is-snippet link for \
     ${HOME}/.dotfiles/zsh/custom/alias.zsh \
     ${HOME}/.dotfiles/zsh/custom/config.zsh \
     has'terraform' \
