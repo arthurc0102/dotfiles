@@ -18,3 +18,9 @@ alias current_dir='echo ${PWD##*/}'
 
 # Python
 alias python-executable-path='python -c "import sys; print(sys.executable)"'
+
+# Jump
+alias j='jump'  # Jump to a directory
+alias jc='mark'  # Mark the current directory
+alias jd='unmark'  # Unmark the current directory
+alias jl='marks'  # List all marks

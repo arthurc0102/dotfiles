@@ -67,7 +67,8 @@ zinit wait lucid for \
 
 zinit wait lucid for \
     OMZP::cp \
-    OMZP::git
+    OMZP::git \
+    OMZP::jump
 
 zinit wait lucid as"completion" for \
     OMZP::pip/_pip \
