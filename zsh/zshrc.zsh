@@ -181,6 +181,21 @@ zinit wait lucid for \
     pick'$ZPFX/bin/rg' \
         BurntSushi/ripgrep
 
+# sharkdp/bat 名稱前面需要加上 @ 因為 zinit 會把它誤認為 sh'arkdp/bat' 因為有 sh 這個 ice
+# 文件：https://zdharma-continuum.github.io/zinit/wiki/For-Syntax/#a_few_remarks
+zinit wait lucid for \
+    as"program" \
+    from"gh-r" \
+    mv"bat* -> bat" \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/bat/bat $ZPFX/bin;
+        cp bat/autocomplete/bat.zsh bat/_bat;
+    ' \
+    atpull"%atclone" \
+    pick'$ZPFX/bin/bat' \
+        @sharkdp/bat
+
 # Load custom
 
 zinit is-snippet link for \
