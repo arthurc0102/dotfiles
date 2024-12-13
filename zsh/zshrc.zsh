@@ -135,7 +135,7 @@ zinit wait lucid for \
     atclone'
         mkdir -p $ZPFX/bin;
         ln -svf $PWD/delta/delta $ZPFX/bin;
-        curl -sL -o delta/_delta https://raw.githubusercontent.com/dandavison/delta/main/etc/completion/completion.zsh;
+        $PWD/delta/delta --generate-completion zsh > delta/_delta;
     ' \
     atpull"%atclone" \
     pick'$ZPFX/bin/delta' \
@@ -157,15 +157,14 @@ zinit wait lucid for \
     atclone'
         mkdir -p $ZPFX/bin;
         ln -svf $PWD/fzf $ZPFX/bin;
-        curl -sL -O https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh;
-        curl -sL -O https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh;
+        $PWD/fzf --zsh > integration.zsh;
     ' \
     atpull'%atclone' \
     atload'
         export FZF_DEFAULT_COMMAND="rg --files --hidden --glob \"!.git/*\"";
         bindkey "^r" history-incremental-pattern-search-backward;
     ' \
-    multisrc'completion.zsh key-bindings.zsh' \
+    src'integration.zsh' \
     pick'$ZPFX/bin/fzf' \
         junegunn/fzf
 
