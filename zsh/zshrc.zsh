@@ -82,7 +82,7 @@ zinit wait lucid for \
     blockf atpull"zinit creinstall -q ." \
         zsh-users/zsh-completions \
     bindmap'^r -> ^[r' \
-    atload'export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--layout=reverse --height 40% --cycle"' \
+    atload'export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--layout=reverse --height 40% --cycle --border=none"' \
         joshskidmore/zsh-fzf-history-search \
     as"command" \
     atclone'mkdir -p $ZPFX/bin; ln -svf $PWD/git-open $ZPFX/bin' \
