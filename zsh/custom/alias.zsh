@@ -24,3 +24,6 @@ alias j='jump'  # Jump to a directory
 alias jc='mark'  # Mark the current directory
 alias jd='unmark'  # Unmark the current directory
 alias jl='marks'  # List all marks
+
+# Fzf
+alias fzf-preview="FZF_DEFAULT_OPTS='' fzf --preview 'bat --color=always {}' --preview-window 'up:65%,~3' --bind 'ctrl-u:preview-up,ctrl-d:preview-down'"

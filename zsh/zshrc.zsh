@@ -162,6 +162,7 @@ zinit wait lucid for \
     atpull'%atclone' \
     atload'
         export FZF_DEFAULT_COMMAND="rg --files --hidden --glob \"!.git/*\"";
+        export FZF_DEFAULT_OPTS="--height 40% --tmux center --layout reverse --border";
         bindkey "^r" history-incremental-pattern-search-backward;
     ' \
     src'integration.zsh' \
