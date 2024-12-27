@@ -55,15 +55,15 @@ bindkey "^s" history-incremental-pattern-search-forward
 
 zinit for \
     OMZL::history.zsh \
+    OMZL::theme-and-appearance.zsh \
+    OMZL::completion.zsh \
     OMZP::brew
 
 zinit wait lucid for \
     OMZL::clipboard.zsh \
     OMZL::directories.zsh \
     OMZL::git.zsh \
-    OMZL::grep.zsh \
-    OMZL::theme-and-appearance.zsh \
-    OMZL::completion.zsh
+    OMZL::grep.zsh
 
 zinit wait lucid for \
     OMZP::cp \
@@ -236,3 +236,6 @@ zinit ice \
 export VIRTUAL_ENV_DISABLE_PROMPT=true  # Starship will control venv prompt.
 export STARSHIP_CONFIG=${HOME}/.dotfiles/zsh/theme/starship.toml
 zinit light starship/starship
+
+# set completion colors to be the same as `ls`, after theme has been loaded
+[[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
