@@ -25,6 +25,7 @@ $character"""
 # Plugin config
 [fill]
 symbol = "·"
+style = "bold bright-black"
 
 [username]
 format = "[$user]($style) at "
