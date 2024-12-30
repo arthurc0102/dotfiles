@@ -1,0 +1,16 @@
+# Theme
+theme = Dracula
+
+# Font
+font-family = Cascadia Mono NF
+font-size = 14
+
+# Window
+window-inherit-working-directory = false
+
+# Cursor
+cursor-style = underline
+shell-integration-features = no-cursor
+
+# MacOS
+macos-option-as-alt = true
