@@ -30,3 +30,6 @@ trim_trailing_whitespace = false
 
 [Makefile]
 indent_style = tab
+
+[karabiner/*.json]
+indent_size = 4
