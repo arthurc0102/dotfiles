@@ -52,6 +52,12 @@ nvm use --lts
 
 Cascadia Code: <https://github.com/microsoft/cascadia-code>
 
+Install with brew:
+
+```bash
+brew install --cask font-cascadia-code font-cascadia-code-nf font-cascadia-code-pl font-cascadia-mono font-cascadia-mono-nf font-cascadia-mono-pl
+```
+
 ## Test
 
 - Test startup speed: `/usr/bin/time zsh -i -c exit`
