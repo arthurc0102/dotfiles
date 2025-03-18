@@ -120,8 +120,8 @@ main() {
     install_nvm
     echo
     setup_lazygit
-    echo
-    setup_emacs
+    # echo
+    # setup_emacs
 }
 
 main
