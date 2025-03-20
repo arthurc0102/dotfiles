@@ -4,6 +4,7 @@ export PAGER="less -FX"
 export PATH="$HOME/.local/bin:$PATH"
 
 export HOMEBREW_NO_ANALYTICS=1
+export UV_MANAGED_PYTHON=true
 
 # My Scripts
 if [ -d "$HOME/.dotfiles/scripts" ]; then
