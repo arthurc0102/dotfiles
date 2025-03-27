@@ -94,9 +94,15 @@ zinit wait lucid for \
 zinit wait lucid for \
     lukechilds/zsh-nvm
 
-# 用這個 completion 才能補全 image 或 container 名稱，用 Oh-My-Zsh Plugin 所產的沒辦法
-zinit wait lucid as"completion" for \
-    https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+zinit wait lucid for \
+    id-as'docker-completion' \
+    as'completion' \
+    atclone'docker completion zsh > _docker' \
+    atpull'%atclone' \
+    blockf \
+    has'docker' \
+    nocompile \
+        zdharma-continuum/null
 
 zinit wait lucid for \
     id-as'poetry-completion' \
