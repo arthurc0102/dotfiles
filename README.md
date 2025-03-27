@@ -55,7 +55,8 @@ Cascadia Code: <https://github.com/microsoft/cascadia-code>
 Install with brew:
 
 ```bash
-brew install --cask font-cascadia-code font-cascadia-code-nf font-cascadia-code-pl font-cascadia-mono font-cascadia-mono-nf font-cascadia-mono-pl
+brew install --cask font-cascadia-mono-nf font-cascadia-code-nf
+brew install --cask font-maple-mono-normal-nf-cn
 ```
 
 ## Test
