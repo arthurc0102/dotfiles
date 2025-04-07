@@ -1,9 +1,12 @@
 # Theme
-theme = Dracula
+theme = Snazzy Soft
 
 # Font
 font-family = Maple Mono Normal NF CN
 font-size = 13
+
+# Disable ligatures
+font-feature = -calt
 
 # Window
 window-inherit-working-directory = false
