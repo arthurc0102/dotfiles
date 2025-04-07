@@ -2,8 +2,8 @@
 theme = Dracula
 
 # Font
-font-family = Cascadia Mono NF
-font-size = 14
+font-family = Maple Mono Normal NF CN Medium
+font-size = 13
 
 # Window
 window-inherit-working-directory = false
