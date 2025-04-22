@@ -2,11 +2,8 @@
 theme = Snazzy Soft
 
 # Font
-font-family = Maple Mono Normal NF CN
-font-size = 13
-
-# Disable ligatures
-font-feature = -calt
+font-family = Cascadia Mono NF
+font-size = 14
 
 # Window
 window-inherit-working-directory = false
