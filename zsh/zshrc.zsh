@@ -51,6 +51,14 @@ bindkey "^r" history-incremental-pattern-search-backward
 bindkey "^s" history-incremental-pattern-search-forward
 
 
+# History
+
+HISTSIZE=50000
+SAVEHIST=50000
+
+setopt inc_append_history
+
+
 # Load oh-my-zsh stuff
 
 zinit for \
