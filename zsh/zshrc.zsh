@@ -187,6 +187,17 @@ zinit wait lucid for \
 
 zinit wait lucid for \
     as"program" \
+    id-as'fzf-preview.sh' \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/fzf-preview.sh $ZPFX/bin;
+    ' \
+    atpull'%atclone' \
+    pick'$ZPFX/bin/fzf-preview.sh' \
+    https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/bin/fzf-preview.sh
+
+zinit wait lucid for \
+    as"program" \
     from"gh-r" \
     mv"ripgrep* -> ripgrep" \
     atclone'

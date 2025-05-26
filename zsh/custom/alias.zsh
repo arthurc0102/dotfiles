@@ -26,4 +26,4 @@ alias jd='unmark'  # Unmark the current directory
 alias jl='marks'  # List all marks
 
 # Fzf
-alias fzf-preview="FZF_DEFAULT_OPTS='' fzf --preview 'bat --color=always {}' --preview-window 'up:65%,~3' --bind 'ctrl-u:preview-up,ctrl-d:preview-down'"
+alias fzf-finder='FZF_DEFAULT_COMMAND="$FZF_DEFAULT_COMMAND --type f" fzf --style full --height 100% --preview "fzf-preview.sh {}" --bind "ctrl-u:preview-up,ctrl-d:preview-down,enter:become(realpath {})"'
