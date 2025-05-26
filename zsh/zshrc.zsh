@@ -175,8 +175,10 @@ zinit wait lucid for \
     ' \
     atpull'%atclone' \
     atload'
-        export FZF_DEFAULT_COMMAND="rg --files --hidden --glob \"!.git/*\"";
-        export FZF_DEFAULT_OPTS="--height 40% --tmux center --layout reverse --border";
+        export FZF_DEFAULT_COMMAND="fd --hidden --follow --strip-cwd-prefix --color always --exclude .git";
+        export FZF_DEFAULT_OPTS="--height 40% --tmux center --layout reverse --border --ansi";
+        export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d";
+        export FZF_ALT_C_OPTS="--preview \"tree -C {}\" --tmux center,70%,50%";
         bindkey "^r" history-incremental-pattern-search-backward;
     ' \
     src'integration.zsh' \
@@ -209,6 +211,20 @@ zinit wait lucid for \
     atpull"%atclone" \
     pick'$ZPFX/bin/bat' \
         @sharkdp/bat
+
+# sharkdp/fd 名稱前面需要加上 @ 因為 zinit 會把它誤認為 sh'arkdp/fd' 因為有 sh 這個 ice
+# 文件：https://zdharma-continuum.github.io/zinit/wiki/For-Syntax/#a_few_remarks
+zinit wait lucid for \
+    as"program" \
+    from"gh-r" \
+    mv"fd* -> fd" \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/fd/fd $ZPFX/bin;
+    ' \
+    atpull"%atclone" \
+    pick'$ZPFX/bin/fd' \
+        @sharkdp/fd
 
 # Load custom
 
