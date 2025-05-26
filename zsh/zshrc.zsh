@@ -194,7 +194,11 @@ zinit wait lucid for \
     ' \
     atpull'%atclone' \
     pick'$ZPFX/bin/fzf-preview.sh' \
-    https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/bin/fzf-preview.sh
+        https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/bin/fzf-preview.sh
+
+zinit wait lucid for \
+    id-as'fzf-git.sh' \
+        https://raw.githubusercontent.com/junegunn/fzf-git.sh/refs/heads/main/fzf-git.sh
 
 zinit wait lucid for \
     as"program" \
