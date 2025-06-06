@@ -64,8 +64,13 @@ setopt inc_append_history
 zinit for \
     OMZL::history.zsh \
     OMZL::theme-and-appearance.zsh \
-    OMZL::completion.zsh \
-    OMZP::brew
+    OMZL::completion.zsh
+
+# Load brew shellenv after load, to avoid path order issue in tmux.
+# `eval "$(brew shellenv)"` this command add brew's bin to PATH, move it to the front if it's already in PATH.
+zinit for \
+    atload'command -v brew >/dev/null && eval "$(brew shellenv)"' \
+        OMZP::brew
 
 zinit wait lucid for \
     OMZL::clipboard.zsh \
