@@ -5,6 +5,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export HOMEBREW_NO_ANALYTICS=1
 export UV_MANAGED_PYTHON=true
+export UV_PYTHON_INSTALL_BIN=false
 
 # My Scripts
 if [ -d "$HOME/.dotfiles/scripts" ]; then
