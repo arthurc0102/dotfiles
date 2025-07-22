@@ -1,4 +1,4 @@
-# Intall zinit
+# Install zinit
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -22,7 +22,7 @@ mkdir -p "$ZSH_CACHE_DIR/completions"
 
 # Options
 
-setopt interactivecomments  # recognize comments
+setopt interactivecomments  # Recognize comments
 
 
 # Hooks
@@ -293,6 +293,22 @@ zinit wait lucid for \
     atpull"%atclone" \
     pick'$ZPFX/bin/fd' \
         @sharkdp/fd
+
+zinit wait lucid for \
+    as"program" \
+    from"gh-r" \
+    mv"xh* -> xh" \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/xh/xh $ZPFX/bin;
+    ' \
+    atpull"%atclone" \
+    atload'
+        alias http="xh"
+        alias https="xh --https"
+    ' \
+    pick'$ZPFX/bin/xh' \
+        ducaale/xh
 
 # Load custom
 
