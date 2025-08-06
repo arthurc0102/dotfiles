@@ -15,6 +15,9 @@
 [pull]
   rebase = true
 
+[push]
+  autoSetupRemote = true
+
 [include]
   path = ~/.gitconfig.user
 
