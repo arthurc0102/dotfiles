@@ -310,6 +310,42 @@ zinit wait lucid for \
     pick'$ZPFX/bin/xh' \
         ducaale/xh
 
+zinit wait lucid for \
+    as"program" \
+    from"gh-r" \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/lazygit $ZPFX/bin;
+    ' \
+    atpull"%atclone" \
+    atload'
+        lg() {
+            export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+            lazygit "$@"
+
+            if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+                cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+                rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+            fi
+
+            unset LAZYGIT_NEW_DIR_FILE
+        }
+    ' \
+    pick'$ZPFX/bin/lazygit' \
+        jesseduffield/lazygit
+
+zinit wait lucid for \
+    as"program" \
+    from"gh-r" \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/lazydocker $ZPFX/bin;
+    ' \
+    atpull"%atclone" \
+    pick'$ZPFX/bin/lazydocker' \
+        jesseduffield/lazydocker
+
 # Load custom
 
 zinit is-snippet link for \
