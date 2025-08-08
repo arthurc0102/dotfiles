@@ -343,6 +343,9 @@ zinit wait lucid for \
         ln -svf $PWD/lazydocker $ZPFX/bin;
     ' \
     atpull"%atclone" \
+    atload'
+        alias lc="lazydocker"
+    ' \
     pick'$ZPFX/bin/lazydocker' \
         jesseduffield/lazydocker
 
