@@ -320,7 +320,7 @@ zinit wait lucid for \
     atpull"%atclone" \
     atload'
         lg() {
-            export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+            export LAZYGIT_NEW_DIR_FILE=/tmp/lazygit_newdir
 
             lazygit "$@"
 
