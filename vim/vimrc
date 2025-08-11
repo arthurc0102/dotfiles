@@ -367,3 +367,4 @@ endif
 
 " My configuration
 set number          " Show line numbers
+set relativenumber
