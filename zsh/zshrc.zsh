@@ -196,6 +196,16 @@ zinit wait lucid for \
         zdharma-continuum/null
 
 zinit wait lucid for \
+    id-as'cz-completion' \
+    as'completion' \
+    atclone'$(dirname $(realpath $(which cz)))/register-python-argcomplete cz > _cz' \
+    atpull'%atclone' \
+    blockf \
+    has'cz' \
+    nocompile \
+        zdharma-continuum/null
+
+zinit wait lucid for \
     as"program" \
     from"gh-r" \
     mv"delta* -> delta" \
