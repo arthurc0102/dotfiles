@@ -359,6 +359,18 @@ zinit wait lucid for \
     pick'$ZPFX/bin/lazydocker' \
         jesseduffield/lazydocker
 
+zinit wait lucid for \
+    as"program" \
+    from"gh-r" \
+    atclone'
+        mkdir -p $ZPFX/bin;
+        ln -svf $PWD/zellij $ZPFX/bin;
+        ./zellij setup --generate-completion zsh > _zellij;
+    ' \
+    atpull"%atclone" \
+    pick'$ZPFX/bin/zellij' \
+        zellij-org/zellij
+
 # Load custom
 
 zinit is-snippet link for \
