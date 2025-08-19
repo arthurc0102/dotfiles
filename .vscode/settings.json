@@ -40,6 +40,8 @@
     // emacs
     "spacemacs",
     // vim
-    "vimrc"
+    "vimrc",
+    // ghostty
+    "ghostty"
   ]
 }

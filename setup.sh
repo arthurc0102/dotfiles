@@ -73,6 +73,11 @@ setup_emacs() {
     ln -svf ${DOTFILES_HOME}/emacs/spacemacs ${HOME}/.spacemacs
 }
 
+setup_ghostty() {
+    echo "Setup ghostty"
+    ln -svf ${DOTFILES_HOME}/ghostty/config ${HOME}/.config/ghostty/config
+}
+
 main() {
     export DOTFILES_HOME="${HOME}/.dotfiles"
 
@@ -89,6 +94,8 @@ main() {
     setup_vim
     echo
     install_uv
+    echo
+    setup_ghostty
     # echo
     # setup_emacs
 
