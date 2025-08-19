@@ -34,5 +34,5 @@ indent_style = tab
 [karabiner/*.json]
 indent_size = 4
 
-[scripts/*]
+[bin/*]
 indent_size = 4

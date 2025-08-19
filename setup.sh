@@ -7,48 +7,47 @@ check() {
 
 setup_dotfiles() {
     echo "Setup dotfiles"
-    if [ ! -d "$HOME/.dotfiles" ]; then
-        git clone https://github.com/arthurc0102/dotfiles.git $HOME/.dotfiles
+    if [ ! -d "${DOTFILES_HOME}" ]; then
+        git clone https://github.com/arthurc0102/dotfiles.git ${DOTFILES_HOME}
     fi
 }
 
 setup_tmux() {
     echo "Setup tmux"
-    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-        git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+    if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
+        git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
     fi
 
-    ln -svf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+    ln -svf ${DOTFILES_HOME}/tmux/tmux.conf $HOME/.tmux.conf
 
-    if [ ! -f "$HOME/.tmux.local.conf" ]; then
-        cp -v $HOME/.dotfiles/tmux/tmux.local.conf $HOME/.tmux.local.conf
+    if [ ! -f "${HOME}/.tmux.local.conf" ]; then
+        cp -v ${DOTFILES_HOME}/tmux/tmux.local.conf ${HOME}/.tmux.local.conf
     fi
 }
 
 setup_git() {
     echo "Setup git"
-    ln -svf $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
-    ln -svf $HOME/.dotfiles/git/czrc $HOME/.czrc
+    ln -svf ${DOTFILES_HOME}/git/gitconfig ${HOME}/.gitconfig
 
-    if [ ! -f "$HOME/.gitconfig.user" ]; then
-        cp -v $HOME/.dotfiles/git/gitconfig.user $HOME/.gitconfig.user
+    if [ ! -f "${HOME}/.gitconfig.user" ]; then
+        cp -v ${DOTFILES_HOME}/git/gitconfig.user ${HOME}/.gitconfig.user
     fi
 }
 
 setup_zsh() {
     echo "Setup zsh"
-    ln -svf $HOME/.dotfiles/zsh/zshrc.zsh $HOME/.zshrc
-    ln -svf $HOME/.dotfiles/zsh/zprofile.zsh $HOME/.zprofile
+    ln -svf ${DOTFILES_HOME}/zsh/zshrc.zsh ${HOME}/.zshrc
+    ln -svf ${DOTFILES_HOME}/zsh/zprofile.zsh ${HOME}/.zprofile
 
-    if [ ! -f "$HOME/.zprofile.local" ]; then
-        cp -v $HOME/.dotfiles/zsh/zprofile.local.zsh $HOME/.zprofile.local
+    if [ ! -f "${HOME}/.zprofile.local" ]; then
+        cp -v ${DOTFILES_HOME}/zsh/zprofile.local.zsh ${HOME}/.zprofile.local
     fi
 }
 
 setup_vim() {
     echo "Setup vim"
-    if [ ! -f "$HOME/.vimrc" ]; then
-        ln -svf $HOME/.dotfiles/vim/vimrc $HOME/.vimrc
+    if [ ! -f "${HOME}/.vimrc" ]; then
+        ln -svf ${DOTFILES_HOME}/vim/vimrc ${HOME}/.vimrc
     else
         echo "Skip vim setup because config file already found"
     fi
@@ -62,47 +61,21 @@ install_uv() {
     fi
 }
 
-install_nvm() {
-    local nvm_dir
-
-    nvm_dir="$HOME/.nvm"
-
-    if [ ! -d "$nvm_dir" ]; then
-        echo "Install nvm"
-        git clone https://github.com/nvm-sh/nvm.git "$nvm_dir"
-        cd "$nvm_dir"
-        git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
-    else
-        echo "Nvm already exists"
-    fi
-}
-
-setup_lazygit() {
-    local lazygit_dir
-
-    if [ "$(uname)" == "Darwin" ]; then
-        lazygit_dir="$HOME/Library/Application Support/lazygit"
-    else
-        lazygit_dir="$HOME/.config/lazygit"
-    fi
-
-    mkdir -p "$lazygit_dir"
-    ln -svf $HOME/.dotfiles/lazygit/config.yml "$lazygit_dir/config.yml"
-}
-
 setup_emacs() {
     echo "Setup emacs"
 
-    if [ ! -d "$HOME/.emacs.d" ]; then
-        git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
+    if [ ! -d "${HOME}/.emacs.d" ]; then
+        git clone https://github.com/syl20bnr/spacemacs ${HOME}/.emacs.d
     else
-        echo "Skip spacemacs download becasuse '.emacs.d' folder exists"
+        echo "Skip spacemacs download because '.emacs.d' folder exists"
     fi
 
-    ln -svf $HOME/.dotfiles/emacs/spacemacs $HOME/.spacemacs
+    ln -svf ${DOTFILES_HOME}/emacs/spacemacs ${HOME}/.spacemacs
 }
 
 main() {
+    export DOTFILES_HOME="${HOME}/.dotfiles"
+
     check
     echo
     setup_dotfiles
@@ -116,12 +89,10 @@ main() {
     setup_vim
     echo
     install_uv
-    echo
-    install_nvm
-    echo
-    setup_lazygit
     # echo
     # setup_emacs
+
+    unset DOTFILES_HOME
 }
 
 main

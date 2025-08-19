@@ -8,8 +8,8 @@ export UV_MANAGED_PYTHON=true
 export UV_PYTHON_INSTALL_BIN=false
 
 # My Scripts
-if [ -d "$HOME/.dotfiles/scripts" ]; then
-    export PATH="$HOME/.dotfiles/scripts:$PATH"
+if [ -d "$HOME/.dotfiles/bin" ]; then
+    export PATH="$HOME/.dotfiles/bin:$PATH"
 fi
 
 # MySQL Client Config

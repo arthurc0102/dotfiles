@@ -1,3 +1,45 @@
 {
-  "errorLens.enabled": false
+  "errorLens.enabled": false,
+  "cSpell.words": [
+    // zsh
+    "fpath",
+    "interactivecomments",
+    "savehist",
+    // zinit
+    "zinit",
+    "OMZL",
+    "OMZP",
+    "atinit",
+    "atload",
+    "atclone",
+    "atpull",
+    "bindmap",
+    "blockf",
+    "creinstall",
+    "ZPFX",
+    "nocompile",
+    "zicompinit",
+    "zicdreplay",
+    // brew
+    "shellenv",
+    // python
+    "venv",
+    "register-python-argcomplete",
+    // tool names
+    "lazygit",
+    "lazydocker",
+    // author names
+    "joshskidmore",
+    "jesseduffield",
+    "dandavison",
+    "lukechilds",
+    "junegunn",
+    "sharkdp",
+    "ducaale",
+    "zdharma-continuum",
+    // emacs
+    "spacemacs",
+    // vim
+    "vimrc"
+  ]
 }

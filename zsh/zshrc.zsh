@@ -1,4 +1,8 @@
-# Install zinit
+## Variables
+
+DOTFILES_HOME="${DOTFILES_HOME:-${HOME}/.dotfiles}"
+
+## Install zinit
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -8,24 +12,24 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 
-# Setup compinit for zinit
+## Setup compinit for zinit
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 
-# Create cache and completions dir and add to $fpath (for oh-my-zsh plugins)
+## Create cache and completions dir and add to $fpath (for oh-my-zsh plugins)
 
 mkdir -p "$ZSH_CACHE_DIR/completions"
 (( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
 
 
-# Options
+## Options
 
 setopt interactivecomments  # Recognize comments
 
 
-# Hooks
+## Hooks
 
 AUTO_PYTHON_VENV_NAME=".venv"
 
@@ -92,14 +96,14 @@ function activate-closest-python-venv-on-start() {
 add-zsh-hook precmd activate-closest-python-venv-on-start
 
 
-# Key binding
+## Key binding
 
 bindkey ' ' magic-space
-bindkey "^r" history-incremental-pattern-search-backward
-bindkey "^s" history-incremental-pattern-search-forward
+bindkey '^r' history-incremental-pattern-search-backward
+bindkey '^s' history-incremental-pattern-search-forward
 
 
-# History
+## History
 
 HISTSIZE=50000
 SAVEHIST=50000
@@ -107,15 +111,19 @@ SAVEHIST=50000
 setopt inc_append_history
 
 
-# Load oh-my-zsh stuff
+## Load oh-my-zsh stuff
 
 zinit for \
     OMZL::history.zsh \
     OMZL::theme-and-appearance.zsh \
     OMZL::completion.zsh
 
-# Load brew shellenv after load, to avoid path order issue in tmux.
-# `eval "$(brew shellenv)"` this command add brew's bin to PATH, move it to the front if it's already in PATH.
+# Load brew shellenv to avoid path order issue in tmux.
+#   `eval "$(brew shellenv)"` this command add brew's bin to PATH, move it to the front
+#   if it's already in PATH.
+#
+# Don't use `has'brew'` because this plugin will found brew install location and
+#   add it to PATH.
 zinit for \
     atload'command -v brew >/dev/null && eval "$(brew shellenv)"' \
         OMZP::brew
@@ -124,101 +132,64 @@ zinit wait lucid for \
     OMZL::clipboard.zsh \
     OMZL::directories.zsh \
     OMZL::git.zsh \
-    OMZL::grep.zsh
-
-zinit wait lucid for \
+    OMZL::grep.zsh \
+    \
     OMZP::cp \
     OMZP::git \
     OMZP::jump
 
-zinit wait lucid as"completion" for \
+zinit wait lucid as'completion' for \
     OMZP::pip/_pip \
     OMZP::docker-compose/_docker-compose
 
 
-# Load other plugins
+## Load other plugins
+
+zinit wait lucid for \
+    blockf \
+    atpull'
+        zinit creinstall -q .
+    ' \
+        zsh-users/zsh-completions
 
 # Remap Ctrl+r for Alt+r for joshskidmore/zsh-fzf-history-search
 zinit wait lucid for \
-    blockf atpull"zinit creinstall -q ." \
-        zsh-users/zsh-completions \
+    atload'
+        export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--layout=reverse --height 40% --cycle --border=none"
+    ' \
     bindmap'^r -> ^[r' \
-    atload'export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--layout=reverse --height 40% --cycle --border=none"' \
-        joshskidmore/zsh-fzf-history-search \
-    as"command" \
-    atclone'mkdir -p $ZPFX/bin; ln -svf $PWD/git-open $ZPFX/bin' \
-    atpull"%atclone" \
+        joshskidmore/zsh-fzf-history-search
+
+zinit wait lucid for \
+    as'command' \
+    atclone'
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/git-open $ZPFX/bin
+    ' \
+    atpull'%atclone' \
     pick'$ZPFX/bin/git-open' \
         https://github.com/paulirish/git-open/blob/master/git-open
 
-# 改用這個套件因為 oh-my-zsh 的補全有問題，補全的部份吃 zsh-completions 中的，lazy load 的部分讓 zinit 處理
+# Use this plugin because oh-my-zsh's nvm plugin has a problem with completion.
+# The completion will be handled by zsh-completions plugin.
+# Zinit will handle the lazy load part.
 zinit wait lucid for \
     lukechilds/zsh-nvm
 
 zinit wait lucid for \
-    id-as'docker-completion' \
-    as'completion' \
-    atclone'docker completion zsh > _docker' \
-    atpull'%atclone' \
-    blockf \
-    has'docker' \
-    nocompile \
-        zdharma-continuum/null
-
-zinit wait lucid for \
-    id-as'poetry-completion' \
-    as'completion' \
-    atclone'poetry completions zsh > _poetry' \
-    atpull'%atclone' \
-    blockf \
-    has'poetry' \
-    nocompile \
-        zdharma-continuum/null
-
-zinit wait lucid for \
-    id-as'uv-completion' \
-    as'completion' \
-    atclone'uv generate-shell-completion zsh > _uv' \
-    atpull'%atclone' \
-    blockf \
-    has'uv' \
-    nocompile \
-        zdharma-continuum/null
-
-zinit wait lucid for \
-    id-as'1password-completion' \
-    as'completion' \
-    atclone'op completion zsh > _op' \
-    atpull'%atclone' \
-    blockf \
-    has'op' \
-    nocompile \
-        zdharma-continuum/null
-
-zinit wait lucid for \
-    id-as'cz-completion' \
-    as'completion' \
-    atclone'$(dirname $(realpath $(which cz)))/register-python-argcomplete cz > _cz' \
-    atpull'%atclone' \
-    blockf \
-    has'cz' \
-    nocompile \
-        zdharma-continuum/null
-
-zinit wait lucid for \
-    as"program" \
-    from"gh-r" \
-    mv"delta* -> delta" \
+    as'program' \
+    from'gh-r' \
+    mv'delta* -> delta' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/delta/delta $ZPFX/bin;
-        $PWD/delta/delta --generate-completion zsh > delta/_delta;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/delta/delta $ZPFX/bin
+        $PWD/delta/delta --generate-completion zsh > delta/_delta
     ' \
-    atpull"%atclone" \
+    atpull'%atclone' \
     pick'$ZPFX/bin/delta' \
         dandavison/delta
 
-# Keybind Docs: https://github.com/junegunn/fzf?tab=readme-ov-file#key-bindings-for-command-line
+# Key bindings docs: https://github.com/junegunn/fzf?tab=readme-ov-file#key-bindings-for-command-line
 # CTRL-T - Paste the selected files and directories onto the command-line
 # ALT-C - cd into the selected directory
 #
@@ -226,34 +197,35 @@ zinit wait lucid for \
 # - Disable CTRL-T.
 # - Remove CTRL-R when atload, use ALT-R for fzf history search.
 zinit wait lucid for \
-    as"program" \
-    from"gh-r" \
+    as'program' \
+    from'gh-r' \
     atinit'
-        FZF_CTRL_T_COMMAND="";
+        FZF_CTRL_T_COMMAND=""
     ' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/fzf $ZPFX/bin;
-        $PWD/fzf --zsh > integration.zsh;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/fzf $ZPFX/bin
+        $PWD/fzf --zsh > integration.zsh
     ' \
     atpull'%atclone' \
     atload'
-        export FZF_DEFAULT_COMMAND="fd --hidden --follow --strip-cwd-prefix --color always --exclude .git";
-        export FZF_DEFAULT_OPTS="--height 40% --tmux center --layout reverse --border --ansi";
-        export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d";
-        export FZF_ALT_C_OPTS="--preview \"tree -C {}\" --tmux center,70%,50%";
-        bindkey "^r" history-incremental-pattern-search-backward;
+        export FZF_DEFAULT_COMMAND="fd --hidden --follow --strip-cwd-prefix --color always --exclude .git"
+        export FZF_DEFAULT_OPTS="--height 40% --tmux center --layout reverse --border --ansi"
+        export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+        export FZF_ALT_C_OPTS="--preview \"tree -C {}\" --tmux center,70%,50%"
+
+        bindkey "^r" history-incremental-pattern-search-backward
     ' \
     src'integration.zsh' \
     pick'$ZPFX/bin/fzf' \
         junegunn/fzf
 
 zinit wait lucid for \
-    as"program" \
+    as'program' \
     id-as'fzf-preview.sh' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/fzf-preview.sh $ZPFX/bin;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/fzf-preview.sh $ZPFX/bin
     ' \
     atpull'%atclone' \
     pick'$ZPFX/bin/fzf-preview.sh' \
@@ -264,55 +236,53 @@ zinit wait lucid for \
         https://raw.githubusercontent.com/junegunn/fzf-git.sh/refs/heads/main/fzf-git.sh
 
 zinit wait lucid for \
-    as"program" \
-    from"gh-r" \
-    mv"ripgrep* -> ripgrep" \
+    as'program' \
+    from'gh-r' \
+    mv'ripgrep* -> ripgrep' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/ripgrep/rg $ZPFX/bin;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/ripgrep/rg $ZPFX/bin
     ' \
-    atpull"%atclone" \
+    atpull'%atclone' \
     pick'$ZPFX/bin/rg' \
         BurntSushi/ripgrep
 
-# sharkdp/bat 名稱前面需要加上 @ 因為 zinit 會把它誤認為 sh'arkdp/bat' 因為有 sh 這個 ice
-# 文件：https://zdharma-continuum.github.io/zinit/wiki/For-Syntax/#a_few_remarks
+# Add `@` to the name to avoid zinit to treat it as a command.
+# Docs: https://zdharma-continuum.github.io/zinit/wiki/For-Syntax/#a_few_remarks
 zinit wait lucid for \
-    as"program" \
-    from"gh-r" \
-    mv"bat* -> bat" \
+    as'program' \
+    from'gh-r' \
+    mv'bat* -> bat' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/bat/bat $ZPFX/bin;
-        cp bat/autocomplete/bat.zsh bat/_bat;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/bat/bat $ZPFX/bin
+        cp bat/autocomplete/bat.zsh bat/_bat
     ' \
-    atpull"%atclone" \
+    atpull'%atclone' \
     pick'$ZPFX/bin/bat' \
         @sharkdp/bat
 
-# sharkdp/fd 名稱前面需要加上 @ 因為 zinit 會把它誤認為 sh'arkdp/fd' 因為有 sh 這個 ice
-# 文件：https://zdharma-continuum.github.io/zinit/wiki/For-Syntax/#a_few_remarks
 zinit wait lucid for \
-    as"program" \
-    from"gh-r" \
-    mv"fd* -> fd" \
+    as'program' \
+    from'gh-r' \
+    mv'fd* -> fd' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/fd/fd $ZPFX/bin;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/fd/fd $ZPFX/bin
     ' \
-    atpull"%atclone" \
+    atpull'%atclone' \
     pick'$ZPFX/bin/fd' \
         @sharkdp/fd
 
 zinit wait lucid for \
-    as"program" \
-    from"gh-r" \
-    mv"xh* -> xh" \
+    as'program' \
+    from'gh-r' \
+    mv'xh* -> xh' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/xh/xh $ZPFX/bin;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/xh/xh $ZPFX/bin
     ' \
-    atpull"%atclone" \
+    atpull'%atclone' \
     atload'
         alias http="xh"
         alias https="xh --https"
@@ -321,13 +291,24 @@ zinit wait lucid for \
         ducaale/xh
 
 zinit wait lucid for \
-    as"program" \
-    from"gh-r" \
+    as'program' \
+    from'gh-r' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/lazygit $ZPFX/bin;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/lazygit $ZPFX/bin
+
+        (
+            if [[ "$(uname)" == "Darwin" ]]; then
+                lazygit_dir="${HOME}/Library/Application Support/lazygit"
+            else
+                lazygit_dir="${HOME}/.config/lazygit"
+            fi
+
+            mkdir -p "${lazygit_dir}"
+            ln -svf ${DOTFILES_HOME}/lazygit/config.yml "${lazygit_dir}/config.yml"
+        )
     ' \
-    atpull"%atclone" \
+    atpull'%atclone' \
     atload'
         lg() {
             export LAZYGIT_NEW_DIR_FILE=/tmp/lazygit_newdir
@@ -346,13 +327,13 @@ zinit wait lucid for \
         jesseduffield/lazygit
 
 zinit wait lucid for \
-    as"program" \
-    from"gh-r" \
+    as'program' \
+    from'gh-r' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/lazydocker $ZPFX/bin;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/lazydocker $ZPFX/bin
     ' \
-    atpull"%atclone" \
+    atpull'%atclone' \
     atload'
         alias lc="lazydocker"
     ' \
@@ -360,57 +341,94 @@ zinit wait lucid for \
         jesseduffield/lazydocker
 
 zinit wait lucid for \
-    as"program" \
-    from"gh-r" \
+    as'program' \
+    from'gh-r' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/zellij $ZPFX/bin;
-        ./zellij setup --generate-completion zsh > _zellij;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/zellij $ZPFX/bin
+        ./zellij setup --generate-completion zsh > _zellij
     ' \
-    atpull"%atclone" \
+    atpull'%atclone' \
     pick'$ZPFX/bin/zellij' \
         zellij-org/zellij
 
-# Load custom
+
+## Load local stuff
 
 zinit is-snippet link for \
-    ${HOME}/.dotfiles/zsh/custom/golang.zsh
+    ${DOTFILES_HOME}/zsh/custom/golang.zsh
 
 zinit wait lucid is-snippet link for \
-    ${HOME}/.dotfiles/zsh/custom/alias.zsh \
-    ${HOME}/.dotfiles/zsh/custom/config.zsh \
+    ${DOTFILES_HOME}/zsh/custom/alias.zsh \
+    ${DOTFILES_HOME}/zsh/custom/config.zsh \
     has'terraform' \
-        ${HOME}/.dotfiles/zsh/custom/terraform.zsh
+        ${DOTFILES_HOME}/zsh/custom/terraform.zsh
 
 
-# Load autosuggestions (這個必須要是最後一個載入的 plugin 才不會造成 tab 按下後自動選取 autosuggestions 的內容)
-# Fast syntax highlighting 也需要在最後才會正常顯示顏色
+## Setup completions
 
+zinit wait lucid \
+    as'completion' \
+    atpull'%atclone' \
+    run-atpull \
+    blockf \
+    nocompile \
+    for \
+        has'docker' \
+        id-as'docker-completion' \
+        atclone'docker completion zsh > _docker' \
+            zdharma-continuum/null \
+        has'poetry' \
+        id-as'poetry-completion' \
+        atclone'poetry completions zsh > _poetry' \
+            zdharma-continuum/null \
+        has'uv' \
+        id-as'uv-completion' \
+        atclone'uv generate-shell-completion zsh > _uv' \
+            zdharma-continuum/null \
+        has'op' \
+        id-as'1password-completion' \
+        atclone'op completion zsh > _op' \
+            zdharma-continuum/null \
+        has'cz' \
+        id-as'cz-completion' \
+        atclone'$(dirname $(realpath $(which cz)))/register-python-argcomplete cz > _cz' \
+            zdharma-continuum/null
+
+
+## Special order plugins
+
+# Fast syntax should be second to last plugin to work normally.
 zinit wait lucid for \
-    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-        zdharma-continuum/fast-syntax-highlighting \
-    atload"!_zsh_autosuggest_start" \
+    atinit'ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay' \
+        zdharma-continuum/fast-syntax-highlighting
+
+# This should be the last plugin to load to avoid auto select suggestions when tab is pressed.
+zinit wait lucid for \
+    atload'!_zsh_autosuggest_start' \
         zsh-users/zsh-autosuggestions
 
 
-# Load themes
+## Load theme
 
 zinit ice \
-    as"command" \
-    from"gh-r" \
+    as'command' \
+    from'gh-r' \
     atclone'
-        mkdir -p $ZPFX/bin;
-        ln -svf $PWD/starship $ZPFX/bin;
-        ./starship init zsh > init.zsh;
-        ./starship completions zsh > _starship;
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/starship $ZPFX/bin
+        ./starship init zsh > init.zsh
+        ./starship completions zsh > _starship
     ' \
-    atpull"%atclone" \
-    src"init.zsh" \
+    atpull'%atclone' \
+    atload'
+        export VIRTUAL_ENV_DISABLE_PROMPT=true
+        export STARSHIP_CONFIG=${DOTFILES_HOME}/zsh/theme/starship.toml
+    ' \
+    src'init.zsh' \
     pick'$ZPFX/bin/starship'
 
-export VIRTUAL_ENV_DISABLE_PROMPT=true  # Starship will control venv prompt.
-export STARSHIP_CONFIG=${HOME}/.dotfiles/zsh/theme/starship.toml
 zinit light starship/starship
 
-# set completion colors to be the same as `ls`, after theme has been loaded
+# Set completion colors to be the same as `ls`, after theme has been loaded
 [[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
