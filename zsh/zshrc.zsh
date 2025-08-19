@@ -347,6 +347,8 @@ zinit wait lucid for \
         mkdir -p $ZPFX/bin
         ln -svf $PWD/zellij $ZPFX/bin
         ./zellij setup --generate-completion zsh > _zellij
+
+        ln -svf ${DOTFILES_HOME}/zellij/config.kdl ${HOME}/.config/zellij/config.kdl
     ' \
     atpull'%atclone' \
     pick'$ZPFX/bin/zellij' \
