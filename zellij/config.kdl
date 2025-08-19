@@ -2,6 +2,9 @@ keybinds clear-defaults=true {
     locked {
         bind "Ctrl ]" { SwitchToMode "normal"; }
     }
+    normal {
+        bind "d" { Detach; }
+    }
     pane {
         bind "left" { MoveFocus "left"; }
         bind "down" { MoveFocus "down"; }
@@ -154,7 +157,7 @@ keybinds clear-defaults=true {
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt Shift f" { ToggleFloatingPanes; }
         bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
