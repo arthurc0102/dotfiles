@@ -136,7 +136,13 @@ zinit wait lucid for \
     \
     OMZP::cp \
     OMZP::git \
-    OMZP::jump
+    atload'
+        alias j='jump'     # Jump to a directory
+        alias jc='mark'    # Mark the current directory
+        alias jd='unmark'  # Unmark the current directory
+        alias jl='marks'   # List all marks
+    ' \
+        OMZP::jump
 
 zinit wait lucid as'completion' for \
     OMZP::pip/_pip \
@@ -215,6 +221,15 @@ zinit wait lucid for \
         export FZF_ALT_C_OPTS="--preview \"tree -C {}\" --tmux center,70%,50%"
 
         bindkey "^r" history-incremental-pattern-search-backward
+
+        alias fzf-finder="
+            FZF_DEFAULT_COMMAND=\"$FZF_DEFAULT_COMMAND --type f\" \
+            fzf \
+                --style full \
+                --height 100% \
+                --preview \"fzf-preview.sh {}\" \
+                --bind \"ctrl-u:preview-up,ctrl-d:preview-down,enter:become(realpath {})\"
+        "
     ' \
     src'integration.zsh' \
     pick'$ZPFX/bin/fzf' \

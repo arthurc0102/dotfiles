@@ -18,12 +18,3 @@ alias current_dir='echo ${PWD##*/}'
 
 # Python
 alias python-executable-path='python -c "import sys; print(sys.executable)"'
-
-# Jump
-alias j='jump'  # Jump to a directory
-alias jc='mark'  # Mark the current directory
-alias jd='unmark'  # Unmark the current directory
-alias jl='marks'  # List all marks
-
-# Fzf
-alias fzf-finder='FZF_DEFAULT_COMMAND="$FZF_DEFAULT_COMMAND --type f" fzf --style full --height 100% --preview "fzf-preview.sh {}" --bind "ctrl-u:preview-up,ctrl-d:preview-down,enter:become(realpath {})"'
