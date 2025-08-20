@@ -116,7 +116,13 @@ setopt inc_append_history
 zinit for \
     OMZL::history.zsh \
     OMZL::theme-and-appearance.zsh \
-    OMZL::completion.zsh
+    OMZL::completion.zsh \
+    OMZL::functions.zsh \
+    atload'
+        # Set title to the current directory, without username and hostname.
+        ZSH_THEME_TERM_TITLE_IDLE="%~"
+    ' \
+        OMZL::termsupport.zsh
 
 # Load brew shellenv to avoid path order issue in tmux.
 #   `eval "$(brew shellenv)"` this command add brew's bin to PATH, move it to the front

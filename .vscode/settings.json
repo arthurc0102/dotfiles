@@ -20,6 +20,8 @@
     "nocompile",
     "zicompinit",
     "zicdreplay",
+    // oh my zsh
+    "termsupport",
     // brew
     "shellenv",
     // python
