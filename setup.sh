@@ -75,6 +75,8 @@ setup_emacs() {
 
 setup_ghostty() {
     echo "Setup ghostty"
+
+    mkdir -pv ${HOME}/.config/ghostty
     ln -svf ${DOTFILES_HOME}/ghostty/config ${HOME}/.config/ghostty/config
 }
 
@@ -94,8 +96,12 @@ main() {
     setup_vim
     echo
     install_uv
-    echo
-    setup_ghostty
+
+    if [[ $(uname) == "Darwin" ]]; then
+        echo
+        setup_ghostty
+    fi
+
     # echo
     # setup_emacs
 
