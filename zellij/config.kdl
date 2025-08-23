@@ -1,6 +1,7 @@
 keybinds clear-defaults=true {
     locked {
-        bind "Ctrl ]" { SwitchToMode "normal"; }
+        // `Ctrl + ]` not working when `support_kitty_keyboard_protocol` is false
+        bind "Ctrl '" { SwitchToMode "normal"; }
     }
     normal {
         bind "d" { Detach; }
@@ -437,7 +438,14 @@ session_serialization false
 // (Requires restart)
 // Default: true (if the host terminal supports it)
 //
-// support_kitty_keyboard_protocol false
+// ========= Add by arthurc0102 =========
+// Disable this for `Alt+>` or `Alt+,` not working in iTerm2 and Ghostty
+// Ref:
+//   - https://github.com/zellij-org/zellij/issues/3897
+//   - https://github.com/zellij-org/zellij/issues/3789
+// ========= Add by arthurc0102 =========
+support_kitty_keyboard_protocol false
+
 // Whether to make sure a local web server is running when a new Zellij session starts.
 // This web server will allow creating new sessions and attaching to existing ones that have
 // opted in to being shared in the browser.
