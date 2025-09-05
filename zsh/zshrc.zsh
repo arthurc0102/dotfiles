@@ -150,6 +150,9 @@ zinit wait lucid for \
     ' \
         OMZP::jump
 
+zinit wait lucid as'completion' blockf for \
+    OMZP::terraform/_terraform
+
 
 ## Load other plugins
 
@@ -372,10 +375,7 @@ zinit is-snippet link for \
 
 zinit wait lucid is-snippet link for \
     ${DOTFILES_HOME}/zsh/custom/alias.zsh \
-    ${DOTFILES_HOME}/zsh/custom/config.zsh \
-    has'terraform' \
-        ${DOTFILES_HOME}/zsh/custom/terraform.zsh
-
+    ${DOTFILES_HOME}/zsh/custom/config.zsh
 
 ## Setup completions
 
