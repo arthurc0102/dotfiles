@@ -21,7 +21,7 @@ autoload -Uz _zinit
 ## Create cache and completions dir and add to $fpath (for oh-my-zsh plugins)
 
 mkdir -p "$ZSH_CACHE_DIR/completions"
-(( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
+(( ${fpath[(Ie)$ZSH_CACHE_DIR/completions]} )) || zinit add-fpath --front "$ZSH_CACHE_DIR/completions"
 
 
 ## Options
