@@ -325,6 +325,10 @@ zinit wait lucid for \
     pick'$ZPFX/bin/zellij' \
         zellij-org/zellij
 
+zinit wait lucid for \
+    has'orb' \
+    depth'1' \
+        orbstack/orbstack
 
 ## Load local stuff
 
@@ -375,7 +379,7 @@ zinit wait lucid \
 # Fast syntax should be second to last plugin to work normally.
 zinit wait lucid for \
     depth'1' \
-    atinit'ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay' \
+    atinit'zicompinit; zicdreplay' \
         zdharma-continuum/fast-syntax-highlighting
 
 # This should be the last plugin to load to avoid auto select suggestions when tab is pressed.

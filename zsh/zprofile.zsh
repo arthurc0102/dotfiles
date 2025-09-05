@@ -12,11 +12,6 @@ if [ -d "$HOME/.dotfiles/bin" ]; then
     export PATH="$HOME/.dotfiles/bin:$PATH"
 fi
 
-# OrbStack Config
-if [ -f "$HOME/.orbstack/shell/init.zsh" ]; then
-    source $HOME/.orbstack/shell/init.zsh 2>/dev/null || :
-fi
-
 # 1Password SSH Config: https://developer.1password.com/docs/ssh/get-started/
 if [ -S "$HOME/.1password/agent.sock" ]; then
     export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
