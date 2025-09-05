@@ -42,4 +42,4 @@
   required = true
 
 [advice]
-	skippedCherryPicks = false
+  skippedCherryPicks = false
