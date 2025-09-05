@@ -150,19 +150,8 @@ zinit wait lucid for \
     ' \
         OMZP::jump
 
-zinit wait lucid as'completion' for \
-    OMZP::pip/_pip \
-    OMZP::docker-compose/_docker-compose
-
 
 ## Load other plugins
-
-zinit wait lucid for \
-    blockf \
-    atpull'
-        zinit creinstall -q .
-    ' \
-        zsh-users/zsh-completions
 
 # Remap Ctrl+r for Alt+r for joshskidmore/zsh-fzf-history-search
 zinit wait lucid for \
