@@ -7,15 +7,9 @@ DOTFILES_HOME="${DOTFILES_HOME:-${HOME}/.dotfiles}"
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname ${ZINIT_HOME})"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "${ZINIT_HOME}"
+[ ! -d $ZINIT_HOME/.git ] && git clone --depth 1 https://github.com/zdharma-continuum/zinit.git "${ZINIT_HOME}"
 
 source "${ZINIT_HOME}/zinit.zsh"
-
-
-## Setup compinit for zinit
-
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
 
 
 ## Create cache and completions dir and add to $fpath (for oh-my-zsh plugins)
@@ -127,6 +121,7 @@ zinit wait lucid as'completion' blockf for \
 
 # Remap Ctrl+r for Alt+r for joshskidmore/zsh-fzf-history-search
 zinit wait lucid for \
+    depth'1' \
     atload'
         export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--layout=reverse --height 40% --cycle --border=none"
     ' \
@@ -134,14 +129,16 @@ zinit wait lucid for \
         joshskidmore/zsh-fzf-history-search
 
 zinit wait lucid for \
-    as'command' \
+    as'program' \
+    depth'1' \
+    cloneopts'--no-recurse-submodules' \
     atclone'
         mkdir -p $ZPFX/bin
         ln -svf $PWD/git-open $ZPFX/bin
     ' \
     atpull'%atclone' \
     pick'$ZPFX/bin/git-open' \
-        https://github.com/paulirish/git-open/blob/master/git-open
+        paulirish/git-open
 
 zinit wait lucid for \
     as'program' \
@@ -197,19 +194,20 @@ zinit wait lucid for \
         junegunn/fzf
 
 zinit wait lucid for \
+    id-as'junegunn---fzf-preview.sh' \
     as'program' \
-    id-as'fzf-preview.sh' \
+    mv'junegunn---fzf-preview.sh -> fzf-preview.sh' \
     atclone'
         mkdir -p $ZPFX/bin
         ln -svf $PWD/fzf-preview.sh $ZPFX/bin
     ' \
     atpull'%atclone' \
     pick'$ZPFX/bin/fzf-preview.sh' \
-        https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/bin/fzf-preview.sh
+        https://github.com/junegunn/fzf/blob/master/bin/fzf-preview.sh
 
 zinit wait lucid for \
-    id-as'fzf-git.sh' \
-        https://raw.githubusercontent.com/junegunn/fzf-git.sh/refs/heads/main/fzf-git.sh
+    id-as'junegunn---fzf-git.sh' \
+        https://github.com/junegunn/fzf-git.sh/blob/main/fzf-git.sh
 
 zinit wait lucid for \
     as'program' \
@@ -333,46 +331,44 @@ zinit wait lucid for \
 
 ## Load local stuff
 
-zinit is-snippet link for \
-    ${DOTFILES_HOME}/zsh/custom/golang.zsh
-
 zinit wait lucid is-snippet link for \
-    ${DOTFILES_HOME}/zsh/custom/alias.zsh \
-    ${DOTFILES_HOME}/zsh/custom/config.zsh \
-    id-as'auto-python-venv' \
+    id-as'_local---alias' \
+        ${DOTFILES_HOME}/zsh/custom/alias.zsh \
+    id-as'_local---auto-python-venv' \
         ${DOTFILES_HOME}/zsh/custom/auto-python-venv.zsh
 
 ## Setup completions
 
 zinit wait lucid \
     as'completion' \
+    depth'1' \
     atpull'%atclone' \
     run-atpull \
     blockf \
     nocompile \
     for \
         has'docker' \
-        id-as'docker-completion' \
+        id-as'_local---docker-completion' \
         atclone'docker completion zsh > _docker' \
             zdharma-continuum/null \
         has'poetry' \
-        id-as'poetry-completion' \
+        id-as'_local---poetry-completion' \
         atclone'poetry completions zsh > _poetry' \
             zdharma-continuum/null \
         has'uv' \
-        id-as'uv-completion' \
+        id-as'_local---uv-completion' \
         atclone'uv generate-shell-completion zsh > _uv' \
             zdharma-continuum/null \
         has'uvx' \
-        id-as'ruff-completion' \
+        id-as'_local---ruff-completion' \
         atclone'uvx ruff generate-shell-completion zsh > _ruff' \
             zdharma-continuum/null \
         has'op' \
-        id-as'1password-completion' \
+        id-as'_local---1password-completion' \
         atclone'op completion zsh > _op' \
             zdharma-continuum/null \
         has'cz' \
-        id-as'cz-completion' \
+        id-as'_local---cz-completion' \
         atclone'$(dirname $(realpath $(which cz)))/register-python-argcomplete cz > _cz' \
             zdharma-continuum/null
 
@@ -381,11 +377,13 @@ zinit wait lucid \
 
 # Fast syntax should be second to last plugin to work normally.
 zinit wait lucid for \
+    depth'1' \
     atinit'ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay' \
         zdharma-continuum/fast-syntax-highlighting
 
 # This should be the last plugin to load to avoid auto select suggestions when tab is pressed.
 zinit wait lucid for \
+    depth'1' \
     atload'!_zsh_autosuggest_start' \
         zsh-users/zsh-autosuggestions
 
@@ -393,7 +391,7 @@ zinit wait lucid for \
 ## Load theme
 
 zinit ice \
-    as'command' \
+    as'program' \
     from'gh-r' \
     atclone'
         mkdir -p $ZPFX/bin
