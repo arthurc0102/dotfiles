@@ -12,13 +12,6 @@ if [ -d "$HOME/.dotfiles/bin" ]; then
     export PATH="$HOME/.dotfiles/bin:$PATH"
 fi
 
-# MySQL Client Config
-if command -v brew > /dev/null && [ -d "$(brew --prefix mysql-client)/bin" ]; then
-    export PATH="$(brew --prefix mysql-client)/bin:$PATH"
-elif [ -d "/usr/local/opt/mysql-client/bin" ]; then
-    export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-fi
-
 # OrbStack Config
 if [ -f "$HOME/.orbstack/shell/init.zsh" ]; then
     source $HOME/.orbstack/shell/init.zsh 2>/dev/null || :
@@ -31,5 +24,5 @@ elif [ -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 fi
 
-# Load local Config
+# Local Config
 [ -f $HOME/.zprofile.local ] && source $HOME/.zprofile.local
