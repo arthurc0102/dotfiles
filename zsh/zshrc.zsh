@@ -148,7 +148,42 @@ zinit wait lucid for \
         alias jd='unmark'  # Unmark the current directory
         alias jl='marks'   # List all marks
     ' \
-        OMZP::jump
+        OMZP::jump \
+    atinit'
+        export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+    ' \
+    atload'
+        nvm_latest_tag() {
+            if [ ! -d "$NVM_DIR" ]; then
+                echo "NVM is not installed, run \"nvm_install\" to install"
+                return
+            fi
+
+            echo $(builtin cd "$NVM_DIR" && git fetch --quiet --tags origin && git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1))
+        }
+
+        nvm_install() {
+            echo "Installing NVM..."
+            git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+            $(builtin cd "$NVM_DIR" && git checkout --quiet "$(nvm_latest_tag)")
+        }
+
+        nvm_upgrade() {
+            local installed_version=$(builtin cd "$NVM_DIR" && git describe --tags)
+            echo "Current NVM version is $installed_version"
+
+            echo "Checking latest version of NVM..."
+            local latest_version=$(nvm_latest_tag)
+
+            if [[ "$installed_version" = "$latest_version" ]]; then
+                echo "NVM is already up to date"
+            else
+                echo "Updating NVM to $latest_version..."
+                $(builtin cd "$NVM_DIR" && git fetch --quiet && git checkout "$latest_version")
+            fi
+        }
+    ' \
+        OMZP::nvm
 
 zinit wait lucid as'completion' blockf for \
     OMZP::terraform/_terraform
@@ -173,12 +208,6 @@ zinit wait lucid for \
     atpull'%atclone' \
     pick'$ZPFX/bin/git-open' \
         https://github.com/paulirish/git-open/blob/master/git-open
-
-# Use this plugin because oh-my-zsh's nvm plugin has a problem with completion.
-# The completion will be handled by zsh-completions plugin.
-# Zinit will handle the lazy load part.
-zinit wait lucid for \
-    lukechilds/zsh-nvm
 
 zinit wait lucid for \
     as'program' \
