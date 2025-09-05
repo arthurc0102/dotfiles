@@ -50,16 +50,13 @@ zinit for \
         # Set title to the current directory, without username and hostname.
         ZSH_THEME_TERM_TITLE_IDLE="%~"
     ' \
-        OMZL::termsupport.zsh
-
-# Load brew shellenv to avoid path order issue in tmux.
-#   `eval "$(brew shellenv)"` this command add brew's bin to PATH, move it to the front
-#   if it's already in PATH.
-#
-# Don't use `has'brew'` because this plugin will found brew install location and
-#   add it to PATH.
-zinit for \
-    atload'command -v brew >/dev/null && eval "$(brew shellenv)"' \
+        OMZL::termsupport.zsh \
+    atload'
+        # Run `eval "$(brew shellenv)"` in tmux to move it to the front of PATH, so command from brew will be default (ex. git).
+        if [[ -n $TMUX ]] && command -v brew > /dev/null; then
+            eval "$(brew shellenv)"
+        fi
+    ' \
         OMZP::brew
 
 zinit wait lucid for \
@@ -82,7 +79,7 @@ zinit wait lucid for \
     ' \
     atload'
         nvm_latest_tag() {
-            if [ ! -d "$NVM_DIR" ]; then
+            if [[ ! -d "$NVM_DIR" ]]; then
                 echo "NVM is not installed, run \"nvm_install\" to install"
                 return
             fi
