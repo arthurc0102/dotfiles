@@ -343,13 +343,18 @@ zinit wait lucid for \
     depth'1' \
         orbstack/orbstack
 
+
 ## Load local stuff
+
+# Load hook with sync mode.
+zinit is-snippet link for \
+    id-as'_local---auto-python-venv' \
+        ${DOTFILES_HOME}/zsh/custom/auto-python-venv.zsh
 
 zinit wait lucid is-snippet link for \
     id-as'_local---alias' \
-        ${DOTFILES_HOME}/zsh/custom/alias.zsh \
-    id-as'_local---auto-python-venv' \
-        ${DOTFILES_HOME}/zsh/custom/auto-python-venv.zsh
+        ${DOTFILES_HOME}/zsh/custom/alias.zsh
+
 
 ## Setup completions
 
