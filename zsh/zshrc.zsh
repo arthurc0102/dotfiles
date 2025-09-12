@@ -314,6 +314,19 @@ zinit wait lucid for \
 zinit wait lucid for \
     as'program' \
     from'gh-r' \
+    mv'fx* -> fx' \
+    atclone'
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/fx $ZPFX/bin
+        ./fx --comp zsh > _fx
+    ' \
+    atpull'%atclone' \
+    pick'$ZPFX/bin/fx' \
+        antonmedv/fx
+
+zinit wait lucid for \
+    as'program' \
+    from'gh-r' \
     atclone'
         mkdir -p $ZPFX/bin
         ln -svf $PWD/zellij $ZPFX/bin
