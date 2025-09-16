@@ -4,25 +4,23 @@
 
 ## Install
 
-1. Auto install: `curl -sL https://raw.githubusercontent.com/arthurc0102/dotfiles/master/setup.sh | sh`
-2. Manual install:
-    1. Clone this repo: `git clone https://github.com/arthurc0102/dotfiles.git ~/.dotfiles`.
-    2. Run setup script: `sh ~/.dotfiles/setup.sh` or link config file to the right place by yourself.
+1. Clone this repo: `git clone https://github.com/arthurc0102/dotfiles.git ~/.dotfiles`.
+2. Run setup script: `~/.dotfiles/setup.zsh` or link config file to the right place by yourself.
 
 ## Setup
 
 ### Git
 
-Update name and email in `~/.gitconfig.user`
+Update name and email in [git config](./stow/dot-config/git/config)
 
-If you need to use multi account add config below to your `.gitconfig.user`
+If you need to use multi account add config below to git config file or `~/.config/git/config.local` create by [setup.zsh](./setup.zsh)
 
 ```conf
-[includeIf "gitdir:/path/to/work/"]  # The trailing slash is necessary.
-  path = ~/.gitconfig.work
+[includeIf "gitdir:~/projects/work/"]  # The trailing slash is necessary.
+  path = ~/.config/git/config.work
 ```
 
-Example for `.gitconfig.work`
+Example for `~/.config/git/config.work`
 
 ```conf
 [core]
@@ -37,9 +35,9 @@ Example for `.gitconfig.work`
 
 Install uv: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 
-### Nvm
+### NVM
 
-Install nvm: `git clone https://github.com/nvm-sh/nvm.git ~/.nvm`
+Install NVM: `git clone https://github.com/nvm-sh/nvm.git ~/.nvm`
 
 Install node:
 

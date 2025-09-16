@@ -1,0 +1,22 @@
+# XDG
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# ZSH
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# System Config
+export PATH="$HOME/.local/bin:$PATH"
+export PAGER="less -FX"
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+
+# UV
+export UV_MANAGED_PYTHON=true
+export UV_PYTHON_INSTALL_BIN=false
+
+# My Dotfiles
+export DOTFILES_HOME="${DOTFILES_HOME:-${HOME}/.dotfiles}"

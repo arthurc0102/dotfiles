@@ -1,3 +1,9 @@
+# User config
+
+[user]
+  email = arthurc0102@gmail.com
+  name = Arthur Chang
+
 [color]
   ui = true
 
@@ -17,9 +23,6 @@
 
 [push]
   autoSetupRemote = true
-
-[include]
-  path = ~/.gitconfig.user
 
 [interactive]
   diffFilter = delta --color-only
@@ -43,3 +46,8 @@
 
 [advice]
   skippedCherryPicks = false
+
+# Include local config
+
+[include]
+  path = ~/.config/git/config.local

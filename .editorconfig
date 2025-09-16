@@ -7,35 +7,13 @@ root = true
 charset = utf-8
 end_of_line = lf
 indent_style = space
-indent_size = 2
+indent_size = 4
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.py]
-indent_size = 4
-
-[*.lock]
-indent_size = 4
-
-[*.sh]
-indent_size = 4
-
-[*.zsh]
-indent_size = 4
+[*.json]
+indent_size = 2
 
 [*.md]
-indent_size = 4
 max_line_length = off
 trim_trailing_whitespace = false
-
-[*.kdl]
-indent_size = 4
-
-[Makefile]
-indent_style = tab
-
-[karabiner/*.json]
-indent_size = 4
-
-[bin/*]
-indent_size = 4

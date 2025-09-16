@@ -5,6 +5,8 @@
     "fpath",
     "interactivecomments",
     "savehist",
+    "compdump",
+    "zcompdump",
     // zinit
     "zinit",
     "OMZL",
@@ -20,8 +22,10 @@
     "nocompile",
     "zicompinit",
     "zicdreplay",
+    "cloneopts",
     // oh my zsh
     "termsupport",
+    "MARKPATH",
     // brew
     "shellenv",
     // python
@@ -30,7 +34,9 @@
     // tool names
     "lazygit",
     "lazydocker",
+    "orbstack",
     // author names
+    "arthurc0102",
     "joshskidmore",
     "jesseduffield",
     "dandavison",
@@ -46,6 +52,8 @@
     // vim
     "vimrc",
     // ghostty
-    "ghostty"
+    "ghostty",
+    // stow
+    "restow"
   ]
 }
