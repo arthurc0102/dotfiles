@@ -1,23 +1,14 @@
-# Notes
-# - Update `~/.ssh/config` to fixed ctrl+l not working when using ssh.
-#   ```
-#   Host *
-#     SetEnv TERM=xterm-256color
-#   ```
+# Shell
+shell-integration-features = no-cursor,no-title,sudo,ssh-env
 
-# Theme
+# Theme / Style
 theme = Snazzy Soft
-
-# Font
+cursor-style = underline
 font-family = Cascadia Mono NF
 font-size = 14
 
 # Window
 window-inherit-working-directory = false
-
-# Cursor
-cursor-style = underline
-shell-integration-features = no-cursor
 
 # MacOS
 macos-option-as-alt = true
@@ -25,3 +16,4 @@ macos-option-as-alt = true
 # Keybindings
 keybind = alt+left=unbind
 keybind = alt+right=unbind
+keybind = shift+enter=text:\x1b\r
