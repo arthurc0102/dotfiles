@@ -28,6 +28,17 @@ install_uv() {
     fi
 }
 
+install_doom_emacs() {
+    if [[ -d $XDG_CONFIG_HOME/emacs ]]; then
+        echo "Skip doom emacs installation because it is already installed"
+    else
+        echo "Install doom emacs"
+        git clone --depth 1 https://github.com/doomemacs/doomemacs $XDG_CONFIG_HOME/emacs
+        $XDG_CONFIG_HOME/emacs/bin/doom install
+        ln -svf $XDG_CONFIG_HOME/emacs/bin/doom $HOME/.local/bin/doom
+    fi
+}
+
 link_config_files() {
     if [ -z "$1" ]; then
         echo "No stow package specified."
@@ -67,6 +78,9 @@ main() {
     echo
 
     install_uv
+    echo
+
+    install_doom_emacs
 }
 
 main
