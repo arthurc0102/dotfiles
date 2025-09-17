@@ -13,14 +13,16 @@
 
 Update name and email in [git config](./stow/dot-config/git/config)
 
-If you need to use multi account add config below to git config file or `~/.config/git/config.local` create by [setup.zsh](./setup.zsh)
+If you need to use multi account, update [git config local](./stow-local/dot-config/git/config.local) create by [setup.zsh](./setup.zsh), see example below.
 
 ```conf
 [includeIf "gitdir:~/projects/work/"]  # The trailing slash is necessary.
   path = ~/.config/git/config.work
 ```
 
-Example for `~/.config/git/config.work`
+Or you can create a new file in [git config local folder](./stow-local/dot-config/git/) like example below.
+
+Example for `~/.dotfiles/stow-local/dot-config/git/config.work`
 
 ```conf
 [core]
@@ -30,6 +32,8 @@ Example for `~/.config/git/config.work`
   email = work@example.com
   name = Your Name
 ```
+
+And run [setup.zsh](./setup.zsh) again to link the config file to the right place.
 
 ### uv
 

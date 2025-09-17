@@ -436,3 +436,5 @@ zinit ice \
 zinit light starship/starship
 
 # endregion
+
+[[ -f $ZDOTDIR/.zshrc.local ]] && source $ZDOTDIR/.zshrc.local

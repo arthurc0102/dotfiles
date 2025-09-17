@@ -19,11 +19,6 @@ install_dotfiles() {
     git clone https://github.com/arthurc0102/dotfiles.git "$DOTFILES_HOME"
 }
 
-setup_git() {
-    echo "Setup git"
-    touch ~/.config/git/config.local
-}
-
 install_uv() {
     if command -v uv > /dev/null; then
         echo "Skip uv installation because it is already installed"
@@ -40,7 +35,17 @@ link_config_files() {
     fi
 
     echo "Link config files from '$1'"
-    stow --verbose --dotfiles --no-folding --restow --target=$HOME --dir=$DOTFILES_HOME $1
+    stow --verbose --dotfiles --no-folding --restow --target=$HOME --ignore='.gitkeep' --dir=$DOTFILES_HOME $1
+}
+
+setup_local_config() {
+    mkdir -pv $DOTFILES_HOME/stow-local/dot-config/git/
+    touch $DOTFILES_HOME/stow-local/dot-config/git/config.local
+
+    mkdir -pv $DOTFILES_HOME/stow-local/dot-config/zsh/
+    touch $DOTFILES_HOME/stow-local/dot-config/zsh/dot-zshrc.local
+
+    link_config_files stow-local
 }
 
 
@@ -58,7 +63,7 @@ main() {
         echo
     fi
 
-    setup_git
+    setup_local_config
     echo
 
     install_uv
