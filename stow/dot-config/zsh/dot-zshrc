@@ -338,11 +338,6 @@ zinit wait lucid for \
     pick'$ZPFX/bin/zellij' \
         zellij-org/zellij
 
-zinit wait lucid for \
-    has'orb' \
-    depth'1' \
-        orbstack/orbstack
-
 
 ## Load local stuff
 
