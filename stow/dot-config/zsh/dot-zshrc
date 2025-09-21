@@ -134,6 +134,7 @@ zinit wait lucid for \
     depth'1' \
     atload'
         export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--layout=reverse --height 40% --cycle --border=none"
+        export ZSH_FZF_HISTORY_SEARCH_END_OF_LINE=true
     ' \
     bindmap'^r -> ^[r' \
         joshskidmore/zsh-fzf-history-search
