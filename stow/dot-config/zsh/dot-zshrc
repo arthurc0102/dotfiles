@@ -121,7 +121,9 @@ zinit wait lucid for \
             fi
         }
     ' \
-        OMZP::nvm
+        OMZP::nvm \
+    has'eza' \
+        OMZP::eza
 
 zinit wait lucid as'completion' blockf for \
     OMZP::terraform/_terraform
