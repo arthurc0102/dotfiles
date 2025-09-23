@@ -246,6 +246,9 @@ zinit wait lucid for \
         cp bat/autocomplete/bat.zsh bat/_bat
     ' \
     atpull'%atclone' \
+    atload'
+        alias cat="bat --paging=never"
+    ' \
     pick'$ZPFX/bin/bat' \
         @sharkdp/bat
 
