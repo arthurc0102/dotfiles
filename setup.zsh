@@ -35,6 +35,7 @@ install_doom_emacs() {
         echo "Install doom emacs"
         git clone --depth 1 https://github.com/doomemacs/doomemacs $XDG_CONFIG_HOME/emacs
         $XDG_CONFIG_HOME/emacs/bin/doom install
+        $XDG_CONFIG_HOME/emacs/bin/doom sync
         ln -svf $XDG_CONFIG_HOME/emacs/bin/doom $HOME/.local/bin/doom
     fi
 }
@@ -77,10 +78,12 @@ main() {
     setup_local_config
     echo
 
-    install_uv
-    echo
+    if command -v emacs > /dev/null; then
+        install_doom_emacs
+        echo
+    fi
 
-    install_doom_emacs
+    install_uv
 }
 
 main
