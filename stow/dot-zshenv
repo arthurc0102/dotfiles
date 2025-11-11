@@ -14,9 +14,13 @@ export PAGER="less -FX"
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
 
-# UV
+# uv
 export UV_MANAGED_PYTHON=true
 export UV_PYTHON_INSTALL_BIN=false
+
+# goenv
+export GOENV_ROOT="$XDG_CONFIG_HOME/goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
 
 # My Dotfiles
 export DOTFILES_HOME="${DOTFILES_HOME:-${HOME}/.dotfiles}"

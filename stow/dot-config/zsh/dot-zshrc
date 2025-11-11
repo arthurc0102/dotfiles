@@ -344,6 +344,21 @@ zinit wait lucid for \
     pick'$ZPFX/bin/zellij' \
         zellij-org/zellij
 
+zinit wait lucid \
+    has'goenv' \
+    for \
+        id-as'_local---goenv' \
+        depth'1' \
+        atclone'goenv init - > init.zsh' \
+        atpull'%atclone' \
+        run-atpull \
+        nocompile \
+        src'init.zsh' \
+            zdharma-continuum/null \
+        as'completion' \
+        blockf \
+            OMZP::golang/_golang
+
 
 ## Load local stuff
 

@@ -40,6 +40,15 @@ install_doom_emacs() {
     fi
 }
 
+install_goenv() {
+    if [[ -d $GOENV_ROOT ]]; then
+        echo "Skip goenv installation because it is already installed"
+    else
+        echo "Install goenv"
+        git clone https://github.com/go-nv/goenv.git "$GOENV_ROOT"
+    fi
+}
+
 link_config_files() {
     if [ -z "$1" ]; then
         echo "No stow package specified."
@@ -82,6 +91,9 @@ main() {
         install_doom_emacs
         echo
     fi
+
+    install_goenv
+    echo
 
     install_uv
 }

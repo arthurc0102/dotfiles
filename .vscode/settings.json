@@ -54,6 +54,8 @@
     // ghostty
     "ghostty",
     // stow
-    "restow"
+    "restow",
+    // goenv
+    "goenv"
   ]
 }
