@@ -365,10 +365,12 @@ zinit wait lucid \
 # Load hook with sync mode.
 zinit is-snippet link for \
     id-as'_local---auto-python-venv' \
+    nocompile \
         ${DOTFILES_HOME}/zsh/snippets/auto-python-venv.zsh
 
 zinit wait lucid is-snippet link for \
     id-as'_local---alias' \
+    nocompile \
         ${DOTFILES_HOME}/zsh/snippets/alias.zsh
 
 
