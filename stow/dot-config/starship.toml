@@ -42,7 +42,7 @@ truncate_to_repo = false
 truncation_symbol = ".../"
 style = "cyan bold"
 repo_root_style = "cyan bold"
-before_repo_root_style = "cyan dimmed"
+before_repo_root_style = "cyan bold dimmed"
 
 [git_branch]
 symbol = ''

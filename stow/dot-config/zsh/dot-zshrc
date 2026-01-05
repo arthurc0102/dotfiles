@@ -223,6 +223,18 @@ zinit wait lucid for \
         https://github.com/junegunn/fzf-git.sh/blob/main/fzf-git.sh
 
 zinit wait lucid for \
+    id-as'juliangruber---vipe.sh' \
+    as'program' \
+    mv'juliangruber---vipe.sh -> vipe' \
+    atclone'
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/vipe $ZPFX/bin
+    ' \
+    atpull'%atclone' \
+    pick'$ZPFX/bin/vipe' \
+        https://github.com/juliangruber/vipe/blob/master/vipe.sh
+
+zinit wait lucid for \
     as'program' \
     from'gh-r' \
     mv'ripgrep* -> ripgrep' \
