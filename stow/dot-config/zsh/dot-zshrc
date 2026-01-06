@@ -374,6 +374,11 @@ zinit wait lucid is-snippet link for \
     nocompile \
         ${DOTFILES_HOME}/zsh/snippets/alias.zsh
 
+zinit wait lucid is-snippet link for \
+    id-as'_local---widgets' \
+    nocompile \
+        ${DOTFILES_HOME}/zsh/snippets/widgets.zsh
+
 
 ## Setup completions
 

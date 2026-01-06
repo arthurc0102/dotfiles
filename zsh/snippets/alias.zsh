@@ -18,3 +18,14 @@ alias current_dir='echo ${PWD##*/}'
 
 # Python
 alias python-executable-path='python -c "import sys; print(sys.executable)"'
+
+# Suffix
+alias -s json='fx'
+
+# Global
+alias -g C='| clipcopy'
+alias -g W='| wc -c'
+alias -g L='| wc -l'
+alias -g NO='> /dev/null'  # No output
+alias -g NE='2> /dev/null'  # No error output
+alias -g NOE='&> /dev/null'  # No output and error output
