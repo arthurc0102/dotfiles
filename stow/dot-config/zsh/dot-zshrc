@@ -236,6 +236,23 @@ zinit wait lucid for \
         https://github.com/juliangruber/vipe/blob/master/vipe.sh
 
 zinit wait lucid for \
+    as'completion' \
+    blockf \
+        OMZP::tmux-cssh/_tmux-cssh \
+    \
+    id-as'zinic---tmux-cssh' \
+    as'program' \
+    mv'zinic---tmux-cssh -> tmux-cssh' \
+    atclone'
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/tmux-cssh $ZPFX/bin
+    ' \
+    atpull'%atclone' \
+    pick'$ZPFX/bin/tmux-cssh' \
+        https://github.com/zinic/tmux-cssh/blob/master/tmux-cssh
+
+
+zinit wait lucid for \
     as'program' \
     from'gh-r' \
     mv'ripgrep* -> ripgrep' \
