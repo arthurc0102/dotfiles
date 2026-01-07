@@ -38,11 +38,11 @@ format = "[$hostname]($style) in "
 
 [directory]
 truncation_length = 10
-truncate_to_repo = false
 truncation_symbol = ".../"
 style = "cyan bold"
 repo_root_style = "cyan bold"
 before_repo_root_style = "cyan bold dimmed"
+fish_style_pwd_dir_length = 1
 
 [git_branch]
 symbol = ''
