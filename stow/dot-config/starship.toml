@@ -22,6 +22,7 @@ $time\
 $cmd_duration\
 $jobs\
 $line_break\
+$terraform\
 $python\
 $character"""
 
@@ -81,3 +82,6 @@ time_format = "%m/%d %T"
 
 [cmd_duration]
 min_time = 0
+
+[terraform]
+format = '\([$workspace]($style)\) '
