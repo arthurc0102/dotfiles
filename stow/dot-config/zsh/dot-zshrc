@@ -423,6 +423,10 @@ zinit wait lucid \
         id-as'_local---ruff-completion' \
         atclone'uvx ruff generate-shell-completion zsh > _ruff' \
             zdharma-continuum/null \
+        has'uvx' \
+        id-as'_local---ty-completion' \
+        atclone'uvx ty generate-shell-completion zsh > _ty' \
+            zdharma-continuum/null \
         has'op' \
         id-as'_local---1password-completion' \
         atclone'op completion zsh > _op' \
