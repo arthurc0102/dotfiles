@@ -29,3 +29,8 @@ alias -g L='| wc -l'
 alias -g NO='> /dev/null'  # No output
 alias -g NE='2> /dev/null'  # No error output
 alias -g NOE='&> /dev/null'  # No output and error output
+
+# DNS
+if [[ $(uname) == 'Darwin' ]]; then
+    alias dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+fi
