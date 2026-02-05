@@ -4,8 +4,8 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-# Set scan timeout to 100 milliseconds to avoid timeout
-scan_timeout = 100
+# Set scan timeout to 500 milliseconds to avoid timeout
+scan_timeout = 500
 
 # Left prompt config
 format = """
