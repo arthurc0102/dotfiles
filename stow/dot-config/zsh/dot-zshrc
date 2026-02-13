@@ -362,6 +362,18 @@ zinit wait lucid for \
     pick'$ZPFX/bin/fx' \
         antonmedv/fx
 
+zinit wait lucid for \
+    as'program' \
+    from'gh-r' \
+    atclone'
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/just $ZPFX/bin
+        ./just --completions zsh > _just
+    ' \
+    atpull'%atclone' \
+    pick'$ZPFX/bin/just' \
+        casey/just
+
 zinit wait lucid \
     has'goenv' \
     for \
