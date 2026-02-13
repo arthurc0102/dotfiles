@@ -372,7 +372,17 @@ zinit wait lucid for \
     ' \
     atpull'%atclone' \
     pick'$ZPFX/bin/just' \
-        casey/just
+        casey/just \
+    \
+    as'program' \
+    from'gh-r' \
+    atclone'
+        mkdir -p $ZPFX/bin
+        ln -svf $PWD/just-lsp $ZPFX/bin
+    ' \
+    atpull'%atclone' \
+    pick'$ZPFX/bin/just-lsp' \
+        terror/just-lsp
 
 zinit wait lucid \
     has'goenv' \
