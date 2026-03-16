@@ -11,6 +11,9 @@ font-size = 14
 window-inherit-working-directory = false
 maximize = true
 
+# Tab
+tab-inherit-working-directory = false
+
 # MacOS
 macos-option-as-alt = true
 
