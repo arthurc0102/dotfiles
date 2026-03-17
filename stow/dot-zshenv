@@ -17,6 +17,7 @@ export HOMEBREW_NO_ANALYTICS=1
 # uv
 export UV_MANAGED_PYTHON=true
 export UV_PYTHON_INSTALL_BIN=false
+export UV_NO_MODIFY_PATH=true
 
 # goenv
 export GOENV_ROOT="$XDG_CONFIG_HOME/goenv"
