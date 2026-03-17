@@ -473,7 +473,26 @@ zinit wait lucid \
 
 ## Special order plugins
 
-# Fast syntax should be second to last plugin to work normally.
+# fzf-tab configs
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
+# custom fzf flags
+zstyle ':fzf-tab:*' fzf-flags --height=~50% --layout=reverse --border --ansi
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
+
+# fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting
 zinit wait lucid for \
     depth'1' \
     atinit'
@@ -481,6 +500,11 @@ zinit wait lucid for \
         zicompinit
         zicdreplay
     ' \
+        Aloxaf/fzf-tab
+
+# Fast syntax should be second to last plugin to work normally.
+zinit wait lucid for \
+    depth'1' \
         zdharma-continuum/fast-syntax-highlighting
 
 # This should be the last plugin to load to avoid auto select suggestions when tab is pressed.
