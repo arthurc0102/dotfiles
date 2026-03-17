@@ -136,7 +136,7 @@ zinit wait lucid as'completion' blockf for \
 zinit wait lucid for \
     depth'1' \
     atload'
-        export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--layout=reverse --height 40% --cycle --border=none"
+        export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--layout=reverse --height=~50% --cycle --border --ansi"
         export ZSH_FZF_HISTORY_SEARCH_END_OF_LINE=true
     ' \
     bindmap'^r -> ^[r' \
@@ -188,9 +188,9 @@ zinit wait lucid for \
     atpull'%atclone' \
     atload'
         export FZF_DEFAULT_COMMAND="fd --hidden --follow --strip-cwd-prefix --color always --exclude .git"
-        export FZF_DEFAULT_OPTS="--height 40% --tmux center --layout reverse --border --ansi"
+        export FZF_DEFAULT_OPTS="--height=~50% --tmux=center --layout=reverse --border --ansi"
         export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
-        export FZF_ALT_C_OPTS="--preview \"tree -C {}\" --tmux center,70%,50%"
+        export FZF_ALT_C_OPTS="--preview \"tree -C {}\" --tmux=center,70%,50%"
 
         bindkey "^r" history-incremental-pattern-search-backward
 
