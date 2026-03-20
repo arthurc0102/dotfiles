@@ -34,3 +34,8 @@ alias -g NOE='&> /dev/null'  # No output and error output
 if [[ $(uname) == 'Darwin' ]]; then
     alias dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 fi
+
+# Tmux
+alias t='tmux'
+alias tn='tmux new -A -s'
+alias ta='tmux attach -t'

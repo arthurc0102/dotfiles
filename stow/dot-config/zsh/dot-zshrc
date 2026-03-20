@@ -425,11 +425,6 @@ zinit wait lucid is-snippet link for \
     nocompile \
         ${DOTFILES_HOME}/zsh/snippets/widgets.zsh
 
-zinit wait lucid is-snippet link for \
-    id-as'_local---tmux' \
-    nocompile \
-        ${DOTFILES_HOME}/zsh/snippets/tmux.zsh
-
 
 ## Setup completions
 
