@@ -38,4 +38,5 @@ fi
 # Tmux
 alias t='tmux'
 alias tn='tmux new -A -s'
+alias tnc='tmux new -A -s $(current_dir)'
 alias ta='tmux attach -t'
