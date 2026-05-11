@@ -61,6 +61,20 @@ brew install --cask font-cascadia-mono-nf font-cascadia-code-nf
 brew install --cask font-maple-mono-normal-nf-cn
 ```
 
+### brew
+
+Dump brew list
+
+```bash
+brew bundle dump -f --file=Brewfile --no-vscode --no-go --no-cargo --no-uv
+```
+
+Install from Brewfile
+
+```bash
+brew bundle --file=Brewfile
+```
+
 ## Test
 
 - Test startup speed: `/usr/bin/time zsh -i -c exit`
