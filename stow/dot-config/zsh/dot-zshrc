@@ -28,13 +28,6 @@ setopt inc_append_history
 
 setopt interactivecomments  # Recognize comments
 
-
-## Key binding
-
-bindkey ' ' magic-space
-bindkey '^r' history-incremental-pattern-search-backward
-bindkey '^s' history-incremental-pattern-search-forward
-
 # endregion
 
 
@@ -75,7 +68,11 @@ zinit wait lucid for \
     OMZL::directories.zsh \
     OMZL::git.zsh \
     OMZL::grep.zsh \
-    OMZL::key-bindings.zsh \
+    atload'
+        bindkey '^r' history-incremental-pattern-search-backward
+        bindkey '^s' history-incremental-pattern-search-forward
+    ' \
+        OMZL::key-bindings.zsh \
     \
     OMZP::cp \
     OMZP::git \
@@ -172,13 +169,13 @@ zinit wait lucid for \
 # ALT-C - cd into the selected directory
 #
 # Config:
-# - Disable CTRL-T.
-# - Remove CTRL-R when atload, use ALT-R for fzf history search.
+# - Disable CTRL-T and CTRL-R.
 zinit wait lucid for \
     as'program' \
     from'gh-r' \
     atinit'
         FZF_CTRL_T_COMMAND=""
+        FZF_CTRL_R_COMMAND=""
     ' \
     atclone'
         mkdir -p $ZPFX/bin
@@ -191,8 +188,6 @@ zinit wait lucid for \
         export FZF_DEFAULT_OPTS="--height=~50% --tmux=center --layout=reverse --border --ansi"
         export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
         export FZF_ALT_C_OPTS="--preview \"tree -C {}\" --tmux=center,70%,50%"
-
-        bindkey "^r" history-incremental-pattern-search-backward
 
         alias fzf-finder="
             FZF_DEFAULT_COMMAND=\"$FZF_DEFAULT_COMMAND --type f\" \
