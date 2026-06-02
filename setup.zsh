@@ -49,6 +49,22 @@ install_goenv() {
     fi
 }
 
+disable_go_telemetry() {
+    if [[ $(uname) == "Darwin" ]]; then
+        local dir="$HOME/Library/Application Support/go/telemetry"
+    else
+        local dir="${XDG_CONFIG_HOME:-$HOME/.config}/go/telemetry"
+    fi
+
+    if [[ -f $dir/mode ]]; then
+        echo "Skip go telemetry because mode file already exists"
+    else
+        echo "Disable go telemetry"
+        mkdir -pv "$dir"
+        printf 'off\n' > "$dir/mode"
+    fi
+}
+
 install_tpm() {
     local tpm_dir="$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
@@ -107,6 +123,9 @@ main() {
     fi
 
     install_goenv
+    echo
+
+    disable_go_telemetry
     echo
 
     install_uv
