@@ -431,10 +431,6 @@ zinit wait lucid \
     blockf \
     nocompile \
     for \
-        has'docker' \
-        id-as'_local---docker-completion' \
-        atclone'docker completion zsh > _docker' \
-            zdharma-continuum/null \
         has'poetry' \
         id-as'_local---poetry-completion' \
         atclone'poetry completions zsh > _poetry' \
