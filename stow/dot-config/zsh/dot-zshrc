@@ -56,10 +56,15 @@ zinit for \
     ' \
         OMZL::termsupport.zsh \
     atload'
-        # Run `eval "$(brew shellenv)"` in tmux to move it to the front of PATH, so command from brew will be default (ex. git).
-        if [[ -n $TMUX ]] && command -v brew > /dev/null; then
+        # Every macOS login shell re-runs path_helper (/etc/zprofile), which reorders PATH and pushes brew behind the system paths.
+        # Re-run brew shellenv (always, not just in tmux) to move the Homebrew bin folder back to the front, so commands from brew take precedence (ex. git).
+        if command -v brew > /dev/null; then
             eval "$(brew shellenv)"
         fi
+
+        # brew shellenv prepends its bin dirs, so re-prepend polaris/bin afterwards to keep zinit-installed tools ahead of brew (ex. fzf, rg, delta).
+        # Net priority: zinit (polaris) > brew > system.
+        path=("${ZINIT[POLARIS_DIR]}/bin" "${(@)path:#${ZINIT[POLARIS_DIR]}/bin}")
     ' \
         OMZP::brew
 
