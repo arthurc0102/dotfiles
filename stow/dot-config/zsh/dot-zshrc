@@ -404,21 +404,16 @@ zinit wait lucid \
 
 ## Load local stuff
 
-# Load hook with sync mode.
-zinit is-snippet link for \
+# Sync load: register the venv hook before the first prompt, so it fires on
+# shell/tmux-pane startup. A deferred (wait) load would miss the first precmd.
+zinit is-snippet link nocompile nocompletions for \
     id-as'_local---auto-python-venv' \
-    nocompile \
         ${DOTFILES_HOME}/zsh/snippets/auto-python-venv.zsh
 
-zinit wait lucid is-snippet link for \
-    id-as'_local---alias' \
-    nocompile \
-        ${DOTFILES_HOME}/zsh/snippets/alias.zsh
-
-zinit wait lucid is-snippet link for \
-    id-as'_local---widgets' \
-    nocompile \
-        ${DOTFILES_HOME}/zsh/snippets/widgets.zsh
+# Deferred loads: aliases and widgets aren't needed before the first prompt.
+zinit wait lucid is-snippet link nocompile nocompletions for \
+    id-as'_local---alias'   ${DOTFILES_HOME}/zsh/snippets/alias.zsh \
+    id-as'_local---widgets' ${DOTFILES_HOME}/zsh/snippets/widgets.zsh
 
 
 ## Setup completions
