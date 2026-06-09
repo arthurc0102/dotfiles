@@ -406,6 +406,10 @@ zinit wait lucid \
         blockf \
             OMZP::golang/_golang
 
+zinit wait lucid for \
+    has'mise' \
+        OMZP::mise
+
 
 ## Load local stuff
 
