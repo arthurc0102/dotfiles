@@ -1,5 +1,7 @@
 {
-  "errorLens.enabled": false,
+  "files.associations": {
+    "dot-zshrc": "shellscript"
+  },
   "cSpell.words": [
     // zsh
     "fpath",
@@ -54,8 +56,6 @@
     // ghostty
     "ghostty",
     // stow
-    "restow",
-    // goenv
-    "goenv"
+    "restow"
   ]
 }

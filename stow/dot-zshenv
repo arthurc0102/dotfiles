@@ -19,11 +19,6 @@ export UV_MANAGED_PYTHON=true
 export UV_PYTHON_INSTALL_BIN=false
 export UV_NO_MODIFY_PATH=true
 
-# goenv
-export GOENV_ROOT="$XDG_CONFIG_HOME/goenv"
-export GOENV_GOPATH_PREFIX="$XDG_DATA_HOME/go"
-export PATH="$GOENV_ROOT/bin:$PATH"
-
 # go (XDG-ify the remaining defaults)
 export GOENV="$XDG_CONFIG_HOME/go/env"
 export GOCACHE="$XDG_CACHE_HOME/go-build"

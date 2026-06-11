@@ -397,21 +397,10 @@ zinit wait lucid for \
     pick'$ZPFX/bin/zoxide' \
         ajeetdsouza/zoxide
 
-zinit wait lucid \
-    has'goenv' \
-    for \
-        id-as'_local---goenv' \
-        depth'1' \
-        atclone'goenv init - > init.zsh' \
-        atpull'%atclone' \
-        run-atpull \
-        nocompile \
-        src'init.zsh' \
-            zdharma-continuum/null \
-        \
-        as'completion' \
-        blockf \
-            OMZP::golang/_golang
+zinit wait lucid for \
+    as'completion' \
+    blockf \
+        OMZP::golang/_golang
 
 # usage backs mise's completions: the generated _mise script shells out to it at
 # tab-time (generating the script doesn't need usage). It's only useful alongside
