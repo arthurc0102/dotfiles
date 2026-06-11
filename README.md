@@ -35,30 +35,20 @@ Example for `~/.dotfiles/stow-local/dot-config/git/config.work`
 
 And run [setup.zsh](./setup.zsh) again to link the config file to the right place.
 
-### uv
+### Python
 
-Install uv: `curl -LsSf https://astral.sh/uv/install.sh | sh`
-
-### NVM
-
-Install NVM: `git clone https://github.com/nvm-sh/nvm.git ~/.nvm`
-
-Install node:
+Install with uv
 
 ```bash
-nvm install --lts
-nvm use --lts
+uv python install <version>
 ```
 
-### Font
+### Node
 
-Cascadia Code: <https://github.com/microsoft/cascadia-code>
-
-Install with brew:
+Install with mise
 
 ```bash
-brew install --cask font-cascadia-mono-nf font-cascadia-code-nf
-brew install --cask font-maple-mono-normal-nf-cn
+mise use -g node@lts
 ```
 
 ### brew
