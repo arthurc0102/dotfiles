@@ -51,12 +51,12 @@ Install with mise
 mise use -g node@lts
 ```
 
-### brew
+### Homebrew
 
 Dump brew list
 
 ```bash
-brew bundle dump -f --file=Brewfile --no-vscode --no-go --no-cargo --no-uv
+brew bundle dump -f --file=Brewfile --no-vscode --no-go --no-cargo --no-uv --no-npm --no-describe
 ```
 
 Install from Brewfile
