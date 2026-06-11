@@ -406,9 +406,23 @@ zinit wait lucid \
         blockf \
             OMZP::golang/_golang
 
-zinit wait lucid for \
+# usage backs mise's completions: the generated _mise script shells out to it at
+# tab-time (generating the script doesn't need usage). It's only useful alongside
+# mise, so has'mise' gates both; with no load-order dependency the order here is free.
+zinit wait lucid \
     has'mise' \
-        OMZP::mise
+    for \
+        OMZP::mise \
+        \
+        as'program' \
+        from'gh-r' \
+        atclone'
+            mkdir -p $ZPFX/bin
+            ln -svf $PWD/usage $ZPFX/bin
+        ' \
+        atpull'%atclone' \
+        pick'$ZPFX/bin/usage' \
+            jdx/usage
 
 
 ## Load local stuff

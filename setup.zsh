@@ -28,6 +28,15 @@ install_uv() {
     fi
 }
 
+install_mise() {
+    if command -v mise > /dev/null; then
+        echo "Skip mise installation because it is already installed"
+    else
+        echo "Install mise"
+        curl https://mise.run | sh
+    fi
+}
+
 install_doom_emacs() {
     if [[ -d $XDG_CONFIG_HOME/emacs ]]; then
         echo "Skip doom emacs installation because it is already installed"
@@ -129,6 +138,9 @@ main() {
     echo
 
     install_uv
+    echo
+
+    install_mise
     echo
 
     install_tpm
