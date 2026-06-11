@@ -9,6 +9,8 @@
     "savehist",
     "compdump",
     "zcompdump",
+    "unfunction",
+    "localoptions",
     // zinit
     "zinit",
     "OMZL",

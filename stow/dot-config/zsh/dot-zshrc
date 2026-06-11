@@ -49,7 +49,12 @@ zinit for \
     OMZL::history.zsh \
     OMZL::theme-and-appearance.zsh \
     OMZL::completion.zsh \
-    OMZL::functions.zsh \
+    \
+    atload'
+        unfunction uninstall_oh_my_zsh
+        unfunction upgrade_oh_my_zsh
+    ' \
+        OMZL::functions.zsh \
     \
     atload'
         # Set title to the current directory, without username and hostname.
@@ -432,7 +437,8 @@ zinit is-snippet link nocompile nocompletions for \
 # Deferred loads: aliases and widgets aren't needed before the first prompt.
 zinit wait lucid is-snippet link nocompile nocompletions for \
     id-as'_local---alias'   ${DOTFILES_HOME}/zsh/snippets/alias.zsh \
-    id-as'_local---widgets' ${DOTFILES_HOME}/zsh/snippets/widgets.zsh
+    id-as'_local---widgets' ${DOTFILES_HOME}/zsh/snippets/widgets.zsh \
+    id-as'_local---misc'    ${DOTFILES_HOME}/zsh/snippets/misc.zsh
 
 
 ## Setup completions
