@@ -50,11 +50,13 @@ zinit for \
     OMZL::theme-and-appearance.zsh \
     OMZL::completion.zsh \
     OMZL::functions.zsh \
+    \
     atload'
         # Set title to the current directory, without username and hostname.
         ZSH_THEME_TERM_TITLE_IDLE="%~"
     ' \
         OMZL::termsupport.zsh \
+    \
     atload'
         # Every macOS login shell re-runs path_helper (/etc/zprofile), which reorders PATH and pushes brew behind the system paths.
         # Re-run brew shellenv (always, not just in tmux) to move the Homebrew bin folder back to the front, so commands from brew take precedence (ex. git).
@@ -73,6 +75,7 @@ zinit wait lucid for \
     OMZL::directories.zsh \
     OMZL::git.zsh \
     OMZL::grep.zsh \
+    \
     atload'
         bindkey '^r' history-incremental-pattern-search-backward
         bindkey '^s' history-incremental-pattern-search-forward
@@ -81,6 +84,7 @@ zinit wait lucid for \
     \
     OMZP::cp \
     OMZP::git \
+    \
     atload'
         MARKPATH="$XDG_DATA_HOME/marks"
 
@@ -90,6 +94,7 @@ zinit wait lucid for \
         alias jl='marks'   # List all marks
     ' \
         OMZP::jump \
+    \
     atinit'
         export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
     ' \
@@ -125,6 +130,7 @@ zinit wait lucid for \
         }
     ' \
         OMZP::nvm \
+    \
     has'eza' \
         OMZP::eza
 
@@ -402,6 +408,7 @@ zinit wait lucid \
         nocompile \
         src'init.zsh' \
             zdharma-continuum/null \
+        \
         as'completion' \
         blockf \
             OMZP::golang/_golang
@@ -453,22 +460,27 @@ zinit wait lucid \
         id-as'_local---poetry-completion' \
         atclone'poetry completions zsh > _poetry' \
             zdharma-continuum/null \
+        \
         has'uv' \
         id-as'_local---uv-completion' \
         atclone'uv generate-shell-completion zsh > _uv' \
             zdharma-continuum/null \
+        \
         has'uvx' \
         id-as'_local---ruff-completion' \
         atclone'uvx ruff generate-shell-completion zsh > _ruff' \
             zdharma-continuum/null \
+        \
         has'uvx' \
         id-as'_local---ty-completion' \
         atclone'uvx ty generate-shell-completion zsh > _ty' \
             zdharma-continuum/null \
+        \
         has'op' \
         id-as'_local---1password-completion' \
         atclone'op completion zsh > _op' \
             zdharma-continuum/null \
+        \
         has'cz' \
         id-as'_local---cz-completion' \
         atclone'$(dirname $(realpath $(which cz)))/register-python-argcomplete cz > _cz' \
