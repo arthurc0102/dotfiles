@@ -8,6 +8,14 @@ function upgrade_all() {
     fi
 
     echo
+    echo "Updating apt and upgrading installed packages..."
+    if command -v apt &> /dev/null; then
+        sudo apt update
+        sudo apt upgrade
+        sudo apt autoremove
+    fi
+
+    echo
     echo "Updating uv and upgrading global tools..."
     if command -v uv &> /dev/null; then
         uv self update
