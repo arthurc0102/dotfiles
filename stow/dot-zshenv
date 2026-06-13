@@ -19,6 +19,10 @@ export UV_MANAGED_PYTHON=true
 export UV_PYTHON_INSTALL_BIN=false
 export UV_NO_MODIFY_PATH=true
 
+# Vite+
+export VP_HOME="$XDG_DATA_HOME/vite-plus"
+[[ -f "$VP_HOME/env" ]] && . "$VP_HOME/env"
+
 # go (XDG-ify the remaining defaults)
 export GOENV="$XDG_CONFIG_HOME/go/env"
 export GOCACHE="$XDG_CACHE_HOME/go-build"

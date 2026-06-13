@@ -477,6 +477,32 @@ zinit wait lucid for \
     ' \
         Aloxaf/fzf-tab
 
+# Vite+ configs
+
+# DO NOT DELETE the marker line below.
+#
+# The vite-plus installer (curl -fsSL https://vite.plus | bash) runs a literal
+# `grep -F` over this file for that path string. On a match it treats the shell
+# as "already configured" and skips appending its own block; delete it and the
+# next install/update bluntly re-appends `. "$HOME/.local/share/vite-plus/env"`
+# into this rc. Keep the string byte-for-byte: the $HOME form, no expansion.
+#
+# vite-plus installer marker: $HOME/.local/share/vite-plus/env
+#
+# vp's completion is registered via the compdef calls inside $VP_HOME/env.
+# In this config, compinit runs lazily (inside fzf-tab's turbo block), so
+# sourcing env here would call compdef before compinit exists and silently
+# no-op. Defer it with wait'1' so it loads after fzf-tab (and thus after compinit).
+
+zinit wait'1' lucid for \
+    id-as'_local---vite-plus-env' \
+    depth'1' \
+    nocompile \
+    atload'
+        [[ -f "$VP_HOME/env" ]] && . "$VP_HOME/env"
+    ' \
+        zdharma-continuum/null
+
 # Fast syntax should be second to last plugin to work normally.
 zinit wait lucid for \
     depth'1' \

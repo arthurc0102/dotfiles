@@ -37,6 +37,19 @@ install_mise() {
     fi
 }
 
+install_vite_plus() {
+    if command -v vp > /dev/null; then
+        echo "Skip Vite+ installation because it is already installed"
+    else
+        echo "Install Vite+"
+        curl -fsSL https://vite.plus | bash
+    fi
+
+    # Vite+ install script has a bug will create a .zshenv file in the home directory instead of $ZDOTDIR
+    # so we remove it if it exists, and we setup env in our own dot-zshenv file.
+    [[ -f "$ZDOTDIR/.zshenv" ]] && rm -rvf "$ZDOTDIR/.zshenv"
+}
+
 install_doom_emacs() {
     if [[ -d $XDG_CONFIG_HOME/emacs ]]; then
         echo "Skip doom emacs installation because it is already installed"
@@ -129,6 +142,9 @@ main() {
     echo
 
     install_mise
+    echo
+
+    install_vite_plus
     echo
 
     install_tpm
