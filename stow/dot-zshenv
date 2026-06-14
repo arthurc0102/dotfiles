@@ -23,7 +23,9 @@ export UV_NO_MODIFY_PATH=true
 export VP_HOME="$XDG_DATA_HOME/vite-plus"
 [[ -f "$VP_HOME/env" ]] && . "$VP_HOME/env"
 
-# go (XDG-ify the remaining defaults)
+# go (XDG-ify the remaining defaults; GOROOT/GOBIN are managed per-version by mise)
+# GOPATH/GOMODCACHE are version-independent and safe to share across all versions.
+export GOPATH="$XDG_DATA_HOME/go"
 export GOENV="$XDG_CONFIG_HOME/go/env"
 export GOCACHE="$XDG_CACHE_HOME/go-build"
 
