@@ -37,6 +37,12 @@ function upgrade_all() {
         echo
     fi
 
+    if command -v vp  &> /dev/null; then
+        echo "Updating Vite+"
+        vp upgrade
+        echo
+    fi
+
 
     if command -v claude &> /dev/null; then
         echo "Updating claude code..."
@@ -58,5 +64,8 @@ function upgrade_all() {
         echo "Updating tmux plugins..."
         git -C "$tmux_plugin_dir" pull
         "$tmux_plugin_dir"/bin/update_plugins all
+        echo
     fi
+
+    echo "Upgrade all done."
 }
