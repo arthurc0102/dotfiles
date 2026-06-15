@@ -435,6 +435,11 @@ zinit wait lucid \
         atclone'uvx ty generate-shell-completion zsh > _ty' \
             zdharma-continuum/null \
         \
+        has'uvx' \
+        id-as'_local---prek-completion' \
+        atclone'COMPLETE=zsh uvx prek > _prek' \
+            zdharma-continuum/null \
+        \
         has'op' \
         id-as'_local---1password-completion' \
         atclone'op completion zsh > _op' \
