@@ -38,7 +38,10 @@
     "application-performance@claude-code-workflows": true,
     "observability-monitoring@claude-code-workflows": true,
     "kubernetes-operations@claude-code-workflows": true,
-    "unit-testing@claude-code-workflows": true
+    "unit-testing@claude-code-workflows": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
