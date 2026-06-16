@@ -81,7 +81,10 @@
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "showClearContextOnPlanAccept": true,
+  "skipWorkflowUsageWarning": true,
   "theme": "dark",
+  "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }
