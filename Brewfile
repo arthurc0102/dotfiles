@@ -1,5 +1,3 @@
-tap "derailed/k9s", trusted: true
-tap "hashicorp/tap", trusted: true
 brew "awscli"
 brew "cloudflared"
 brew "colima"
@@ -23,8 +21,6 @@ brew "stow"
 brew "tmux"
 brew "tree"
 brew "watch"
-brew "derailed/k9s/k9s", trusted: true
-brew "hashicorp/tap/terraform", trusted: true
 cask "1password"
 cask "1password-cli"
 cask "appcleaner"
