@@ -29,5 +29,8 @@ export GOPATH="$XDG_DATA_HOME/go"
 export GOENV="$XDG_CONFIG_HOME/go/env"
 export GOCACHE="$XDG_CACHE_HOME/go-build"
 
+# Terraform
+export TFLINT_PLUGIN_DIR="${XDG_CACHE_HOME}/tflint.d"
+
 # My Dotfiles
 export DOTFILES_HOME="${DOTFILES_HOME:-${HOME}/.dotfiles}"
