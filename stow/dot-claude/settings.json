@@ -72,7 +72,8 @@
     },
     "filesystem": {
       "allowWrite": [
-        "~/.cache"
+        "~/.cache",
+        "~/.local/share/pnpm"
       ],
       "denyRead": [
         "~/.gnupg",
