@@ -1,4 +1,7 @@
 {
+  "permissions": {
+    "defaultMode": "auto"
+  },
   "hooks": {
     "Notification": [
       {
@@ -84,6 +87,7 @@
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
+  "editorMode": "normal",
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
