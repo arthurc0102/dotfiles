@@ -61,3 +61,11 @@ key = "prefix+shift+g"
 type = "pane"
 command = "lazygit"
 description = "Open lazygit in the current pane's directory"
+
+## Background notification pop-ups for agent state changes in background workspaces.
+## delivery: off | herdr (in-app toast) | terminal (ask outer terminal) | system (OS service).
+## "terminal" routes through Ghostty, which relays as a native macOS banner and also
+## works over `herdr --remote`. delay_seconds is a debounce before firing (default 1).
+[ui.toast]
+delivery = "terminal"
+delay_seconds = 3
