@@ -1,0 +1,63 @@
+onboarding = false
+
+## Keybindings — mirrored from my tmux config where an equivalent exists.
+## tmux prefix is C-]; keep the same prefix here so muscle memory carries over.
+[keys]
+prefix = "ctrl+]"
+
+# Tab (≈ tmux window) navigation
+#   tmux: bind -r p previous-window / bind -r n next-window
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+#   tmux default prefix+c new-window — matches Herdr default, kept explicit
+new_tab = "prefix+c"
+
+# New workspace: default prefix+shift+n is overridden below by a [[keys.command]]
+# that opens in $HOME. Keep the built-in (follow-cwd) behaviour on alt+n as a fallback.
+new_workspace = "prefix+alt+n"
+
+# New worktree: default prefix+shift+g is reclaimed for lazygit (see [[keys.command]]
+# below, mirrors tmux `prefix G`). Move the built-in worktree action to alt+g.
+new_worktree = "prefix+alt+g"
+
+# Splits — matched by resulting layout, NOT by name:
+#   tmux `prefix /` = split-window -h = left/right side-by-side  -> split_vertical
+#   tmux `prefix -` = split-window -v = top/bottom stacked       -> split_horizontal
+split_vertical = "prefix+/"
+split_horizontal = "prefix+minus"
+
+# Pane focus — tmux uses Alt+arrows with no prefix (bind -n M-Left ...)
+focus_pane_left = "alt+left"
+focus_pane_right = "alt+right"
+focus_pane_up = "alt+up"
+focus_pane_down = "alt+down"
+
+# Pane cycling — tmux: bind -r . select-pane :.+ / bind -r , select-pane :.-
+cycle_pane_next = "prefix+."
+cycle_pane_previous = "prefix+,"
+
+# Pane lifecycle / view — these already match Herdr defaults; set explicitly
+# so the file documents the full tmux-equivalent layout.
+close_pane = "prefix+x" # tmux default prefix+x kill-pane
+zoom = "prefix+z"       # tmux default prefix+z
+copy_mode = "prefix+["  # tmux default prefix+[
+
+# Detach — tmux default is prefix+d (Herdr default is prefix+q); remap to match tmux.
+detach = "prefix+d"
+
+## Custom command bindings ([[keys.command]]) must come after all [keys] scalars.
+## Open a new workspace that starts in $HOME. The built-in new_workspace follows
+## the current path, so this overrides prefix+shift+n to force $HOME instead.
+[[keys.command]]
+key = "prefix+shift+n"
+type = "shell"
+command = "herdr workspace create --cwd ~ --focus"
+description = "New workspace — starts in $HOME and switches to it"
+
+## lazygit in a temporary pane (closes when you quit lazygit). Mirrors tmux
+## `bind G display-popup ... lazygit`. type=pane runs in the focused pane's cwd.
+[[keys.command]]
+key = "prefix+shift+g"
+type = "pane"
+command = "lazygit"
+description = "Open lazygit in the current pane's directory"

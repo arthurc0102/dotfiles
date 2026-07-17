@@ -60,6 +60,8 @@
     // ghostty
     "ghostty",
     // stow
-    "restow"
+    "restow",
+    // herdr
+    "herdr"
   ]
 }
