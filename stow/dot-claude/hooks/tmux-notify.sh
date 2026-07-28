@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Claude Code "Notification" hook — make desktop notifications work inside tmux.
 #
@@ -32,9 +32,9 @@ message=$(echo "$input" | jq -r '.message // "Claude Code"')
 # pane Claude Code runs in; prefer it so we target the right pane even if focus
 # has moved. Fall back to the active pane if it's somehow unset.
 if [ -n "$TMUX_PANE" ]; then
-  pane_tty=$(tmux display-message -p -t "$TMUX_PANE" '#{pane_tty}')
+    pane_tty=$(tmux display-message -p -t "$TMUX_PANE" '#{pane_tty}')
 else
-  pane_tty=$(tmux display-message -p '#{pane_tty}')
+    pane_tty=$(tmux display-message -p '#{pane_tty}')
 fi
 
 # Write the wrapped sequence directly to that PTY. Breakdown:
