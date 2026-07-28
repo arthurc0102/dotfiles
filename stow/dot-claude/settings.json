@@ -4,6 +4,16 @@
     "defaultMode": "auto"
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/fix-ssh-in-sandbox.sh"
+          }
+        ]
+      }
+    ],
     "Notification": [
       {
         "hooks": [

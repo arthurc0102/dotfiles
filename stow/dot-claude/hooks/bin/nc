@@ -1,0 +1,240 @@
+#!/usr/bin/env bash
+#
+# `nc` shim — let the sandbox's ssh ProxyCommand authenticate to the proxy.
+#
+# WHY THIS EXISTS
+#   Full story in ../fix-ssh-in-sandbox.sh. Short version: with the sandbox on,
+#   Claude Code tunnels ssh through its own SOCKS5 proxy via
+#     ProxyCommand='nc -X 5 -x localhost:<port> %h %p'
+#   but that proxy demands username/password auth and macOS's /usr/bin/nc has no
+#   way to send any, so every ssh connection dies during negotiation. That hook
+#   puts this directory at the front of PATH so this file — not Apple's binary —
+#   answers to `nc`, and we replay the same request through ncat, which can log
+#   in to the proxy.
+#   https://github.com/anthropics/claude-code/issues/70684
+#   https://github.com/cblecker/claude-plugins/tree/4d1a0f4559e9cd1969065f5dd0ff0c27dc08b579/sandbox-ssh-fix
+#
+# WHEN WE DO NOTHING
+#   Being on PATH means we answer for EVERY `nc` in the session, not just ssh's
+#   ProxyCommand, so anything that isn't exactly the sandbox's authenticated
+#   SOCKS5 call to its own proxy goes to /usr/bin/nc untouched — every handover
+#   runs through one function of that name. The gates, in order: not under the
+#   sandbox, not the `-X 5 -x <proxy> <host> <port>` shape, no credentials in
+#   $ALL_PROXY, a `-x` naming some proxy those credentials weren't issued for,
+#   or no usable ncat. Each is a case the built-in nc handles as well as we
+#   would.
+#   Two of them keep quiet because they are the everyday ones: we're not in the
+#   sandbox, or someone ran an ordinary `nc`. The rest print one line on stderr
+#   on the way out, because they mean ssh is about to fail exactly as it did
+#   before this shim existed — and with no word from us there is nothing to tell
+#   "shim not installed" from "shim stepped aside", since Apple's nc only ever
+#   says `error = 0 1`.
+#
+# NEVER WRITE TO STDOUT
+#   stdin/stdout are not a channel we may print on, they ARE the ssh byte
+#   stream: one stray echo is injected straight into the encrypted transport and
+#   the connection dies. Diagnostics go to stderr — ssh inherits it and Claude
+#   Code surfaces it — and never carry the proxy token.
+
+set -euo pipefail
+
+# Absolute path on purpose: a bare `nc` would find this script again — we're
+# first on PATH — and fork-bomb.
+readonly REAL_NC=/usr/bin/nc
+
+# Our own directory, left in the same unresolved form `command -v` prints, so
+# the ncat lookup below can recognise a wrapper parked next to us.
+readonly SELF_DIR="${BASH_SOURCE[0]%/*}"
+
+# Saved once, because handover() is itself a function: inside it "$@" is its own
+# argument list — the reason string — and not the call we were asked to make.
+# The ERR trap runs in whatever frame failed, too, so this is the one replay of
+# the original argv that reads correctly from everywhere.
+ARGV=("$@")
+
+# The only way out of this file apart from the final exec. The optional argument
+# is a one-line reason for stderr; passing none is how the everyday cases stay
+# quiet. A reason never includes $user_info — stderr ends up in transcripts and
+# bug reports, and the session token has no business in either.
+handover() {
+    trap - ERR   # a failure in here must not re-enter the trap
+    if (( $# > 0 )); then
+        printf 'nc shim: %s; handing this call to %s.\n' "$1" "$REAL_NC" >&2
+    fi
+    exec "$REAL_NC" ${ARGV[@]+"${ARGV[@]}"}
+}
+
+# `set -e` plus a handful of deliberate exits is a trap waiting to happen: an
+# unreadable ncat, a substitution that errors, and we would exit non-zero
+# WITHOUT exec'ing anything, leaving ssh's ProxyCommand with no connection at
+# all — worse than the plain-nc status quo this shim promises never to fall
+# below. Route those through the same handover.
+#
+# Its reach is the main flow only: bash 3.2 propagates neither errexit nor this
+# trap out of a command substitution, so a function called as $(f) is on its own.
+# That is why normalize_proxy() below runs on builtins alone.
+trap 'handover "unexpected internal error near line $LINENO"' ERR
+
+# --- Are we even in the sandbox? ---------------------------------------------
+#
+# SANDBOX_RUNTIME=1 is what Claude Code stamps onto every command it runs under
+# the sandbox, from the same code path that injects the proxy variables — which
+# is exactly why it's the right thing to key on. (Note the name: SANDBOX_RUNTIME,
+# not SANDBOX. IS_SANDBOX and CLAUDE_CODE_SANDBOXED are inputs Claude Code
+# *reads*, not marks it leaves on children, so they're no good here.) Outside the
+# sandbox there's no broken ProxyCommand to repair, so step aside at once.
+# If a future release renames this, the shim quietly does nothing and ssh is back
+# to plain-broken — the same failure as never having installed us, not a new one.
+if [[ ${SANDBOX_RUNTIME:-} != 1 ]]; then
+    handover
+fi
+
+# --- Is this the sandbox's SOCKS5 proxy call? --------------------------------
+#
+# Look for `-X 5` (SOCKS5) plus `-x <proxy>`, ending in the host/port pair ssh
+# substitutes for `%h %p`. Any other flag means a call this shim was never
+# written to translate — nc and ncat don't share an option set — so we hand it
+# over rather than guess.
+#
+# That is deliberately all-or-nothing. If a future release hardens the injected
+# command into, say, `nc -w 10 -X 5 -x localhost:<port> %h %p`, the unknown `-w`
+# takes us out of the picture entirely instead of risking a half-faithful
+# translation. The cost is that the fix stops working, which is precisely why
+# that handover is a loud one: the message is the instruction to come back here
+# and teach this loop the new flag.
+socks5=0
+proxy=""
+targets=()
+foreign_flag=0
+i=0
+while (( i < $# )); do
+    case "${ARGV[i]}" in
+        -X)
+            if [[ ${ARGV[i + 1]:-} == 5 ]]; then socks5=1; else foreign_flag=1; fi
+            i=$((i + 2))
+            ;;
+        -x)
+            proxy="${ARGV[i + 1]:-}"
+            i=$((i + 2))
+            ;;
+        -*)
+            foreign_flag=1
+            i=$((i + 1))
+            ;;
+        *)
+            targets+=("${ARGV[i]}")
+            i=$((i + 1))
+            ;;
+    esac
+done
+
+# No `-X 5` with an `-x` at all: an ordinary nc call, nothing to do with ssh.
+if (( socks5 == 0 )) || [[ -z $proxy ]]; then
+    handover
+fi
+# It is the shape we exist for, but not one we can reproduce faithfully.
+if (( foreign_flag == 1 )) || (( ${#targets[@]} != 2 )); then
+    handover "cannot translate this SOCKS5 call to ncat: $*"
+fi
+
+# --- Credentials -------------------------------------------------------------
+#
+# Read them at call time out of $ALL_PROXY (http://user:token@host:port); the
+# port and token are minted per session, so nothing can be baked in here.
+proxy_url="${ALL_PROXY:-${all_proxy:-}}"
+proxy_url="${proxy_url#*://}"
+proxy_url="${proxy_url%%/*}"   # drop any path first, so the @ split can't see one
+if [[ -z $proxy_url ]]; then
+    handover 'no $ALL_PROXY to take proxy credentials from (renamed upstream?)'
+fi
+if [[ $proxy_url != *@* ]]; then
+    # No login required — the one SOCKS5 case Apple's nc is perfectly happy to
+    # negotiate on its own.
+    handover
+fi
+# Split on the LAST @: everything before it is the userinfo, which may contain
+# an @ of its own, and everything after it is the host. Splitting the two halves
+# on different occurrences would pair a truncated password with a perfectly good
+# host, and the proxy would reject us with an auth error indistinguishable from
+# the bug this file exists to fix.
+user_info="${proxy_url%@*}"
+cred_proxy="${proxy_url##*@}"
+
+# Hand the credentials ONLY to the proxy they were issued for. Without this test,
+# anyone who had their own authenticated $ALL_PROXY set and ran
+# `nc -X 5 -x some-other-host:1080 ...` would have those credentials quietly
+# forwarded to some-other-host. A mismatch means this isn't the sandbox's own
+# call no matter what the flags look like, so step aside.
+#
+# Normalizing also does the localhost fix ncat needs: it resolves `localhost`
+# differently than nc does and the proxy refuses the connection that comes out of
+# it, so both sides get dialed as the loopback literal. Every spelling of
+# loopback collapses to that same literal, and a bracketed IPv6 host is split on
+# its brackets rather than its colons — get either wrong and the comparison below
+# fails on what is genuinely the sandbox's own call.
+normalize_proxy() {
+    local addr="$1" host port
+    case $addr in
+        \[*\]*)   # bracketed IPv6 literal, e.g. [::1]:1080
+            host="${addr%%\]*}]"
+            port="${addr##*\]}"
+            port="${port#:}"
+            ;;
+        *)
+            host="${addr%%:*}"
+            port="${addr#*:}"
+            if [[ $port == "$addr" ]]; then port=""; fi   # no port given
+            ;;
+    esac
+    # Builtins only in here — no `tr`, no subshell. bash 3.2 does not carry
+    # errexit or the ERR trap out of a command substitution (verified), so a
+    # failure inside this function would hand a quietly mangled address back to
+    # a caller with no way to notice, and a mangled address is either a false
+    # mismatch or credentials aimed at the wrong host. nocasematch is scoped to
+    # this one comparison because the argv parser above needs -X and -x to stay
+    # distinct.
+    shopt -s nocasematch
+    case $host in
+        localhost | localhost.localdomain | ip6-localhost | ip6-loopback | '[::1]' | ::1)
+            host=127.0.0.1
+            ;;
+    esac
+    shopt -u nocasematch
+    printf '%s' "$host${port:+:$port}"
+}
+proxy="$(normalize_proxy "$proxy")"
+cred_proxy="$(normalize_proxy "$cred_proxy")"
+if [[ $proxy != "$cred_proxy" ]]; then
+    handover "asked for proxy ${proxy} but \$ALL_PROXY holds credentials for ${cred_proxy}"
+fi
+
+# --- ncat --------------------------------------------------------------------
+#
+# Resolved by hand rather than `exec ncat`, for the same reason $REAL_NC is
+# absolute: this directory is first on PATH, so an `ncat` wrapper dropped in
+# beside us — an obvious place for one, now that this is the sandbox-shim
+# directory — would shadow nmap's build with nothing to hint at it. If the ncat
+# we find is one of ours, it isn't the tool we meant, so step aside.
+#
+# ncat is supposed to be here at all (fix-ssh-in-sandbox.sh refuses to put us on
+# PATH without it), but a session that started before someone uninstalled nmap
+# would still land here. Fall back so ssh is only as broken as it would be
+# without this shim.
+ncat_bin="$(command -v ncat 2>/dev/null || true)"
+if [[ -z $ncat_bin ]]; then
+    handover 'ncat not found — fix with `brew install nmap`'
+fi
+if [[ $ncat_bin == "${SELF_DIR}/"* ]]; then
+    handover "refusing ${ncat_bin}: that is this shim's own directory, not nmap's ncat"
+fi
+
+# Credentials go through the environment, not `--proxy-auth`: argv is world-
+# readable via `ps`, and a session token has no business showing up there (or in
+# whatever screenshot or bug report that ps output ends up in). ncat reads
+# $NCAT_PROXY_AUTH for exactly this reason — "reduces the risk of the
+# credentials being captured in process logs", per its man page. The flag would
+# win over the variable if both were set, so we pass only the variable.
+# (Assignment prefix rather than `exec env NCAT_PROXY_AUTH=... ncat`: that would
+# put the token in *env's* argv for as long as it lives, defeating the point.)
+NCAT_PROXY_AUTH="$user_info" exec "$ncat_bin" \
+    --proxy "$proxy" --proxy-type socks5 "${targets[0]}" "${targets[1]}"

@@ -53,6 +53,7 @@
     "zdharma-continuum",
     "paulirish",
     "antonmedv",
+    "cblecker",
     // emacs
     "spacemacs",
     // vim
@@ -62,6 +63,10 @@
     // stow
     "restow",
     // herdr
-    "herdr"
+    "herdr",
+    // netcat
+    "netcat",
+    "nmap",
+    "ncat"
   ]
 }
