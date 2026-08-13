@@ -67,5 +67,15 @@ function upgrade_all() {
         echo
     fi
 
+    if command -v colima &> /dev/null; then
+        if colima status &> /dev/null; then
+            echo "Updating colima container runtime..."
+            colima update
+        else
+            echo "Colima is not running, skipping colima update."
+        fi
+        echo
+    fi
+
     echo "Upgrade all done."
 }
