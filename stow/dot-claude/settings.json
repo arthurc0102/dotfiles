@@ -56,7 +56,9 @@
     "gopls-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "i-have-adhd@i-have-adhd": true
+    "i-have-adhd@i-have-adhd": true,
+    "humanizer-zh-tw@humanizer-zh-tw": true,
+    "eli5@claude-community": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -76,6 +78,18 @@
         "source": "github",
         "repo": "ayghri/i-have-adhd"
       }
+    },
+    "humanizer-zh-tw": {
+      "source": {
+        "source": "github",
+        "repo": "nagameTW/humanizer-zh-tw"
+      }
+    },
+    "claude-community": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-community"
+      }
     }
   },
   "sandbox": {
@@ -84,7 +98,9 @@
     "autoAllowBashIfSandboxed": true,
     "allowUnsandboxedCommands": false,
     "network": {
-      "allowedDomains": ["bitbucket.org"],
+      "allowedDomains": [
+        "bitbucket.org"
+      ],
       "allowUnixSockets": [
         "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       ],
@@ -94,6 +110,7 @@
       "allowWrite": [
         "~/.cache",
         "~/.local/share/pnpm",
+        "~/.npm",
         "~/Library/Caches",
         "~/.ansible/tmp"
       ],
