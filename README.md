@@ -35,6 +35,22 @@ Example for `~/.dotfiles/stow-local/dot-config/git/config.work`
 
 And run [setup.zsh](./setup.zsh) again to link the config file to the right place.
 
+To sign commits and tags with an SSH key, add the config below to [git config local](./stow-local/dot-config/git/config.local) (or to a per-account config file).
+
+```conf
+[user]
+  signingkey = ~/.ssh/git-signing
+
+[gpg]
+  format = ssh
+
+[commit]
+  gpgsign = true
+
+[tag]
+  gpgsign = true
+```
+
 ### Python
 
 Install with uv
