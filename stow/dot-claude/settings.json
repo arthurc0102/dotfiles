@@ -57,8 +57,8 @@
     "pyright-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
     "i-have-adhd@i-have-adhd": true,
-    "humanizer-zh-tw@humanizer-zh-tw": true,
-    "eli5@claude-community": true
+    "eli5@claude-community": true,
+    "humanizer@humanizer": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -79,16 +79,16 @@
         "repo": "ayghri/i-have-adhd"
       }
     },
-    "humanizer-zh-tw": {
-      "source": {
-        "source": "github",
-        "repo": "nagameTW/humanizer-zh-tw"
-      }
-    },
     "claude-community": {
       "source": {
         "source": "github",
         "repo": "anthropics/claude-plugins-community"
+      }
+    },
+    "humanizer": {
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer"
       }
     }
   },
