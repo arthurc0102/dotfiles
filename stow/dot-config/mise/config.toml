@@ -1,0 +1,6 @@
+[settings]
+not_found_auto_install = false
+not_found_system_fallback = false
+
+[settings.github]
+credential_command = "gh auth token"
