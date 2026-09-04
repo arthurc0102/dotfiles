@@ -129,6 +129,7 @@
   "theme": "dark",
   "editorMode": "normal",
   "remoteControlAtStartup": false,
+  "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
 }
