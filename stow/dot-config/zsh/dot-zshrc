@@ -445,7 +445,7 @@ zinit wait lucid \
         atclone'op completion zsh > _op' \
             zdharma-continuum/null \
         \
-        has'cz' \
+        has'uvx' \
         id-as'_local---cz-completion' \
         atclone'uvx --from=commitizen register-python-argcomplete --shell zsh cz > _cz' \
             zdharma-continuum/null
