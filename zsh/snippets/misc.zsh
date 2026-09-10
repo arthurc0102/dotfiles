@@ -33,7 +33,7 @@ function upgrade_all() {
 
     if command -v mise &> /dev/null; then
         echo "Updating mise"
-        mise self-update
+        mise self-update --yes
         echo
     fi
 
