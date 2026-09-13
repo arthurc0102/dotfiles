@@ -133,5 +133,6 @@
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "respondToBashCommands": false
+  "respondToBashCommands": false,
+  "outputStyle": "Concise"
 }
