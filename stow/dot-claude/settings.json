@@ -25,8 +25,8 @@
       }
     ]
   },
+  "respondToBashCommands": false,
   "enabledPlugins": {
-    "code-review@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
@@ -92,6 +92,7 @@
       }
     }
   },
+  "outputStyle": "Concise",
   "sandbox": {
     "enabled": true,
     "failIfUnavailable": true,
@@ -105,7 +106,9 @@
         "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       ],
       "allowLocalBinding": true,
-      "allowMachLookup": ["com.apple.SystemConfiguration.configd"]
+      "allowMachLookup": [
+        "com.apple.SystemConfiguration.configd"
+      ]
     },
     "filesystem": {
       "allowWrite": [
@@ -132,7 +135,5 @@
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "respondToBashCommands": false,
-  "outputStyle": "Concise"
+  "skipAutoPermissionPrompt": true
 }
