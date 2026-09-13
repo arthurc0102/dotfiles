@@ -126,7 +126,6 @@
     "enableWeakerNetworkIsolation": true
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "xhigh",
   "showClearContextOnPlanAccept": true,
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
