@@ -371,14 +371,21 @@ zinit wait lucid for \
     blockf \
         OMZP::golang/_golang
 
+# mise loads sync, ahead of the auto-python-venv snippet below. `mise activate`
+# snapshots the current PATH as its baseline and rebuilds PATH from that snapshot on
+# every directory change, so it has to run before anything makes a per-directory PATH
+# change. Turbo would schedule it after the first precmd, i.e. after the venv hook has
+# already prepended .venv/bin: mise would bake that venv into its baseline and keep
+# re-inserting it in every other directory for the rest of the shell's life.
+zinit has'mise' for \
+    OMZP::mise
+
 # usage backs mise's completions: the generated _mise script shells out to it at
-# tab-time (generating the script doesn't need usage). It's only useful alongside
-# mise, so has'mise' gates both; with no load-order dependency the order here is free.
+# tab-time (generating the script doesn't need usage), so it has no load-order
+# dependency of its own and stays deferred.
 zinit wait lucid \
     has'mise' \
     for \
-        OMZP::mise \
-        \
         as'program' \
         from'gh-r' \
         atclone'
