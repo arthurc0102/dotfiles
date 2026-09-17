@@ -103,7 +103,7 @@
         "bitbucket.org"
       ],
       "allowUnixSockets": [
-	"~/.config/colima/default/docker.sock",
+        "~/.config/colima/default/docker.sock",
         "~/.config/herdr/herdr.sock",
         "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       ],
@@ -128,14 +128,13 @@
     "enableWeakerNetworkIsolation": true
   },
   "alwaysThinkingEnabled": true,
+  "advisorModel": "fable",
   "showClearContextOnPlanAccept": true,
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
   "editorMode": "normal",
-  "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "advisorModel": "fable"
+  "skipAutoPermissionPrompt": true
 }
