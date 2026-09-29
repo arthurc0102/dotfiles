@@ -26,6 +26,29 @@
     ]
   },
   "respondToBashCommands": false,
+  "enabledPlugins": {
+    "codex@arthurc0102": true,
+    "context7@arthurc0102": true,
+    "eli5@arthurc0102": true,
+    "feature-dev@arthurc0102": true,
+    "frontend-design@arthurc0102": true,
+    "humanizer@arthurc0102": true,
+    "i-have-adhd@arthurc0102": true,
+    "playground@arthurc0102": true,
+    "shuorenhua-zh-tw@arthurc0102": true,
+    "ty-lsp@arthurc0102": true,
+    "typescript-lsp@arthurc0102": true,
+    "mattpocock-skills@arthurc0102": true
+  },
+  "extraKnownMarketplaces": {
+    "arthurc0102": {
+      "source": {
+        "source": "github",
+        "repo": "arthurc0102/dotagents"
+      },
+      "autoUpdate": true
+    }
+  },
   "outputStyle": "Concise",
   "sandbox": {
     "enabled": true,
