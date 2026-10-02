@@ -54,13 +54,26 @@ type = "shell"
 command = "herdr workspace create --cwd ~ --focus"
 description = "New workspace — starts in $HOME and switches to it"
 
-## lazygit in a temporary pane (closes when you quit lazygit). Mirrors tmux
-## `bind G display-popup ... lazygit`. type=pane runs in the focused pane's cwd.
+## lazygit in a dedicated "git" tab (≈ tmux `prefix G`). Reuses the workspace's
+## existing "git" tab if there is one; otherwise opens a new tab in the focused
+## pane's cwd. The tab closes when lazygit exits cleanly (on failure the shell stays
+## so the error is visible). Calls `lazygit`, not the `lg` zsh function: `lg` is
+## loaded by zinit turbo and may not exist yet when the command is typed in.
 [[keys.command]]
 key = "prefix+shift+g"
-type = "pane"
-command = "lazygit"
-description = "Open lazygit in the current pane's directory"
+type = "shell"
+command = '''
+h="${HERDR_BIN_PATH:-herdr}"
+ws="$HERDR_ACTIVE_WORKSPACE_ID"
+tab=$("$h" tab list --workspace "$ws" | jq -r '.result.tabs[] | select(.label == "git") | .tab_id' | head -n 1)
+if [ -n "$tab" ]; then
+  "$h" tab focus "$tab"
+else
+  pane=$("$h" tab create --workspace "$ws" --label git --cwd "${HERDR_ACTIVE_PANE_CWD:-$PWD}" --focus | jq -r '.result.root_pane.pane_id')
+  "$h" pane run "$pane" 'lazygit && exit'
+fi
+'''
+description = "Open lazygit in a \"git\" tab (reuses it if already open)"
 
 ## Background notification pop-ups for agent state changes in background workspaces.
 ## delivery: off | herdr (in-app toast) | terminal (ask outer terminal) | system (OS service).
