@@ -76,7 +76,8 @@
         "~/.local/share/pnpm",
         "~/.npm",
         "~/Library/Caches",
-        "~/.ansible/tmp"
+        "~/.ansible/tmp",
+	"~/.docker/buildx"
       ],
       "denyRead": [
         "~/.gnupg",
