@@ -77,7 +77,8 @@
         "~/.npm",
         "~/Library/Caches",
         "~/.ansible/tmp",
-	"~/.docker/buildx"
+        "~/.docker/buildx",
+        "~/.local/share/go/pkg"
       ],
       "denyRead": [
         "~/.gnupg",
