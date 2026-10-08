@@ -3,6 +3,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -93,7 +94,6 @@
       "effortLevel": "high"
     }
   },
-  "advisorModel": "fable",
   "showClearContextOnPlanAccept": true,
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
