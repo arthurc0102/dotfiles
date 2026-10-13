@@ -1,4 +1,3 @@
-tap "netbirdio/tap", trusted: true
 brew "awscli"
 brew "cloudflared"
 brew "colima"
@@ -43,7 +42,6 @@ cask "karabiner-elements"
 cask "linear"
 cask "lm-studio"
 cask "localsend"
-cask "netbirdio/tap/netbird-ui", trusted: true
 cask "notion"
 cask "openvpn-connect"
 cask "raycast"
