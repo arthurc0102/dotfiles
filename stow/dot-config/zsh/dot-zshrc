@@ -493,25 +493,27 @@ zinit wait lucid for \
 
 # DO NOT DELETE the marker line below.
 #
-# The vite-plus installer (curl -fsSL https://vite.plus | bash) runs a literal
-# `grep -F` over this file for that path string. On a match it treats the shell
+# The vite-plus installer (curl -fsSL https://vite.plus | bash) does a literal
+# string match over this file for the env path. On a match it treats the shell
 # as "already configured" and skips appending its own block; delete it and the
-# next install/update bluntly re-appends `. "$HOME/.local/share/vite-plus/env"`
+# next install/update bluntly re-appends `. "/absolute/home/.config/vite-plus/env"`
 # into this rc. Keep the string byte-for-byte: the $HOME form, no expansion.
+# The path is the split layout's <CONFIG>/env; it would change if VP_HOME were set.
 #
-# vite-plus installer marker: $HOME/.local/share/vite-plus/env
+# vite-plus installer marker: $HOME/.config/vite-plus/env
 #
-# vp's completion is registered via the compdef calls inside $VP_HOME/env.
-# In this config, compinit runs lazily (inside fzf-tab's turbo block), so
-# sourcing env here would call compdef before compinit exists and silently
-# no-op. Defer it with wait'1' so it loads after fzf-tab (and thus after compinit).
+# PATH is already set up by dot-zshenv sourcing the same env file. Re-sourcing it
+# here is for completion: env only registers `compdef` when compdef exists, and
+# in this config compinit runs lazily (inside fzf-tab's turbo block), so sourcing
+# it any earlier silently skips completion. Defer it with wait'1' so it loads
+# after fzf-tab (and thus after compinit). env dedupes PATH, so re-sourcing is safe.
 
 zinit wait'1' lucid for \
     id-as'_local---vite-plus-env' \
     depth'1' \
     nocompile \
     atload'
-        [[ -f "$VP_HOME/env" ]] && . "$VP_HOME/env"
+        [[ -f "$XDG_CONFIG_HOME/vite-plus/env" ]] && . "$XDG_CONFIG_HOME/vite-plus/env"
     ' \
         zdharma-continuum/null
 

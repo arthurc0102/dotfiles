@@ -19,9 +19,9 @@ export UV_MANAGED_PYTHON=true
 export UV_PYTHON_INSTALL_BIN=false
 export UV_NO_MODIFY_PATH=true
 
-# Vite+
-export VP_HOME="$XDG_DATA_HOME/vite-plus"
-[[ -f "$VP_HOME/env" ]] && . "$VP_HOME/env"
+# Vite+ (split layout: env scripts in $XDG_CONFIG_HOME/vite-plus, bin in $XDG_DATA_HOME/vite-plus/bin)
+# Do not set VP_HOME: it pins the legacy single-root layout.
+[[ -f "$XDG_CONFIG_HOME/vite-plus/env" ]] && . "$XDG_CONFIG_HOME/vite-plus/env"
 
 # go (XDG-ify the remaining defaults; GOROOT/GOBIN are managed per-version by mise)
 # GOPATH/GOMODCACHE are version-independent and safe to share across all versions.

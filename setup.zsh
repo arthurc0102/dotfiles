@@ -45,9 +45,13 @@ install_vite_plus() {
         curl -fsSL https://vite.plus | bash
     fi
 
-    # Vite+ install script has a bug will create a .zshenv file in the home directory instead of $ZDOTDIR
-    # so we remove it if it exists, and we setup env in our own dot-zshenv file.
-    [[ -f "$ZDOTDIR/.zshenv" ]] && rm -rvf "$ZDOTDIR/.zshenv"
+    # The Vite+ installer always writes its own `. "<env>"` line into $ZDOTDIR/.zshenv.
+    # Our ~/.zshenv (dot-zshenv) already sources the env file, and $ZDOTDIR/.zshenv would only be read
+    # by shells that inherit ZDOTDIR (e.g. nested shells), re-prepending the Vite+ bin to PATH, so remove it.
+    # Use `if` instead of `[[ ]] && rm`: a false test would be the function's exit status and abort under `set -e`.
+    if [[ -f "$ZDOTDIR/.zshenv" ]]; then
+        rm -vf "$ZDOTDIR/.zshenv"
+    fi
 }
 
 install_doom_emacs() {
