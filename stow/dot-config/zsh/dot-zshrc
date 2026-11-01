@@ -377,6 +377,15 @@ zinit wait lucid for \
 # change. Turbo would schedule it after the first precmd, i.e. after the venv hook has
 # already prepended .venv/bin: mise would bake that venv into its baseline and keep
 # re-inserting it in every other directory for the rest of the shell's life.
+# The same applies to a venv inherited from the parent process (a herdr/tmux pane
+# spawned by a server that had one active), so drop its bin before mise snapshots
+# PATH. VIRTUAL_ENV stays: the venv hook sees its bin missing and re-activates it
+# for real if the shell starts inside that project, or unsets it otherwise. Skip it
+# under the hook's own opt-outs, since the hook won't put the bin back then.
+if [[ -n "$VIRTUAL_ENV" && -z "$AUTO_PYTHON_VENV_DISABLE" && -z "$POETRY_ACTIVE" ]]; then
+    # Inner quotes keep the match literal even under GLOB_SUBST.
+    path=("${(@)path:#"$VIRTUAL_ENV/bin"}")
+fi
 zinit has'mise' for \
     OMZP::mise
 
