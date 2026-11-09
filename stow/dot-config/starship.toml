@@ -31,11 +31,16 @@ $character"""
 symbol = "·"
 style = "bold bright-black"
 
+# Show user/host over SSH, or when STARSHIP_SHOW_HOST is set. Herdr remote panes
+# lack SSH_* vars (spawned by the remote core), so set it there by other means.
 [username]
 format = "[$user]($style) at "
+detect_env_vars = ["SSH_CONNECTION", "STARSHIP_SHOW_HOST"]
 
 [hostname]
 format = "[$hostname]($style) in "
+ssh_only = false  # required, or detect_env_vars is ignored outside SSH
+detect_env_vars = ["SSH_CONNECTION", "STARSHIP_SHOW_HOST"]
 
 [directory]
 truncation_length = 10
