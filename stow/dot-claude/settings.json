@@ -91,8 +91,7 @@
   "alwaysThinkingEnabled": true,
   "modelSettings": {
     "claude-opus-5-5": {
-      "effortLevel": "high",
-      "autoCompactWindow": 400000
+      "effortLevel": "high"
     }
   },
   "showClearContextOnPlanAccept": true,
