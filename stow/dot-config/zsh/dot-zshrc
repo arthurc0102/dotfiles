@@ -33,7 +33,7 @@ setopt interactivecomments  # Recognize comments
 
 # Herdr.app has no cursor-shape setting, so reset to a blinking underline (DECSCUSR 3)
 # at every prompt; programs like vim may change it while they run. As of Herdr.app
-# 0.1.14 the shape applies but the blink is ignored (renders steady). Ghostty already
+# 0.1.15 the shape applies but the blink is ignored (renders steady). Ghostty already
 # uses `cursor-style = underline`, and plain herdr inherits the outer terminal's.
 # HC_TERMINAL_ID is set in Herdr.app terminals (undocumented; re-check after updates).
 if [[ -n $HC_TERMINAL_ID ]]; then
